@@ -1,0 +1,17 @@
+name: Probe
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/elegant-turing-ilo6a2]
+jobs:
+  probe:
+    runs-on: macos-latest
+    steps:
+      - run: |
+          sw_vers
+          ls /Applications | grep -i xcode
+          xcodebuild -version
+          xcrun simctl list runtimes
+          xcrun simctl list devicetypes | grep -i iphone | tail -8
+          which xcodegen || echo "no xcodegen"
+          brew --version
