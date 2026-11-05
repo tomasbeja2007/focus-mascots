@@ -3,6 +3,16 @@
     {
       "filename": "pebble_deco.png",
       "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "pebble_deco_dark.png",
+      "idiom": "universal"
     }
   ],
   "info": {

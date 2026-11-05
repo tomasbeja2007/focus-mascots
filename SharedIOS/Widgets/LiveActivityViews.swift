@@ -25,15 +25,18 @@ struct FocusLockScreenView: View {
                     Text(headline)
                         .font(.rounded(.subheadline, weight: .bold))
                         .foregroundStyle(m.vivid)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
                     Text(subline)
                         .font(.rounded(.headline, weight: .heavy))
                         .foregroundStyle(.white)
                         .lineLimit(1)
                 }
+                .layoutPriority(1)
                 Spacer(minLength: 4)
-                LiveCountdown(state: state, font: .rounded(size: 36, weight: .heavy))
+                LiveCountdown(state: state, font: .rounded(size: 32, weight: .heavy))
                     .foregroundStyle(.white)
-                    .frame(maxWidth: 130, alignment: .trailing)
+                    .frame(width: 104, alignment: .trailing)
             }
             if !state.finished {
                 HStack(spacing: 10) {

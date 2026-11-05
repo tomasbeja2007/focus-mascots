@@ -17,12 +17,8 @@ final class ScreenTimeService {
     var isAuthorized: Bool { demoAuthorized || status == .approved }
 
     var statusText: String {
-        switch status {
-        case .approved: return "Connected"
-        case .denied: return "Not allowed"
-        case .notDetermined: return "Not connected"
-        @unknown default: return "Unknown"
-        }
+        if isAuthorized { return "Connected" }
+        return status == .denied ? "Not allowed" : "Not connected"
     }
 
     func refreshStatus() {

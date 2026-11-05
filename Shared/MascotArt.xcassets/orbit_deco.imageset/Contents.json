@@ -3,6 +3,16 @@
     {
       "filename": "orbit_deco.png",
       "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "orbit_deco_dark.png",
+      "idiom": "universal"
     }
   ],
   "info": {

@@ -55,7 +55,7 @@ struct CrewLineup: View {
     var size: CGFloat = 132
 
     var body: some View {
-        VStack(spacing: -size * 0.16) {
+        VStack(spacing: -size * 0.06) {
             HStack(spacing: -size * 0.12) {
                 member(.orbit, index: 0, mood: .happy)
                 member(.spark, index: 1, mood: .happy)

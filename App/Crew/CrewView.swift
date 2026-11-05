@@ -239,12 +239,25 @@ struct MascotDetailView: View {
                         StatTile(value: "\(sessions)", label: "sessions", symbol: "checkmark.circle.fill", tint: mascot.accent)
                     }
                     .padding(.horizontal, Theme.pagePadding)
-                    .padding(.bottom, 110)
+                    .padding(.bottom, 16)
                 }
             }
-            VStack {
-                Spacer()
-                if mascot == model.mascot {
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                companionButton
+                    .padding(.horizontal, Theme.pagePadding)
+                    .padding(.top, 10)
+                    .padding(.bottom, 8)
+            }
+            CircleIconButton(symbol: "xmark", size: 34, label: "Close") { dismiss() }
+                .padding(16)
+        }
+        .background(LinearGradient(colors: [mascot.tint, mascot.wash, Theme.background], startPoint: .top, endPoint: .center).ignoresSafeArea())
+        .onAppear { mood = mascot.restingMood == .happy ? .happy : mascot.restingMood }
+    }
+
+    @ViewBuilder
+    private var companionButton: some View {
+        if mascot == model.mascot {
                     Label("\(mascot.name) is your companion", systemImage: "checkmark.circle.fill")
                         .font(.rounded(.headline, weight: .bold))
                         .foregroundStyle(mascot.accent)
@@ -258,15 +271,7 @@ struct MascotDetailView: View {
                     }
                     .buttonStyle(PrimaryButtonStyle())
                     .disabled(model.active != nil)
-                }
-            }
-            .padding(.horizontal, Theme.pagePadding)
-            .padding(.bottom, 12)
-            CircleIconButton(symbol: "xmark", size: 34, label: "Close") { dismiss() }
-                .padding(16)
         }
-        .background(LinearGradient(colors: [mascot.tint, mascot.wash, Theme.background], startPoint: .top, endPoint: .center).ignoresSafeArea())
-        .onAppear { mood = mascot.restingMood == .happy ? .happy : mascot.restingMood }
     }
 
     private func cycleMood() {

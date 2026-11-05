@@ -3,6 +3,16 @@
     {
       "filename": "blob_deco.png",
       "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "blob_deco_dark.png",
+      "idiom": "universal"
     }
   ],
   "info": {

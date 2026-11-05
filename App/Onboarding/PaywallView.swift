@@ -34,15 +34,18 @@ struct PaywallView: View {
                 .ignoresSafeArea()
             OnboardingPage {
                 VStack(spacing: 18) {
-                    ZStack {
-                        HStack(spacing: -34) {
-                            ForEach(Mascot.allCases.filter { $0 != mascot }.prefix(2)) { m in
-                                MascotView(mascot: m, mood: .happy, size: 112, showDecoration: false, motion: .float)
-                            }
+                    HStack(alignment: .bottom, spacing: -22) {
+                        ForEach(Array(crewOrder.enumerated()), id: \.offset) { index, m in
+                            let isMain = m == mascot
+                            MascotView(
+                                mascot: m,
+                                mood: isMain ? .excited : m.restingMood,
+                                size: isMain ? 160 : (index == 0 || index == 4 ? 74 : 92),
+                                showDecoration: isMain,
+                                motion: .float
+                            )
+                            .zIndex(isMain ? 2 : (index == 1 || index == 3 ? 1 : 0))
                         }
-                        .offset(y: 26)
-                        .opacity(0.9)
-                        MascotView(mascot: mascot, mood: .excited, size: 190, motion: .float)
                     }
                     .padding(.top, 8)
 
@@ -134,6 +137,13 @@ struct PaywallView: View {
             appeared = true
             Task { await model.purchases.loadProducts() }
         }
+    }
+
+    /// The whole crew with the user's companion in the middle.
+    private var crewOrder: [Mascot] {
+        var others = Mascot.allCases.filter { $0 != mascot }
+        others.insert(mascot, at: 2)
+        return others
     }
 
     private var selectedProduct: Product? {

@@ -136,7 +136,9 @@ struct ActiveSessionView: View {
             if session.strict {
                 TraitChip(title: "Strict", symbol: "hand.raised.fill", tint: mascot.accent, background: Theme.surface)
             }
-            TraitChip(title: "Ends \(session.isPaused ? "later" : session.endsAt.formatted(date: .omitted, time: .shortened))", symbol: "clock.fill", tint: mascot.accent, background: Theme.surface)
+            if !session.isPaused {
+                TraitChip(title: "Ends \(session.endsAt.formatted(date: .omitted, time: .shortened))", symbol: "clock.fill", tint: mascot.accent, background: Theme.surface)
+            }
         }
     }
 

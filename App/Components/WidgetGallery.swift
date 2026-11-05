@@ -47,7 +47,7 @@ struct WidgetGallery: View {
     }
 
     private func lockWidget(_ family: WidgetFamily, width: CGFloat, height: CGFloat) -> some View {
-        CrewWidgetView(entry: entry(active: true), family: family)
+        CrewWidgetView(entry: entry(active: family == .accessoryRectangular), family: family)
             .foregroundStyle(.white)
             .frame(width: width, height: height)
     }

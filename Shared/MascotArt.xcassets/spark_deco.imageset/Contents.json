@@ -3,6 +3,16 @@
     {
       "filename": "spark_deco.png",
       "idiom": "universal"
+    },
+    {
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "filename": "spark_deco_dark.png",
+      "idiom": "universal"
     }
   ],
   "info": {

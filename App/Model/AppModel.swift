@@ -103,10 +103,10 @@ final class AppModel {
     func bootstrap() {
         guard !didBootstrap else { return }
         didBootstrap = true
-        IntentBridge.startFocus = { minutes in await AppModel.shared.quickStart(minutes: minutes) }
-        IntentBridge.pause = { await AppModel.shared.pause() }
-        IntentBridge.resume = { await AppModel.shared.resume() }
-        IntentBridge.end = { await AppModel.shared.endFromOutside() }
+        IntentBridge.startFocus = { minutes in AppModel.shared.quickStart(minutes: minutes) }
+        IntentBridge.pause = { AppModel.shared.pause() }
+        IntentBridge.resume = { AppModel.shared.resume() }
+        IntentBridge.end = { AppModel.shared.endFromOutside() }
         NotificationDelegate.shared.onOpenLink = { url in AppModel.shared.handle(url) }
         UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
         purchases.start()

@@ -213,6 +213,12 @@ struct HoldToConfirmButton: View {
                 Capsule()
                     .fill(tint)
                     .frame(width: max(58, geo.size.width * progress))
+                    .overlay(alignment: .trailing) {
+                        Image(systemName: done ? "checkmark" : "hand.tap.fill")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundStyle(foreground)
+                            .frame(width: 58, height: 58)
+                    }
             }
             Text(done ? "Done!" : (isHolding ? holdingTitle : title))
                 .font(.rounded(.headline, weight: .bold))

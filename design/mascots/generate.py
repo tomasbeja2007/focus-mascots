@@ -406,6 +406,13 @@ def main():
                 fh.write(svg(DRAW[m](e)))
         with open(os.path.join(out, f"{m}_deco.svg"), "w") as fh:
             fh.write(svg(DECO[m]()))
+        # Dark-appearance decoration: light strokes so they read on dark circles.
+        dark = DECO[m]()
+        for a, b in (("#1F2129", "#ECEAF4"), ("#2F3440", "#DADDE7"), ("#3A4054", "#D8D3F0"), ("#868C9A", "#9EA5B4")):
+            if m != "orbit":
+                dark = dark.replace(a, b)
+        with open(os.path.join(out, f"{m}_deco_dark.svg"), "w") as fh:
+            fh.write(svg(dark))
         # avatars: head crop on the tint circle, one per expression (plain name = happy)
         x, y, s = AVATAR_CROP[m]
         cx, cy = x + s / 2, y + s / 2

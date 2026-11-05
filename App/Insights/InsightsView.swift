@@ -76,7 +76,7 @@ struct InsightsView: View {
                     Text("Focus time")
                         .font(.rounded(.headline, weight: .bold))
                         .foregroundStyle(Theme.ink)
-                    Text("Daily average \(Format.duration(minutes: rangeMinutes / max(1, range.days)))")
+                    Text("Daily average \(Format.duration(minutes: rangeMinutes / max(1, range.days))) · Goal \(Format.duration(minutes: goal))")
                         .font(.rounded(.footnote, weight: .medium))
                         .foregroundStyle(Theme.inkSecondary)
                 }
@@ -101,11 +101,6 @@ struct InsightsView: View {
                 RuleMark(y: .value("Goal", goal))
                     .foregroundStyle(Theme.inkTertiary)
                     .lineStyle(StrokeStyle(lineWidth: 1.5, dash: [4, 4]))
-                    .annotation(position: .top, alignment: .trailing) {
-                        Text("Goal \(Format.duration(minutes: goal))")
-                            .font(.rounded(.caption2, weight: .bold))
-                            .foregroundStyle(Theme.inkTertiary)
-                    }
             }
             .chartXAxis {
                 AxisMarks(values: .stride(by: .day, count: range == .week ? 1 : 7)) { _ in

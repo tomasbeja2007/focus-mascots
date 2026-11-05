@@ -1,0 +1,1529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00438378939786F4A12F95B6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1ECE35CE40E289EEEFE31603 /* PrivacyInfo.xcprivacy */; };
+		02183111739B3B3584A693CD /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A4AD902D3970DD4AA2C34A /* Haptics.swift */; };
+		0308507EB26BA99E8F9A11B1 /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EDDFC39DEC79702E3AC6B3 /* ShieldConfigurationExtension.swift */; };
+		0373CC7EED3BDDFED080C120 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711CF75FF26AB94D00F6157 /* AppGroup.swift */; };
+		075DA3C8EC16211DA520904A /* OnboardingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66277179EE495478598A0C85 /* OnboardingSetup.swift */; };
+		0763343978D7763D8EAE2E08 /* MascotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB17BE30DD5DE66FA4182BB /* MascotView.swift */; };
+		08E8BD0A1688C04A70AB3015 /* NotchPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE00F95AAED2E0AE66E3673 /* NotchPanel.swift */; };
+		0B608D2EB8FE5A891F1B15B3 /* FocusCrewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24979E3C758D99F8331BB6A6 /* FocusCrewApp.swift */; };
+		1197E0EBB4B2A732E1F96763 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C8AA10A2CE9BCF6A3F4D6E /* InsightsView.swift */; };
+		126165B45E7E07DFA33D4DBD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1ECE35CE40E289EEEFE31603 /* PrivacyInfo.xcprivacy */; };
+		13A65E264197B891055CF872 /* FocusCrewMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DACE98D3510CCC11B37234 /* FocusCrewMacApp.swift */; };
+		14BD200F64E19C85DA1CAE02 /* MascotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB17BE30DD5DE66FA4182BB /* MascotView.swift */; };
+		18E058A7806F0295ED95AA68 /* Blocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D258516BC1A784B42F06A34 /* Blocking.swift */; };
+		1C6CA5EE2E830C2D3E68CC14 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711CF75FF26AB94D00F6157 /* AppGroup.swift */; };
+		1E189D13DBA3F2DAC3BA4E9A /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A349F945C473827FE5EF50 /* Mascot.swift */; };
+		1EFA66E1C783E014888AD81B /* FocusActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8552E6C8385414D0AC0A8A /* FocusActivity.swift */; };
+		1F3616B67EA6EB230F67795A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E1A9C8C39B3101900278B /* Theme.swift */; };
+		1FF537D063417A9512954E93 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711CF75FF26AB94D00F6157 /* AppGroup.swift */; };
+		200DB2519A4DE015CB363C07 /* MascotArt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348548D68A5CE37E4FD871D4 /* MascotArt.xcassets */; };
+		22949BDD59122771B1970EFB /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A349F945C473827FE5EF50 /* Mascot.swift */; };
+		2387C8C1C16DE573BBEEC25A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856226E83C62F3F62975B7A0 /* Models.swift */; };
+		23BCEB6A2D5FAE96A37E5E2D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E1A9C8C39B3101900278B /* Theme.swift */; };
+		2408501C83537A9E167AA0B7 /* LiveActivityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FE0641056440F4DAE9907 /* LiveActivityViews.swift */; };
+		2722B38B5722486AC9FD6C23 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A201867B858B4892ACC11DB /* Theme.xcassets */; };
+		36D7F5FD7EBCE77BD09B9273 /* ScheduleEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3629C08D815409CCE8E2C333 /* ScheduleEditorView.swift */; };
+		36F39D1073AFBEF70F49C74F /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E872DCC5693D850BEFD05584 /* AppModel.swift */; };
+		386B9ED483B440DF83390A8E /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA805163A380530193B8CCE /* PurchaseManager.swift */; };
+		3A43FDB1BC04DA6C2DC1FEFF /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC3F7FE8C8910748387E2A0 /* Components.swift */; };
+		3E5B1EFF60D7294A01D6844E /* Blocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D258516BC1A784B42F06A34 /* Blocking.swift */; };
+		419B9D30388F332856727C24 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F74FDBD13B830E3EFC416 /* WidgetViews.swift */; };
+		41F70BC53209DD26FAA86EB3 /* MascotArt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348548D68A5CE37E4FD871D4 /* MascotArt.xcassets */; };
+		420C083E8B3E06D5258313DC /* MacModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C8D8591273E46073DCD5F2 /* MacModel.swift */; };
+		4312B42D02214FA8C8672530 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E883691CDC226E642ECE87 /* Profile.swift */; };
+		475C9ABBCB921FC2B8157073 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E883691CDC226E642ECE87 /* Profile.swift */; };
+		47ABF9363E14D978E8FC0830 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4781E672FAFC3218FB421E9 /* Stats.swift */; };
+		4BAEDDE2F2777356FD7299FF /* Blocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D258516BC1A784B42F06A34 /* Blocking.swift */; };
+		5488BBDD514A44BD43B7C82C /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4781E672FAFC3218FB421E9 /* Stats.swift */; };
+		5543D2BF890965C8656F9590 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856226E83C62F3F62975B7A0 /* Models.swift */; };
+		5660FBA5639AAF6F996E0F05 /* nudge.wav in Resources */ = {isa = PBXBuildFile; fileRef = 85868D684C35BEAE7EEA3393 /* nudge.wav */; };
+		5A407FF8EEEC352E66B0403C /* FocusActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8552E6C8385414D0AC0A8A /* FocusActivity.swift */; };
+		5A45324760B991EE18CA8D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5B3B2CE7C026481B327D71 /* Assets.xcassets */; };
+		5EA9C9C5E3E6AC1EBF63006B /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A349F945C473827FE5EF50 /* Mascot.swift */; };
+		6410A598B76474CBAE2AA135 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E883691CDC226E642ECE87 /* Profile.swift */; };
+		64B6203A47C28418A71C2F15 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E883691CDC226E642ECE87 /* Profile.swift */; };
+		661D50B1924B22C408790BBD /* CrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ED10052D596E8613EA3679 /* CrewView.swift */; };
+		66C55B92BCE937A68E2BD284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A4B9534BE0968A739DD2584 /* Assets.xcassets */; };
+		6947EBBE8DA9BA9FCFC9DA7F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1ECE35CE40E289EEEFE31603 /* PrivacyInfo.xcprivacy */; };
+		69C78BB6D031746FB42206A7 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856226E83C62F3F62975B7A0 /* Models.swift */; };
+		6E11675CD1D4485F0E6083CA /* FocusCrewWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D4DEDC007CAD14A51C4714F0 /* FocusCrewWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6ECCD0CBD5056CA6F78D1C1B /* MascotArt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348548D68A5CE37E4FD871D4 /* MascotArt.xcassets */; };
+		70D55C07C423E5287615ADDC /* MascotArt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348548D68A5CE37E4FD871D4 /* MascotArt.xcassets */; };
+		751862D2B06569A302DDB9D3 /* CloudBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AFDF29D6F766B19AB69262 /* CloudBridge.swift */; };
+		798AE22B282551A67A5C468E /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A201867B858B4892ACC11DB /* Theme.xcassets */; };
+		7A999DAC6254FE9D697C00C9 /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741AE2ED118A261E8D3F367 /* Shortcuts.swift */; };
+		7B6636449F6D7264714913FB /* OnboardingResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B756239A27318BB68493CA /* OnboardingResults.swift */; };
+		826C146688B16C130B7D5DE6 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711CF75FF26AB94D00F6157 /* AppGroup.swift */; };
+		8534AEACA5D3744589B4636B /* ReportContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA0B77376CDF7ABE676B4D1 /* ReportContext.swift */; };
+		85829A768C240F0F97DD0F77 /* FocusCrewReport.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 87972E1BC223B66D1BFBB415 /* FocusCrewReport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		86DFA1ED469FB70FA1897F0A /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A201867B858B4892ACC11DB /* Theme.xcassets */; };
+		86FBEF8BB67A1406DD81B965 /* FocusCrewShield.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3C66F1B00E1E4D3E3AA51BDB /* FocusCrewShield.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		88A6F0B911E3490063B6CA9E /* LiveActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18C97F457B296B70A9822FA /* LiveActivityController.swift */; };
+		8A68477A3C74BF9455996949 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E1A9C8C39B3101900278B /* Theme.swift */; };
+		8C1B0ED366B10C1DD8497445 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1ECE35CE40E289EEEFE31603 /* PrivacyInfo.xcprivacy */; };
+		8D080296E28BF5A16F1ACE77 /* FocusCrewReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99329EA6DECDF8F0453C863 /* FocusCrewReport.swift */; };
+		948DF968DE6BF781A07D76F2 /* MascotArt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348548D68A5CE37E4FD871D4 /* MascotArt.xcassets */; };
+		95CD05499B5042C061EE9E46 /* MascotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB17BE30DD5DE66FA4182BB /* MascotView.swift */; };
+		970B38B63D89593207A46948 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66D30D2E150B4D922905093 /* SettingsView.swift */; };
+		97CC8F36D3A1A0A2808D3808 /* MascotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB17BE30DD5DE66FA4182BB /* MascotView.swift */; };
+		98A1BA6BB690083D549D8D73 /* FocusHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265EBB4D3B25E7FF58AE0FF0 /* FocusHomeView.swift */; };
+		9A6A2FEA99536D5705DCB2F4 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F74FDBD13B830E3EFC416 /* WidgetViews.swift */; };
+		A08DAD84DB4D5A5AFCE7379A /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4781E672FAFC3218FB421E9 /* Stats.swift */; };
+		A217A921505A07737B916D29 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E883691CDC226E642ECE87 /* Profile.swift */; };
+		A5DF202CF98D01B3E9E8566F /* OnboardingQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160DC48B4A476588BDC9B1C3 /* OnboardingQuestions.swift */; };
+		A6583FCC62DD9E1CDBBAED42 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4781E672FAFC3218FB421E9 /* Stats.swift */; };
+		AB5C45BFF8108890F6A961CA /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A201867B858B4892ACC11DB /* Theme.xcassets */; };
+		AD498FDF5A1A0BFA29A076D2 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711CF75FF26AB94D00F6157 /* AppGroup.swift */; };
+		AE2D1148DDFCD45E5010371C /* FocusCrewShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 77DBB771741258B0EE293DC7 /* FocusCrewShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AF1E3CADAB292B490A851F71 /* LiveActivityViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FE0641056440F4DAE9907 /* LiveActivityViews.swift */; };
+		AFE4DD06319D11CF0D15C96F /* SessionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3967C18BE422B0F585F7D86 /* SessionViews.swift */; };
+		B0113F2452B73A1E4425E1BC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856226E83C62F3F62975B7A0 /* Models.swift */; };
+		B05158B0BAAD9421A0E01C9F /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A050E28ADA883D69E781DE0C /* OnboardingFlow.swift */; };
+		B28C5BEC6D84BDB6A9B716A0 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A349F945C473827FE5EF50 /* Mascot.swift */; };
+		B39A41E98D54A88F3B968D26 /* FocusCrewMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F6F4C420D5D3F80DC8AE921 /* FocusCrewMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B415086B80D87BB416A28D20 /* chime.wav in Resources */ = {isa = PBXBuildFile; fileRef = 212578E8197009D2678BC78D /* chime.wav */; };
+		B5279C5D561B2A91ACA07EA0 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A201867B858B4892ACC11DB /* Theme.xcassets */; };
+		B637CE99C4DB220B64F6BFA3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856226E83C62F3F62975B7A0 /* Models.swift */; };
+		B73A13E82F83F181334BFDED /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A349F945C473827FE5EF50 /* Mascot.swift */; };
+		B74B2CCE2583ED47577C69BA /* chime.wav in Resources */ = {isa = PBXBuildFile; fileRef = 212578E8197009D2678BC78D /* chime.wav */; };
+		B76148FE99DA29BFBBAB04FD /* NotchViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA2251FFEA1D721AB2D082B /* NotchViews.swift */; };
+		B7C73ACBDF246632F134FB01 /* DemoMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC23F6F1BA77272405F024A /* DemoMode.swift */; };
+		B8C0851AFDAFC308EE5ACB00 /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E3476B262986E2BCB7E595 /* ShieldActionExtension.swift */; };
+		BA43C484711FA3205DC922BA /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711CF75FF26AB94D00F6157 /* AppGroup.swift */; };
+		BC443D9B8DCED886DDBD304D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856226E83C62F3F62975B7A0 /* Models.swift */; };
+		BF18E0991ACF096317E3276B /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060025086948BC371536DFF /* PaywallView.swift */; };
+		C3CBB31F880075229BECE044 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4781E672FAFC3218FB421E9 /* Stats.swift */; };
+		C5EC91B7B2D770471BC0F96D /* FocusCrewWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C88F58AAB8366DC8734618 /* FocusCrewWidgets.swift */; };
+		C90581B47391059760033A20 /* CompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5DE6A0078082C772DCF415 /* CompletionView.swift */; };
+		CB2EE4F888995FF4D51E4F22 /* Blocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D258516BC1A784B42F06A34 /* Blocking.swift */; };
+		CE1A6E32356BFD680525B044 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1ECE35CE40E289EEEFE31603 /* PrivacyInfo.xcprivacy */; };
+		D14B7F65D7EEDDE7F57CE8B4 /* ScreenTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447CCE94A6BA3ACDCFA71954 /* ScreenTimeService.swift */; };
+		D37847352E33F3A2B531DB9F /* WidgetGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3430FA5CB93C78F0CE2D099C /* WidgetGallery.swift */; };
+		D46C9E64771FBF1DA6E3C48F /* FocusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4120AD38D2AD973FF4DF3E /* FocusMonitor.swift */; };
+		DB2BD26CBDB7C9EBD89B0910 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0329664E380D9FC28E6583C4 /* Notifications.swift */; };
+		DB93DC686765F87F1D70F5D9 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A349F945C473827FE5EF50 /* Mascot.swift */; };
+		DF7A75F615868E86C3859460 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1ECE35CE40E289EEEFE31603 /* PrivacyInfo.xcprivacy */; };
+		DFF6EC65BC2C5546CFDC1B23 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E883691CDC226E642ECE87 /* Profile.swift */; };
+		E01A5F18BD8854F990D833F6 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711CF75FF26AB94D00F6157 /* AppGroup.swift */; };
+		E154FAC37769391DD69512AE /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856226E83C62F3F62975B7A0 /* Models.swift */; };
+		E3CA5FF23E465A027B557FBE /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4781E672FAFC3218FB421E9 /* Stats.swift */; };
+		E40447672DE3FB4338BBF108 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1853E363126D7D2A556CD92F /* SoundPlayer.swift */; };
+		E754132B7BFE224983E4E343 /* BlocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E01B686289F4CA9B3730AE /* BlocksView.swift */; };
+		E7DFB15B9BACAEB5CA8ACFA5 /* OnboardingIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364AB066DBCA39748344106A /* OnboardingIntro.swift */; };
+		EB407C50B18FBEA316B85B0D /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4781E672FAFC3218FB421E9 /* Stats.swift */; };
+		ED7D032DD19CAD86D3BC05EA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E1A9C8C39B3101900278B /* Theme.swift */; };
+		F21A47C5EC5462CECAEA7308 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E883691CDC226E642ECE87 /* Profile.swift */; };
+		F2D30073244BD1927B7F162A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1ECE35CE40E289EEEFE31603 /* PrivacyInfo.xcprivacy */; };
+		F625B00DE46CA90B6F3EF1B7 /* ReportContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA0B77376CDF7ABE676B4D1 /* ReportContext.swift */; };
+		F686D545EE63A88250BA0EA7 /* nudge.wav in Resources */ = {isa = PBXBuildFile; fileRef = 85868D684C35BEAE7EEA3393 /* nudge.wav */; };
+		FAD9DC642E8706EE10C858DE /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A349F945C473827FE5EF50 /* Mascot.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1D598B4ADE4D4FD4BBF39731 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E7FEC15B687043EE6ABE822 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 440CA76D853209166AFFD9E7;
+			remoteInfo = FocusCrewShieldAction;
+		};
+		5C2DD6072C247C204D0BEB8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E7FEC15B687043EE6ABE822 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8594BE314CB4A797921ECCBE;
+			remoteInfo = FocusCrewReport;
+		};
+		A5DD9EB1663BB49AB93C475D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E7FEC15B687043EE6ABE822 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD530C8C130B582A24070A36;
+			remoteInfo = FocusCrewMonitor;
+		};
+		AC86B336FF119A3F588E9F46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E7FEC15B687043EE6ABE822 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA5D27E5F7D146C7BD532A3A;
+			remoteInfo = FocusCrewShield;
+		};
+		C5CA3E491CFFF6B7651B849B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E7FEC15B687043EE6ABE822 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E593BE7EE412413A82AD2553;
+			remoteInfo = FocusCrewWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AE73072DC209C1E55DCB7E05 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6E11675CD1D4485F0E6083CA /* FocusCrewWidgets.appex in Embed Foundation Extensions */,
+				B39A41E98D54A88F3B968D26 /* FocusCrewMonitor.appex in Embed Foundation Extensions */,
+				86FBEF8BB67A1406DD81B965 /* FocusCrewShield.appex in Embed Foundation Extensions */,
+				AE2D1148DDFCD45E5010371C /* FocusCrewShieldAction.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE4D65FED5F54DB112D8CEBF /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				85829A768C240F0F97DD0F77 /* FocusCrewReport.appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		02C8D8591273E46073DCD5F2 /* MacModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacModel.swift; sourceTree = "<group>"; };
+		0329664E380D9FC28E6583C4 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		0437C295F4BC117C8146028E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0711CF75FF26AB94D00F6157 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		0721546F35BA0254016126B5 /* Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widgets.entitlements; sourceTree = "<group>"; };
+		08CAEC4FDD26CE192A0231A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0F9A984C70AFA0BA67D2A5AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		160DC48B4A476588BDC9B1C3 /* OnboardingQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuestions.swift; sourceTree = "<group>"; };
+		1853E363126D7D2A556CD92F /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		1B14595242DB3E2AC6B6F5A1 /* ShieldAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldAction.entitlements; sourceTree = "<group>"; };
+		1ECE35CE40E289EEEFE31603 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		212578E8197009D2678BC78D /* chime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime.wav; sourceTree = "<group>"; };
+		24979E3C758D99F8331BB6A6 /* FocusCrewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCrewApp.swift; sourceTree = "<group>"; };
+		24E20AC3BA37756B69EA5863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		265EBB4D3B25E7FF58AE0FF0 /* FocusHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusHomeView.swift; sourceTree = "<group>"; };
+		2741AE2ED118A261E8D3F367 /* Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
+		3430FA5CB93C78F0CE2D099C /* WidgetGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetGallery.swift; sourceTree = "<group>"; };
+		348548D68A5CE37E4FD871D4 /* MascotArt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MascotArt.xcassets; sourceTree = "<group>"; };
+		3629C08D815409CCE8E2C333 /* ScheduleEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEditorView.swift; sourceTree = "<group>"; };
+		364AB066DBCA39748344106A /* OnboardingIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro.swift; sourceTree = "<group>"; };
+		3C66F1B00E1E4D3E3AA51BDB /* FocusCrewShield.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FocusCrewShield.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		431741BA0DF15C6C6F74FE17 /* Shield.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shield.entitlements; sourceTree = "<group>"; };
+		447CCE94A6BA3ACDCFA71954 /* ScreenTimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeService.swift; sourceTree = "<group>"; };
+		45AFDF29D6F766B19AB69262 /* CloudBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudBridge.swift; sourceTree = "<group>"; };
+		4A201867B858B4892ACC11DB /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
+		4CA805163A380530193B8CCE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		4DA2251FFEA1D721AB2D082B /* NotchViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchViews.swift; sourceTree = "<group>"; };
+		57E01B686289F4CA9B3730AE /* BlocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksView.swift; sourceTree = "<group>"; };
+		5BE00F95AAED2E0AE66E3673 /* NotchPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchPanel.swift; sourceTree = "<group>"; };
+		5F6F4C420D5D3F80DC8AE921 /* FocusCrewMonitor.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FocusCrewMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		61EDDFC39DEC79702E3AC6B3 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
+		66277179EE495478598A0C85 /* OnboardingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSetup.swift; sourceTree = "<group>"; };
+		6688A77E6BFD34319838779F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6B5DE6A0078082C772DCF415 /* CompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionView.swift; sourceTree = "<group>"; };
+		6D4588125B57716B54A4CE43 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		7060025086948BC371536DFF /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		76DACE98D3510CCC11B37234 /* FocusCrewMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCrewMacApp.swift; sourceTree = "<group>"; };
+		77DBB771741258B0EE293DC7 /* FocusCrewShieldAction.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FocusCrewShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A4B9534BE0968A739DD2584 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		817EE2704A0FAD81AAF4FBAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		856226E83C62F3F62975B7A0 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		857E8507DB60F89080D45398 /* Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monitor.entitlements; sourceTree = "<group>"; };
+		85868D684C35BEAE7EEA3393 /* nudge.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nudge.wav; sourceTree = "<group>"; };
+		87972E1BC223B66D1BFBB415 /* FocusCrewReport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = FocusCrewReport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		87ED10052D596E8613EA3679 /* CrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewView.swift; sourceTree = "<group>"; };
+		8D258516BC1A784B42F06A34 /* Blocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocking.swift; sourceTree = "<group>"; };
+		96059C90517BE5A1CE0999DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9AB9979FE92B1FB045AB0F1F /* Report.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Report.entitlements; sourceTree = "<group>"; };
+		9AC3F7FE8C8910748387E2A0 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		9CB17BE30DD5DE66FA4182BB /* MascotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MascotView.swift; sourceTree = "<group>"; };
+		9EA0B77376CDF7ABE676B4D1 /* ReportContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportContext.swift; sourceTree = "<group>"; };
+		A050E28ADA883D69E781DE0C /* OnboardingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
+		A5C8AA10A2CE9BCF6A3F4D6E /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
+		B0EAE1392DA3C9B9A59FD5A9 /* FocusCrew.storekit */ = {isa = PBXFileReference; path = FocusCrew.storekit; sourceTree = "<group>"; };
+		B53FE0641056440F4DAE9907 /* LiveActivityViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityViews.swift; sourceTree = "<group>"; };
+		B99329EA6DECDF8F0453C863 /* FocusCrewReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCrewReport.swift; sourceTree = "<group>"; };
+		C1C88F58AAB8366DC8734618 /* FocusCrewWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCrewWidgets.swift; sourceTree = "<group>"; };
+		C3967C18BE422B0F585F7D86 /* SessionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViews.swift; sourceTree = "<group>"; };
+		C4A4AD902D3970DD4AA2C34A /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		CB30C9134F95C5ECC157E1CA /* FocusCrewMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FocusCrewMac.entitlements; sourceTree = "<group>"; };
+		D0B8F7E0D49A9F532C727A6B /* FocusCrew.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FocusCrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4DEDC007CAD14A51C4714F0 /* FocusCrewWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FocusCrewWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5E3476B262986E2BCB7E595 /* ShieldActionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldActionExtension.swift; sourceTree = "<group>"; };
+		D66D30D2E150B4D922905093 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D9B756239A27318BB68493CA /* OnboardingResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingResults.swift; sourceTree = "<group>"; };
+		DE4120AD38D2AD973FF4DF3E /* FocusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusMonitor.swift; sourceTree = "<group>"; };
+		DFC23F6F1BA77272405F024A /* DemoMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMode.swift; sourceTree = "<group>"; };
+		E30F74FDBD13B830E3EFC416 /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
+		E4781E672FAFC3218FB421E9 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		E6A349F945C473827FE5EF50 /* Mascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mascot.swift; sourceTree = "<group>"; };
+		E872DCC5693D850BEFD05584 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		ED8552E6C8385414D0AC0A8A /* FocusActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusActivity.swift; sourceTree = "<group>"; };
+		EF5B3B2CE7C026481B327D71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F18C97F457B296B70A9822FA /* LiveActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityController.swift; sourceTree = "<group>"; };
+		F3E883691CDC226E642ECE87 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		F49E1A9C8C39B3101900278B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		FD1E9D0F9688D6C9D27A6DF8 /* FocusCrew.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FocusCrew.entitlements; sourceTree = "<group>"; };
+		FEA3E7A924042A72498AE8E0 /* FocusCrewMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FocusCrewMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0564826786A2CBA82C024D33 /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				57E01B686289F4CA9B3730AE /* BlocksView.swift */,
+				3629C08D815409CCE8E2C333 /* ScheduleEditorView.swift */,
+			);
+			path = Blocks;
+			sourceTree = "<group>";
+		};
+		0B0A99770C54E1E9D51FE318 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0B8F7E0D49A9F532C727A6B /* FocusCrew.app */,
+				FEA3E7A924042A72498AE8E0 /* FocusCrewMac.app */,
+				5F6F4C420D5D3F80DC8AE921 /* FocusCrewMonitor.appex */,
+				87972E1BC223B66D1BFBB415 /* FocusCrewReport.appex */,
+				3C66F1B00E1E4D3E3AA51BDB /* FocusCrewShield.appex */,
+				77DBB771741258B0EE293DC7 /* FocusCrewShieldAction.appex */,
+				D4DEDC007CAD14A51C4714F0 /* FocusCrewWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11D408FDC2CBE68C4FF11196 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9CB17BE30DD5DE66FA4182BB /* MascotView.swift */,
+				F49E1A9C8C39B3101900278B /* Theme.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1DBB6426FF712CA6CED1BBF8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				265EBB4D3B25E7FF58AE0FF0 /* FocusHomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		26B91F659DE007F7F311C6BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E872DCC5693D850BEFD05584 /* AppModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2ABD9BDDEBFE27186B9477B5 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				212578E8197009D2678BC78D /* chime.wav */,
+				85868D684C35BEAE7EEA3393 /* nudge.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		40FC9CE1B815731FBC5CFBCF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0564826786A2CBA82C024D33 /* Blocks */,
+				EC703325F6A73DCAC86FB472 /* Components */,
+				E56692CA87F1C6B877E08E83 /* Crew */,
+				6B672CC71D3632B4F24745CC /* Debug */,
+				1DBB6426FF712CA6CED1BBF8 /* Home */,
+				67EEBB663AD099452EBB5B5B /* Insights */,
+				26B91F659DE007F7F311C6BC /* Model */,
+				BC3C68B1CF9D850ABAC46661 /* Onboarding */,
+				4DEFF5A426D33D3C06DB9EF5 /* Resources */,
+				C79E6BA5194B0D37BF40552B /* Services */,
+				5BEDA7316418BB4893F9DA34 /* Session */,
+				538B4A84128FF650378E8751 /* Settings */,
+				EF5B3B2CE7C026481B327D71 /* Assets.xcassets */,
+				FD1E9D0F9688D6C9D27A6DF8 /* FocusCrew.entitlements */,
+				24979E3C758D99F8331BB6A6 /* FocusCrewApp.swift */,
+				96059C90517BE5A1CE0999DB /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		484A26C18DE5008B2D1E79C1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0711CF75FF26AB94D00F6157 /* AppGroup.swift */,
+				E6A349F945C473827FE5EF50 /* Mascot.swift */,
+				856226E83C62F3F62975B7A0 /* Models.swift */,
+				F3E883691CDC226E642ECE87 /* Profile.swift */,
+				E4781E672FAFC3218FB421E9 /* Stats.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4C118B8690518E2EABFCF89E /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				B99329EA6DECDF8F0453C863 /* FocusCrewReport.swift */,
+				6688A77E6BFD34319838779F /* Info.plist */,
+				9AB9979FE92B1FB045AB0F1F /* Report.entitlements */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		4DEFF5A426D33D3C06DB9EF5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0EAE1392DA3C9B9A59FD5A9 /* FocusCrew.storekit */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		523E6338411F6F884554FFEE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				484A26C18DE5008B2D1E79C1 /* Core */,
+				FAB6EA1A4A1888FF6AE35BCA /* Privacy */,
+				2ABD9BDDEBFE27186B9477B5 /* Sounds */,
+				11D408FDC2CBE68C4FF11196 /* UI */,
+				348548D68A5CE37E4FD871D4 /* MascotArt.xcassets */,
+				4A201867B858B4892ACC11DB /* Theme.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		538B4A84128FF650378E8751 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D66D30D2E150B4D922905093 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5BEDA7316418BB4893F9DA34 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				6B5DE6A0078082C772DCF415 /* CompletionView.swift */,
+				C3967C18BE422B0F585F7D86 /* SessionViews.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		5BEE281AD83395DA84608EA3 = {
+			isa = PBXGroup;
+			children = (
+				40FC9CE1B815731FBC5CFBCF /* App */,
+				C77C9D4D6F2DED0A96C2CA62 /* Configs */,
+				F968F1802482AA49418A21E7 /* Mac */,
+				E108E1B7F8F905CCAB4FEE26 /* Monitor */,
+				4C118B8690518E2EABFCF89E /* Report */,
+				523E6338411F6F884554FFEE /* Shared */,
+				7622E8814454787AC63D0A54 /* SharedIOS */,
+				DC036C7C08BBB1D5665EBC60 /* Shield */,
+				A8E0D758883CFCAA6724C1FC /* ShieldAction */,
+				C956EAAA171CD327A7536FBB /* Widgets */,
+				0B0A99770C54E1E9D51FE318 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		67EEBB663AD099452EBB5B5B /* Insights */ = {
+			isa = PBXGroup;
+			children = (
+				A5C8AA10A2CE9BCF6A3F4D6E /* InsightsView.swift */,
+			);
+			path = Insights;
+			sourceTree = "<group>";
+		};
+		6B672CC71D3632B4F24745CC /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				DFC23F6F1BA77272405F024A /* DemoMode.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		7622E8814454787AC63D0A54 /* SharedIOS */ = {
+			isa = PBXGroup;
+			children = (
+				E470E661205E354DC786A2AE /* Blocking */,
+				EDCFD394AC2AC2BD11FA56FF /* Live */,
+				D087F0539D81B538556962C5 /* Report */,
+				D6B03A8D20AFEE05511AAA96 /* Widgets */,
+			);
+			path = SharedIOS;
+			sourceTree = "<group>";
+		};
+		A8E0D758883CFCAA6724C1FC /* ShieldAction */ = {
+			isa = PBXGroup;
+			children = (
+				0F9A984C70AFA0BA67D2A5AB /* Info.plist */,
+				1B14595242DB3E2AC6B6F5A1 /* ShieldAction.entitlements */,
+				D5E3476B262986E2BCB7E595 /* ShieldActionExtension.swift */,
+			);
+			path = ShieldAction;
+			sourceTree = "<group>";
+		};
+		BC3C68B1CF9D850ABAC46661 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A050E28ADA883D69E781DE0C /* OnboardingFlow.swift */,
+				364AB066DBCA39748344106A /* OnboardingIntro.swift */,
+				160DC48B4A476588BDC9B1C3 /* OnboardingQuestions.swift */,
+				D9B756239A27318BB68493CA /* OnboardingResults.swift */,
+				66277179EE495478598A0C85 /* OnboardingSetup.swift */,
+				7060025086948BC371536DFF /* PaywallView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C77C9D4D6F2DED0A96C2CA62 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				6D4588125B57716B54A4CE43 /* Shared.xcconfig */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		C79E6BA5194B0D37BF40552B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				45AFDF29D6F766B19AB69262 /* CloudBridge.swift */,
+				C4A4AD902D3970DD4AA2C34A /* Haptics.swift */,
+				F18C97F457B296B70A9822FA /* LiveActivityController.swift */,
+				0329664E380D9FC28E6583C4 /* Notifications.swift */,
+				4CA805163A380530193B8CCE /* PurchaseManager.swift */,
+				447CCE94A6BA3ACDCFA71954 /* ScreenTimeService.swift */,
+				2741AE2ED118A261E8D3F367 /* Shortcuts.swift */,
+				1853E363126D7D2A556CD92F /* SoundPlayer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C956EAAA171CD327A7536FBB /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				C1C88F58AAB8366DC8734618 /* FocusCrewWidgets.swift */,
+				0437C295F4BC117C8146028E /* Info.plist */,
+				0721546F35BA0254016126B5 /* Widgets.entitlements */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		D087F0539D81B538556962C5 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				9EA0B77376CDF7ABE676B4D1 /* ReportContext.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		D6B03A8D20AFEE05511AAA96 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				B53FE0641056440F4DAE9907 /* LiveActivityViews.swift */,
+				E30F74FDBD13B830E3EFC416 /* WidgetViews.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		DC036C7C08BBB1D5665EBC60 /* Shield */ = {
+			isa = PBXGroup;
+			children = (
+				817EE2704A0FAD81AAF4FBAA /* Info.plist */,
+				431741BA0DF15C6C6F74FE17 /* Shield.entitlements */,
+				61EDDFC39DEC79702E3AC6B3 /* ShieldConfigurationExtension.swift */,
+			);
+			path = Shield;
+			sourceTree = "<group>";
+		};
+		E108E1B7F8F905CCAB4FEE26 /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				DE4120AD38D2AD973FF4DF3E /* FocusMonitor.swift */,
+				08CAEC4FDD26CE192A0231A4 /* Info.plist */,
+				857E8507DB60F89080D45398 /* Monitor.entitlements */,
+			);
+			path = Monitor;
+			sourceTree = "<group>";
+		};
+		E470E661205E354DC786A2AE /* Blocking */ = {
+			isa = PBXGroup;
+			children = (
+				8D258516BC1A784B42F06A34 /* Blocking.swift */,
+			);
+			path = Blocking;
+			sourceTree = "<group>";
+		};
+		E56692CA87F1C6B877E08E83 /* Crew */ = {
+			isa = PBXGroup;
+			children = (
+				87ED10052D596E8613EA3679 /* CrewView.swift */,
+			);
+			path = Crew;
+			sourceTree = "<group>";
+		};
+		EC703325F6A73DCAC86FB472 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9AC3F7FE8C8910748387E2A0 /* Components.swift */,
+				3430FA5CB93C78F0CE2D099C /* WidgetGallery.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EDCFD394AC2AC2BD11FA56FF /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				ED8552E6C8385414D0AC0A8A /* FocusActivity.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		F968F1802482AA49418A21E7 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				7A4B9534BE0968A739DD2584 /* Assets.xcassets */,
+				CB30C9134F95C5ECC157E1CA /* FocusCrewMac.entitlements */,
+				76DACE98D3510CCC11B37234 /* FocusCrewMacApp.swift */,
+				24E20AC3BA37756B69EA5863 /* Info.plist */,
+				02C8D8591273E46073DCD5F2 /* MacModel.swift */,
+				5BE00F95AAED2E0AE66E3673 /* NotchPanel.swift */,
+				4DA2251FFEA1D721AB2D082B /* NotchViews.swift */,
+			);
+			path = Mac;
+			sourceTree = "<group>";
+		};
+		FAB6EA1A4A1888FF6AE35BCA /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				1ECE35CE40E289EEEFE31603 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2405E24C78A94C2D76F5F2AD /* FocusCrew */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDA9DC02711C702A9860A853 /* Build configuration list for PBXNativeTarget "FocusCrew" */;
+			buildPhases = (
+				BB43BCEBE6E49298D31DBA8F /* Sources */,
+				79406A0A4E440D954C757EE6 /* Resources */,
+				AE73072DC209C1E55DCB7E05 /* Embed Foundation Extensions */,
+				DE4D65FED5F54DB112D8CEBF /* Embed ExtensionKit Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E08E269CFAD5C3BAF442C9FC /* PBXTargetDependency */,
+				84ACD12B18A2B67446DDD055 /* PBXTargetDependency */,
+				B717BFE18B3B7E0FF24B55BC /* PBXTargetDependency */,
+				46A3722ED38CEB3440EC1B1C /* PBXTargetDependency */,
+				CF4EEE693EE9E1EE44682563 /* PBXTargetDependency */,
+			);
+			name = FocusCrew;
+			packageProductDependencies = (
+			);
+			productName = FocusCrew;
+			productReference = D0B8F7E0D49A9F532C727A6B /* FocusCrew.app */;
+			productType = "com.apple.product-type.application";
+		};
+		440CA76D853209166AFFD9E7 /* FocusCrewShieldAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7719413D40E8B860B3909AB5 /* Build configuration list for PBXNativeTarget "FocusCrewShieldAction" */;
+			buildPhases = (
+				FADB09324673DE2BEA66C0B7 /* Sources */,
+				08B7ABCFBE82BBE42C4DE5A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusCrewShieldAction;
+			packageProductDependencies = (
+			);
+			productName = FocusCrewShieldAction;
+			productReference = 77DBB771741258B0EE293DC7 /* FocusCrewShieldAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		8594BE314CB4A797921ECCBE /* FocusCrewReport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04EB89DE54371D223CA127B3 /* Build configuration list for PBXNativeTarget "FocusCrewReport" */;
+			buildPhases = (
+				86C6725C8A05D399A240A716 /* Sources */,
+				1B448CE210777460D8AC13E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusCrewReport;
+			packageProductDependencies = (
+			);
+			productName = FocusCrewReport;
+			productReference = 87972E1BC223B66D1BFBB415 /* FocusCrewReport.appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
+		};
+		AD530C8C130B582A24070A36 /* FocusCrewMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF1FBD1EDFEDF97D91F13440 /* Build configuration list for PBXNativeTarget "FocusCrewMonitor" */;
+			buildPhases = (
+				27A76ACF4F6E9CDEE9AB215F /* Sources */,
+				066F78F4231DC89E19E99DDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusCrewMonitor;
+			packageProductDependencies = (
+			);
+			productName = FocusCrewMonitor;
+			productReference = 5F6F4C420D5D3F80DC8AE921 /* FocusCrewMonitor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DA5D27E5F7D146C7BD532A3A /* FocusCrewShield */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 683001E0CC569D331F4030CD /* Build configuration list for PBXNativeTarget "FocusCrewShield" */;
+			buildPhases = (
+				85F5CE0BB2651D7E54584FA4 /* Sources */,
+				34EBF5A8635581B64B0E9F9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusCrewShield;
+			packageProductDependencies = (
+			);
+			productName = FocusCrewShield;
+			productReference = 3C66F1B00E1E4D3E3AA51BDB /* FocusCrewShield.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E593BE7EE412413A82AD2553 /* FocusCrewWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DB38C065779DF67C57EA0EF /* Build configuration list for PBXNativeTarget "FocusCrewWidgets" */;
+			buildPhases = (
+				3F9440D514EC5A0D721D35D4 /* Sources */,
+				AC1A640C990E8F34A1FBB008 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusCrewWidgets;
+			packageProductDependencies = (
+			);
+			productName = FocusCrewWidgets;
+			productReference = D4DEDC007CAD14A51C4714F0 /* FocusCrewWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E86DAF97D94E03EB34AFBBCC /* FocusCrewMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04B3C4A3D1689B7369F7E115 /* Build configuration list for PBXNativeTarget "FocusCrewMac" */;
+			buildPhases = (
+				CB76238CCB5E734A739A90AD /* Sources */,
+				451BDE2AB06910E38391DD9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusCrewMac;
+			packageProductDependencies = (
+			);
+			productName = FocusCrewMac;
+			productReference = FEA3E7A924042A72498AE8E0 /* FocusCrewMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8E7FEC15B687043EE6ABE822 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2405E24C78A94C2D76F5F2AD = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					440CA76D853209166AFFD9E7 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					8594BE314CB4A797921ECCBE = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					AD530C8C130B582A24070A36 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					DA5D27E5F7D146C7BD532A3A = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					E593BE7EE412413A82AD2553 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					E86DAF97D94E03EB34AFBBCC = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 33FA51732D945EAFE0BC2159 /* Build configuration list for PBXProject "FocusCrew" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 5BEE281AD83395DA84608EA3;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0B0A99770C54E1E9D51FE318 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2405E24C78A94C2D76F5F2AD /* FocusCrew */,
+				E593BE7EE412413A82AD2553 /* FocusCrewWidgets */,
+				AD530C8C130B582A24070A36 /* FocusCrewMonitor */,
+				DA5D27E5F7D146C7BD532A3A /* FocusCrewShield */,
+				440CA76D853209166AFFD9E7 /* FocusCrewShieldAction */,
+				8594BE314CB4A797921ECCBE /* FocusCrewReport */,
+				E86DAF97D94E03EB34AFBBCC /* FocusCrewMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		066F78F4231DC89E19E99DDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00438378939786F4A12F95B6 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08B7ABCFBE82BBE42C4DE5A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE1A6E32356BFD680525B044 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B448CE210777460D8AC13E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ECCD0CBD5056CA6F78D1C1B /* MascotArt.xcassets in Resources */,
+				126165B45E7E07DFA33D4DBD /* PrivacyInfo.xcprivacy in Resources */,
+				2722B38B5722486AC9FD6C23 /* Theme.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34EBF5A8635581B64B0E9F9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70D55C07C423E5287615ADDC /* MascotArt.xcassets in Resources */,
+				F2D30073244BD1927B7F162A /* PrivacyInfo.xcprivacy in Resources */,
+				AB5C45BFF8108890F6A961CA /* Theme.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		451BDE2AB06910E38391DD9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66C55B92BCE937A68E2BD284 /* Assets.xcassets in Resources */,
+				200DB2519A4DE015CB363C07 /* MascotArt.xcassets in Resources */,
+				DF7A75F615868E86C3859460 /* PrivacyInfo.xcprivacy in Resources */,
+				B5279C5D561B2A91ACA07EA0 /* Theme.xcassets in Resources */,
+				B74B2CCE2583ED47577C69BA /* chime.wav in Resources */,
+				5660FBA5639AAF6F996E0F05 /* nudge.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79406A0A4E440D954C757EE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A45324760B991EE18CA8D22 /* Assets.xcassets in Resources */,
+				41F70BC53209DD26FAA86EB3 /* MascotArt.xcassets in Resources */,
+				8C1B0ED366B10C1DD8497445 /* PrivacyInfo.xcprivacy in Resources */,
+				798AE22B282551A67A5C468E /* Theme.xcassets in Resources */,
+				B415086B80D87BB416A28D20 /* chime.wav in Resources */,
+				F686D545EE63A88250BA0EA7 /* nudge.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC1A640C990E8F34A1FBB008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				948DF968DE6BF781A07D76F2 /* MascotArt.xcassets in Resources */,
+				6947EBBE8DA9BA9FCFC9DA7F /* PrivacyInfo.xcprivacy in Resources */,
+				86DFA1ED469FB70FA1897F0A /* Theme.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27A76ACF4F6E9CDEE9AB215F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0373CC7EED3BDDFED080C120 /* AppGroup.swift in Sources */,
+				18E058A7806F0295ED95AA68 /* Blocking.swift in Sources */,
+				D46C9E64771FBF1DA6E3C48F /* FocusMonitor.swift in Sources */,
+				B73A13E82F83F181334BFDED /* Mascot.swift in Sources */,
+				5543D2BF890965C8656F9590 /* Models.swift in Sources */,
+				F21A47C5EC5462CECAEA7308 /* Profile.swift in Sources */,
+				EB407C50B18FBEA316B85B0D /* Stats.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F9440D514EC5A0D721D35D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FF537D063417A9512954E93 /* AppGroup.swift in Sources */,
+				1EFA66E1C783E014888AD81B /* FocusActivity.swift in Sources */,
+				C5EC91B7B2D770471BC0F96D /* FocusCrewWidgets.swift in Sources */,
+				AF1E3CADAB292B490A851F71 /* LiveActivityViews.swift in Sources */,
+				1E189D13DBA3F2DAC3BA4E9A /* Mascot.swift in Sources */,
+				14BD200F64E19C85DA1CAE02 /* MascotView.swift in Sources */,
+				B0113F2452B73A1E4425E1BC /* Models.swift in Sources */,
+				A217A921505A07737B916D29 /* Profile.swift in Sources */,
+				47ABF9363E14D978E8FC0830 /* Stats.swift in Sources */,
+				1F3616B67EA6EB230F67795A /* Theme.swift in Sources */,
+				419B9D30388F332856727C24 /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85F5CE0BB2651D7E54584FA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA43C484711FA3205DC922BA /* AppGroup.swift in Sources */,
+				3E5B1EFF60D7294A01D6844E /* Blocking.swift in Sources */,
+				FAD9DC642E8706EE10C858DE /* Mascot.swift in Sources */,
+				B637CE99C4DB220B64F6BFA3 /* Models.swift in Sources */,
+				475C9ABBCB921FC2B8157073 /* Profile.swift in Sources */,
+				0308507EB26BA99E8F9A11B1 /* ShieldConfigurationExtension.swift in Sources */,
+				E3CA5FF23E465A027B557FBE /* Stats.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86C6725C8A05D399A240A716 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C6CA5EE2E830C2D3E68CC14 /* AppGroup.swift in Sources */,
+				8D080296E28BF5A16F1ACE77 /* FocusCrewReport.swift in Sources */,
+				22949BDD59122771B1970EFB /* Mascot.swift in Sources */,
+				97CC8F36D3A1A0A2808D3808 /* MascotView.swift in Sources */,
+				E154FAC37769391DD69512AE /* Models.swift in Sources */,
+				4312B42D02214FA8C8672530 /* Profile.swift in Sources */,
+				F625B00DE46CA90B6F3EF1B7 /* ReportContext.swift in Sources */,
+				A6583FCC62DD9E1CDBBAED42 /* Stats.swift in Sources */,
+				ED7D032DD19CAD86D3BC05EA /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB43BCEBE6E49298D31DBA8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E01A5F18BD8854F990D833F6 /* AppGroup.swift in Sources */,
+				36F39D1073AFBEF70F49C74F /* AppModel.swift in Sources */,
+				4BAEDDE2F2777356FD7299FF /* Blocking.swift in Sources */,
+				E754132B7BFE224983E4E343 /* BlocksView.swift in Sources */,
+				751862D2B06569A302DDB9D3 /* CloudBridge.swift in Sources */,
+				C90581B47391059760033A20 /* CompletionView.swift in Sources */,
+				3A43FDB1BC04DA6C2DC1FEFF /* Components.swift in Sources */,
+				661D50B1924B22C408790BBD /* CrewView.swift in Sources */,
+				B7C73ACBDF246632F134FB01 /* DemoMode.swift in Sources */,
+				5A407FF8EEEC352E66B0403C /* FocusActivity.swift in Sources */,
+				0B608D2EB8FE5A891F1B15B3 /* FocusCrewApp.swift in Sources */,
+				98A1BA6BB690083D549D8D73 /* FocusHomeView.swift in Sources */,
+				02183111739B3B3584A693CD /* Haptics.swift in Sources */,
+				1197E0EBB4B2A732E1F96763 /* InsightsView.swift in Sources */,
+				88A6F0B911E3490063B6CA9E /* LiveActivityController.swift in Sources */,
+				2408501C83537A9E167AA0B7 /* LiveActivityViews.swift in Sources */,
+				DB93DC686765F87F1D70F5D9 /* Mascot.swift in Sources */,
+				0763343978D7763D8EAE2E08 /* MascotView.swift in Sources */,
+				69C78BB6D031746FB42206A7 /* Models.swift in Sources */,
+				DB2BD26CBDB7C9EBD89B0910 /* Notifications.swift in Sources */,
+				B05158B0BAAD9421A0E01C9F /* OnboardingFlow.swift in Sources */,
+				E7DFB15B9BACAEB5CA8ACFA5 /* OnboardingIntro.swift in Sources */,
+				A5DF202CF98D01B3E9E8566F /* OnboardingQuestions.swift in Sources */,
+				7B6636449F6D7264714913FB /* OnboardingResults.swift in Sources */,
+				075DA3C8EC16211DA520904A /* OnboardingSetup.swift in Sources */,
+				BF18E0991ACF096317E3276B /* PaywallView.swift in Sources */,
+				DFF6EC65BC2C5546CFDC1B23 /* Profile.swift in Sources */,
+				386B9ED483B440DF83390A8E /* PurchaseManager.swift in Sources */,
+				8534AEACA5D3744589B4636B /* ReportContext.swift in Sources */,
+				36D7F5FD7EBCE77BD09B9273 /* ScheduleEditorView.swift in Sources */,
+				D14B7F65D7EEDDE7F57CE8B4 /* ScreenTimeService.swift in Sources */,
+				AFE4DD06319D11CF0D15C96F /* SessionViews.swift in Sources */,
+				970B38B63D89593207A46948 /* SettingsView.swift in Sources */,
+				7A999DAC6254FE9D697C00C9 /* Shortcuts.swift in Sources */,
+				E40447672DE3FB4338BBF108 /* SoundPlayer.swift in Sources */,
+				A08DAD84DB4D5A5AFCE7379A /* Stats.swift in Sources */,
+				23BCEB6A2D5FAE96A37E5E2D /* Theme.swift in Sources */,
+				D37847352E33F3A2B531DB9F /* WidgetGallery.swift in Sources */,
+				9A6A2FEA99536D5705DCB2F4 /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB76238CCB5E734A739A90AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD498FDF5A1A0BFA29A076D2 /* AppGroup.swift in Sources */,
+				13A65E264197B891055CF872 /* FocusCrewMacApp.swift in Sources */,
+				420C083E8B3E06D5258313DC /* MacModel.swift in Sources */,
+				B28C5BEC6D84BDB6A9B716A0 /* Mascot.swift in Sources */,
+				95CD05499B5042C061EE9E46 /* MascotView.swift in Sources */,
+				2387C8C1C16DE573BBEEC25A /* Models.swift in Sources */,
+				08E8BD0A1688C04A70AB3015 /* NotchPanel.swift in Sources */,
+				B76148FE99DA29BFBBAB04FD /* NotchViews.swift in Sources */,
+				6410A598B76474CBAE2AA135 /* Profile.swift in Sources */,
+				C3CBB31F880075229BECE044 /* Stats.swift in Sources */,
+				8A68477A3C74BF9455996949 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FADB09324673DE2BEA66C0B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				826C146688B16C130B7D5DE6 /* AppGroup.swift in Sources */,
+				CB2EE4F888995FF4D51E4F22 /* Blocking.swift in Sources */,
+				5EA9C9C5E3E6AC1EBF63006B /* Mascot.swift in Sources */,
+				BC443D9B8DCED886DDBD304D /* Models.swift in Sources */,
+				64B6203A47C28418A71C2F15 /* Profile.swift in Sources */,
+				B8C0851AFDAFC308EE5ACB00 /* ShieldActionExtension.swift in Sources */,
+				5488BBDD514A44BD43B7C82C /* Stats.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46A3722ED38CEB3440EC1B1C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 440CA76D853209166AFFD9E7 /* FocusCrewShieldAction */;
+			targetProxy = 1D598B4ADE4D4FD4BBF39731 /* PBXContainerItemProxy */;
+		};
+		84ACD12B18A2B67446DDD055 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD530C8C130B582A24070A36 /* FocusCrewMonitor */;
+			targetProxy = A5DD9EB1663BB49AB93C475D /* PBXContainerItemProxy */;
+		};
+		B717BFE18B3B7E0FF24B55BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA5D27E5F7D146C7BD532A3A /* FocusCrewShield */;
+			targetProxy = AC86B336FF119A3F588E9F46 /* PBXContainerItemProxy */;
+		};
+		CF4EEE693EE9E1EE44682563 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8594BE314CB4A797921ECCBE /* FocusCrewReport */;
+			targetProxy = 5C2DD6072C247C204D0BEB8A /* PBXContainerItemProxy */;
+		};
+		E08E269CFAD5C3BAF442C9FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E593BE7EE412413A82AD2553 /* FocusCrewWidgets */;
+			targetProxy = C5CA3E491CFFF6B7651B849B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01F7E7D01D995531E3E97C3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).widgets";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		0385B92ED407A90F633A1A1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Monitor/Monitor.entitlements;
+				INFOPLIST_FILE = Monitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).monitor";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0AE5D2B49814B57B57A1CB4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldAction/ShieldAction.entitlements;
+				INFOPLIST_FILE = ShieldAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).shieldaction";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		0DF87111E11DD14C50D76322 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mac/FocusCrewMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Mac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_MAC_BUNDLE_ID)";
+				PRODUCT_MODULE_NAME = FocusCrewMac;
+				PRODUCT_NAME = "Focus Crew";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		16E355A39DDA34FB632FBFD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Shield/Shield.entitlements;
+				INFOPLIST_FILE = Shield/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).shield";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		1F8B1966D1D60EDFB48A2CC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mac/FocusCrewMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Mac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_MAC_BUNDLE_ID)";
+				PRODUCT_MODULE_NAME = FocusCrewMac;
+				PRODUCT_NAME = "Focus Crew";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8E7B5A281579F21BD008173F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/FocusCrew.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID)";
+				PRODUCT_NAME = FocusCrew;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A22A93D4B47F076463BEF713 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Report/Report.entitlements;
+				INFOPLIST_FILE = Report/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).report";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A6B67AA9BF50419755B97555 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Monitor/Monitor.entitlements;
+				INFOPLIST_FILE = Monitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).monitor";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A771630DC3F449FAE9B2FED4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D4588125B57716B54A4CE43 /* Shared.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = "$(FC_BUILD_NUMBER)";
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = "$(FC_VERSION)";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C77377528C2BA8931B1670AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).widgets";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CF54B6E309620BDD5FBDA49F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Shield/Shield.entitlements;
+				INFOPLIST_FILE = Shield/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).shield";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D1BBF6DA45AFE354B5BA4F76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/FocusCrew.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID)";
+				PRODUCT_NAME = FocusCrew;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D60D2D9C5F5BCBC5C8A8FB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Report/Report.entitlements;
+				INFOPLIST_FILE = Report/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).report";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DF87B366E48E39362D7FCA2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldAction/ShieldAction.entitlements;
+				INFOPLIST_FILE = ShieldAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FC_APP_BUNDLE_ID).shieldaction";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F48B01455022D0A21FA80828 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D4588125B57716B54A4CE43 /* Shared.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = "$(FC_BUILD_NUMBER)";
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = "$(FC_VERSION)";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04B3C4A3D1689B7369F7E115 /* Build configuration list for PBXNativeTarget "FocusCrewMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DF87111E11DD14C50D76322 /* Debug */,
+				1F8B1966D1D60EDFB48A2CC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		04EB89DE54371D223CA127B3 /* Build configuration list for PBXNativeTarget "FocusCrewReport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D60D2D9C5F5BCBC5C8A8FB9C /* Debug */,
+				A22A93D4B47F076463BEF713 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		33FA51732D945EAFE0BC2159 /* Build configuration list for PBXProject "FocusCrew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F48B01455022D0A21FA80828 /* Debug */,
+				A771630DC3F449FAE9B2FED4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4DB38C065779DF67C57EA0EF /* Build configuration list for PBXNativeTarget "FocusCrewWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C77377528C2BA8931B1670AB /* Debug */,
+				01F7E7D01D995531E3E97C3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		683001E0CC569D331F4030CD /* Build configuration list for PBXNativeTarget "FocusCrewShield" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF54B6E309620BDD5FBDA49F /* Debug */,
+				16E355A39DDA34FB632FBFD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7719413D40E8B860B3909AB5 /* Build configuration list for PBXNativeTarget "FocusCrewShieldAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF87B366E48E39362D7FCA2C /* Debug */,
+				0AE5D2B49814B57B57A1CB4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AF1FBD1EDFEDF97D91F13440 /* Build configuration list for PBXNativeTarget "FocusCrewMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0385B92ED407A90F633A1A1C /* Debug */,
+				A6B67AA9BF50419755B97555 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DDA9DC02711C702A9860A853 /* Build configuration list for PBXNativeTarget "FocusCrew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1BBF6DA45AFE354B5BA4F76 /* Debug */,
+				8E7B5A281579F21BD008173F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8E7FEC15B687043EE6ABE822 /* Project object */;
+}

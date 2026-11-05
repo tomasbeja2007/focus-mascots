@@ -25,7 +25,7 @@ final class ShieldActionExtension: ShieldActionDelegate {
         case .secondaryButtonPressed:
             sendBreakNotification()
             return .close
-        @unknown default:
+        default:
             return .close
         }
     }

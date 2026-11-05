@@ -315,12 +315,16 @@ struct SettingsView: View {
 
     private func stepperRow(_ title: String, symbol: String, value: Int, range: ClosedRange<Int>, step: Int, set: @escaping (Int) -> Void) -> some View {
         Stepper(value: Binding(get: { value }, set: set), in: range, step: step) {
-            HStack {
-                rowLabel(title, symbol: symbol)
-                Spacer()
-                Text(Format.longDuration(minutes: value))
-                    .font(.rounded(.subheadline, weight: .semibold))
-                    .foregroundStyle(Theme.inkSecondary)
+            HStack(spacing: 12) {
+                IconBadge(symbol: symbol, tint: model.mascot.accent, background: model.mascot.tint.opacity(0.6), size: 30)
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(title)
+                        .font(.rounded(.body, weight: .medium))
+                        .foregroundStyle(Theme.ink)
+                    Text(Format.longDuration(minutes: value))
+                        .font(.rounded(.footnote, weight: .semibold))
+                        .foregroundStyle(model.mascot.accent)
+                }
             }
         }
     }

@@ -425,7 +425,7 @@ enum MascotMatcher {
         switch m {
         case .orbit:
             if p.struggles.contains(.focus) { out.append("You told us staying focused is hard. Orbit is built for deep work.") }
-            if p.goal == .deepWork || p.goal == .study { out.append("Your goal is \(p.goal!.title.lowercased()). Orbit's sessions are made for that.") }
+            if p.goal == .deepWork || p.goal == .study { out.append("You want to \(p.goal!.title.lowercased()). Orbit's sessions are made for exactly that.") }
             if p.motivation == .gentle { out.append("You like gentle encouragement. Orbit never nags.") }
         case .spark:
             if p.struggles.contains(.procrastination) { out.append("Procrastination is your nemesis. Spark makes starting easy.") }

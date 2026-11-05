@@ -38,6 +38,13 @@ struct FocusHomeView: View {
                 .padding(.bottom, 32)
             }
             .scrollDismissesKeyboard(.interactively)
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                if model.active == nil {
+                    startButton
+                        .padding(.horizontal, Theme.pagePadding)
+                        .padding(.bottom, 10)
+                }
+            }
             .pageBackground(model.mascot.wash)
             .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $showSettings) {
@@ -216,19 +223,23 @@ struct FocusHomeView: View {
             .padding(.horizontal, 14)
             .cardStyle(padding: 4, radius: Theme.cornerLarge)
 
-            Button {
-                intentionFocused = false
-                model.startFocus(minutes: minutes, intention: intention, strict: strict, block: block)
-                intention = ""
-            } label: {
-                HStack(spacing: 10) {
-                    Image(systemName: "play.fill")
-                    Text("Start focusing")
-                }
-            }
-            .buttonStyle(PrimaryButtonStyle())
-            .padding(.top, 4)
         }
+    }
+
+    private var startButton: some View {
+        Button {
+            intentionFocused = false
+            model.startFocus(minutes: minutes, intention: intention, strict: strict, block: block)
+            intention = ""
+        } label: {
+            HStack(spacing: 10) {
+                Image(systemName: "play.fill")
+                Text("Start \(minutes)-min focus")
+                    .contentTransition(.numericText(value: Double(minutes)))
+            }
+        }
+        .buttonStyle(PrimaryButtonStyle(tint: Theme.ink))
+        .shadow(color: .black.opacity(0.18), radius: 14, y: 6)
     }
 
     private var blockListSubtitle: String {

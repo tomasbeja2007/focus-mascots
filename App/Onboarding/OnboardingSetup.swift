@@ -300,6 +300,7 @@ struct PledgeStep: View {
                         pledgeLine("Be kind to myself when I slip up")
                         pledgeLine("Let \(profile.mascot.name) help me get there")
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .cardStyle(padding: 20, radius: Theme.cornerLarge)
 
                     HStack {

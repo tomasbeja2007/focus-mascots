@@ -21,7 +21,7 @@ struct CompletionView: View {
                         .tracking(1.5)
                         .foregroundStyle(mascot.accent)
                         .padding(.top, 28)
-                    MascotView(mascot: mascot, mood: .excited, size: 230, motion: .bounce)
+                    MascotView(mascot: mascot, mood: .excited, size: 190, motion: .bounce)
                         .scaleEffect(appeared ? 1 : 0.5)
                     Text("+\(Format.longDuration(minutes: summary.record.focusedMinutes))")
                         .font(.rounded(size: 54, weight: .heavy))
@@ -68,31 +68,28 @@ struct CompletionView: View {
                     }
                 }
                 .padding(.horizontal, Theme.pagePadding)
-                .padding(.bottom, 140)
+                .padding(.bottom, 16)
             }
-            VStack(spacing: 10) {
-                Spacer()
-                Button {
-                    model.startBreak()
-                } label: {
-                    Label("Take a \(model.settings.breakMinutes)-min break", systemImage: "cup.and.saucer.fill")
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                HStack(spacing: 12) {
+                    Button {
+                        model.startBreak()
+                    } label: {
+                        Label("\(model.settings.breakMinutes)-min break", systemImage: "cup.and.saucer.fill")
+                    }
+                    .buttonStyle(SecondaryButtonStyle())
+                    Button("Done") {
+                        model.completion = nil
+                        model.showSession = false
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
                 }
-                .buttonStyle(SecondaryButtonStyle())
-                Button("Done") {
-                    model.completion = nil
-                    model.showSession = false
-                }
-                .buttonStyle(PrimaryButtonStyle())
+                .padding(.horizontal, Theme.pagePadding)
+                .padding(.top, 12)
+                .padding(.bottom, 8)
+                .background(Theme.background.opacity(0.94).ignoresSafeArea())
+                .overlay(alignment: .top) { Rectangle().fill(Theme.hairline).frame(height: 1) }
             }
-            .padding(.horizontal, Theme.pagePadding)
-            .padding(.bottom, 12)
-            .background(
-                LinearGradient(colors: [Theme.background.opacity(0), Theme.background], startPoint: .top, endPoint: .center)
-                    .frame(height: 170)
-                    .frame(maxHeight: .infinity, alignment: .bottom)
-                    .ignoresSafeArea()
-                    .allowsHitTesting(false)
-            )
             ConfettiView(count: 120).ignoresSafeArea()
         }
         .onAppear {

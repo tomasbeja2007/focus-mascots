@@ -95,7 +95,7 @@ if (args.includes('--icons')) {
   await page.screenshot({ path: out, fullPage: true });
   console.log('sheet ->', out);
 } else {
-  const svgs = fs.readdirSync(svgDir).filter((f) => f.endsWith('.svg') && !f.includes('_preview'));
+  const svgs = fs.readdirSync(svgDir).filter((f) => f.endsWith('.svg') && !f.includes('_preview') && !f.endsWith('_dark.svg'));
   for (const f of svgs) {
     const name = f.replace('.svg', '');
     const isAvatar = name.includes('_avatar');
@@ -103,13 +103,15 @@ if (args.includes('--icons')) {
     const setDir = path.join(catalog, `${name}.imageset`);
     fs.mkdirSync(setDir, { recursive: true });
     await renderSVG(fs.readFileSync(path.join(svgDir, f), 'utf8'), size, path.join(setDir, `${name}.png`));
+    const images = [{ filename: `${name}.png`, idiom: 'universal' }];
+    const darkSVG = path.join(svgDir, `${name}_dark.svg`);
+    if (fs.existsSync(darkSVG)) {
+      await renderSVG(fs.readFileSync(darkSVG, 'utf8'), size, path.join(setDir, `${name}_dark.png`));
+      images.push({ appearances: [{ appearance: 'luminosity', value: 'dark' }], filename: `${name}_dark.png`, idiom: 'universal' });
+    }
     fs.writeFileSync(
       path.join(setDir, 'Contents.json'),
-      JSON.stringify(
-        { images: [{ filename: `${name}.png`, idiom: 'universal' }], info: { author: 'xcode', version: 1 } },
-        null,
-        2,
-      ) + '\n',
+      JSON.stringify({ images, info: { author: 'xcode', version: 1 } }, null, 2) + '\n',
     );
   }
   fs.writeFileSync(path.join(catalog, 'Contents.json'), JSON.stringify({ info: { author: 'xcode', version: 1 } }, null, 2) + '\n');
