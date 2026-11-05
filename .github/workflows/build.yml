@@ -30,7 +30,7 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Select Xcode
         run: sudo xcode-select -s "$XCODE_APP" && xcodebuild -version
@@ -122,7 +122,7 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Select Xcode
         run: sudo xcode-select -s "$XCODE_APP"
