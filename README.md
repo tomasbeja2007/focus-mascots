@@ -14,6 +14,10 @@ A native iOS focus timer and Screen Time app blocker, starring five tiny compani
 | Pebble | The Discipline Coach | Habits |
 | Blob | The Progress Tracker | Progress |
 
+## Try it in a browser
+
+`docs/preview/` is a playable web version of the app (onboarding, companion match, timer, simulated blocking, schedules, insights, crew). With GitHub Pages on, it's at https://tomasbeja2007.github.io/focus-mascots/preview/. Blocking, notifications and widgets are simulated there; the iPhone app does them for real.
+
 ## What's inside
 
 **iPhone app (SwiftUI, iOS 17+)**

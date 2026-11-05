@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Focus Crew</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0&display=block">
+<style>
+/* Layout: the iPhone app's own screens, in a phone-sized shell centred on a soft stage; full-bleed on phones. */
+:root {
+  --bg:#FBF8F4; --surface:#FFFFFF; --muted:#F3EFE9; --hair:#ECE6DE;
+  --ink:#1E1F24; --ink2:#6B6A71; --ink3:#A3A1A8; --inv:#FFFFFF;
+  --ok:#3E9B5F; --warn:#E59A2F; --bad:#D9534F; --flame:#F2762E;
+  --stage:#ECE7DF; --frame:#141416; --scrim:rgba(20,20,26,.38); --shadow:rgba(30,25,20,.07);
+  --orbit-tint:#C8D8EC; --orbit-accent:#3F74C9; --orbit-wash:#EEF3FA;
+  --spark-tint:#FBE0BF; --spark-accent:#EC8327; --spark-wash:#FDF3E7;
+  --leaf-tint:#DCE7D0;  --leaf-accent:#5A8F4C;  --leaf-wash:#F2F6EE;
+  --pebble-tint:#D7DDE7; --pebble-accent:#566377; --pebble-wash:#F1F3F7;
+  --blob-tint:#E2DCF3;  --blob-accent:#7562CC;  --blob-wash:#F4F1FB;
+  --deco-light:block; --deco-dark:none;
+  --la-bg:#18181c; --la-ink:#ffffff; --la-ink2:rgba(255,255,255,.65);
+  --font:'Nunito', ui-rounded, 'SF Pro Rounded', -apple-system, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg:#111113; --surface:#1C1C1F; --muted:#252529; --hair:#2E2E33;
+  --ink:#F5F3EF; --ink2:#A4A3AA; --ink3:#6F6E75; --inv:#111113;
+  --ok:#6BCB8B; --warn:#F5B85C; --bad:#F07A76; --flame:#FF9550;
+  --stage:#08080a; --frame:#000000; --scrim:rgba(0,0,0,.55); --shadow:rgba(0,0,0,.3);
+  --orbit-tint:#2C3B54; --orbit-accent:#7EA7F2; --orbit-wash:#161C27;
+  --spark-tint:#4A3522; --spark-accent:#FFAA5E; --spark-wash:#211912;
+  --leaf-tint:#2F3E2B;  --leaf-accent:#8FC67F;  --leaf-wash:#161D15;
+  --pebble-tint:#323946; --pebble-accent:#A6B2C7; --pebble-wash:#181B21;
+  --blob-tint:#3A3453;  --blob-accent:#B4A6F4;  --blob-wash:#1C1826;
+  --deco-light:none; --deco-dark:block; color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg:#111113; --surface:#1C1C1F; --muted:#252529; --hair:#2E2E33;
+  --ink:#F5F3EF; --ink2:#A4A3AA; --ink3:#6F6E75; --inv:#111113;
+  --ok:#6BCB8B; --warn:#F5B85C; --bad:#F07A76; --flame:#FF9550;
+  --stage:#08080a; --frame:#000000; --scrim:rgba(0,0,0,.55); --shadow:rgba(0,0,0,.3);
+  --orbit-tint:#2C3B54; --orbit-accent:#7EA7F2; --orbit-wash:#161C27;
+  --spark-tint:#4A3522; --spark-accent:#FFAA5E; --spark-wash:#211912;
+  --leaf-tint:#2F3E2B;  --leaf-accent:#8FC67F;  --leaf-wash:#161D15;
+  --pebble-tint:#323946; --pebble-accent:#A6B2C7; --pebble-wash:#181B21;
+  --blob-tint:#3A3453;  --blob-accent:#B4A6F4;  --blob-wash:#1C1826;
+  --deco-light:none; --deco-dark:block; color-scheme: dark;
+}
+html, body { height: 100%; }
+body { background: var(--stage); color: var(--ink); font-family: var(--font); font-size: 15px; -webkit-font-smoothing: antialiased; overflow: hidden; }
+* { box-sizing: border-box; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--orbit-accent); outline-offset: 2px; }
+input, select { font: inherit; color: var(--ink); }
+.ic { font-family: 'Material Symbols Rounded'; font-weight: normal; font-style: normal; font-size: 20px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; direction: ltr; -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga'; vertical-align: middle; user-select: none; }
+
+/* ---------- stage + device ---------- */
+.stage { height: 100%; display: flex; align-items: center; justify-content: center; gap: 48px; padding-block: 16px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.device { position: relative; width: 393px; height: min(852px, 100%); background: var(--bg); border-radius: 56px; box-shadow: 0 0 0 11px var(--frame), 0 0 0 12px rgba(255,255,255,.08), 0 40px 90px rgba(10,10,20,.28); overflow: hidden; flex: none; }
+.notch { position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 122px; height: 35px; border-radius: 20px; background: #000; z-index: 60; }
+.statusbar { position: absolute; top: 0; left: 0; right: 0; height: 54px; display: flex; align-items: center; justify-content: space-between; padding: 6px 30px 0 44px; font-weight: 800; font-size: 16px; z-index: 55; pointer-events: none; color: var(--ink); }
+.statusbar .ic { font-size: 17px; }
+.statusbar.light { color: #fff; }
+#app { position: absolute; inset: 0; }
+.about { width: 300px; display: flex; flex-direction: column; gap: 14px; }
+.about h1 { margin: 0; font-size: 34px; font-weight: 900; letter-spacing: -.5px; line-height: 1.05; text-wrap: balance; }
+.about p { margin: 0; color: var(--ink2); line-height: 1.55; font-weight: 600; }
+.about .note { font-size: 13px; color: var(--ink3); }
+.about .row { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill-btn { padding: 9px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--hair); font-weight: 800; font-size: 13px; }
+@media (max-width: 860px) { .about { display: none; } }
+@media (max-width: 520px) {
+  .stage { padding: 0; }
+  .device { width: 100%; height: 100%; border-radius: 0; box-shadow: none; }
+  .notch, .statusbar { display: none; }
+  .device { --top: 8px; }
+}
+.device { --top: 54px; }
+
+/* ---------- layers ---------- */
+.screen { position: absolute; inset: 0; display: flex; flex-direction: column; background: var(--bg); }
+.scroll { flex: 1; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.scroll::-webkit-scrollbar { display: none; }
+.pad { padding: 0 20px; }
+.top { padding-top: var(--top); }
+.footer { padding: 10px 20px 22px; display: flex; flex-direction: column; gap: 6px; background: linear-gradient(to bottom, transparent, var(--bg) 26%); }
+.layer { position: absolute; inset: 0; z-index: 30; }
+.fade-in { animation: fadeIn .35s ease both; }
+.slide-in { animation: slideIn .42s cubic-bezier(.2,.9,.25,1) both; }
+.slide-back { animation: slideBack .42s cubic-bezier(.2,.9,.25,1) both; }
+.rise { animation: rise .42s cubic-bezier(.2,.9,.25,1) both; }
+@keyframes fadeIn { from { opacity: 0 } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(40px) } }
+@keyframes slideBack { from { opacity: 0; transform: translateX(-40px) } }
+@keyframes rise { from { transform: translateY(100%) } }
+@keyframes pop { 0% { transform: scale(.3); opacity: 0 } 70% { transform: scale(1.06) } 100% { transform: scale(1); opacity: 1 } }
+
+/* ---------- type ---------- */
+.h1 { font-size: 32px; font-weight: 900; letter-spacing: -.4px; line-height: 1.08; margin: 0; text-wrap: balance; }
+.h2 { font-size: 26px; font-weight: 900; letter-spacing: -.3px; line-height: 1.12; margin: 0; text-wrap: balance; }
+.h3 { font-size: 19px; font-weight: 800; margin: 0; }
+.sub { color: var(--ink2); font-weight: 600; line-height: 1.45; margin: 0; }
+.eyebrow { font-size: 11.5px; font-weight: 900; letter-spacing: 1.3px; text-transform: uppercase; }
+.small { font-size: 13px; color: var(--ink3); font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- components ---------- */
+.card { background: var(--surface); border: 1px solid var(--hair); border-radius: 22px; box-shadow: 0 6px 18px var(--shadow); padding: 16px; }
+.card.big { border-radius: 28px; }
+.btn { height: 56px; border-radius: 999px; font-weight: 900; font-size: 16.5px; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; transition: transform .15s ease, opacity .2s; }
+.btn:active { transform: scale(.97); }
+.btn.primary { background: var(--ink); color: var(--inv); }
+.btn.primary[disabled] { opacity: .25; cursor: default; }
+.btn.secondary { background: var(--muted); color: var(--ink); height: 52px; }
+.btn.accent { background: var(--m-accent); color: #fff; }
+.btn.quiet { height: 40px; color: var(--ink2); font-weight: 800; font-size: 14.5px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border-radius: 999px; background: var(--muted); font-weight: 800; font-size: 13.5px; white-space: nowrap; }
+.chip .ic { font-size: 16px; color: var(--c, var(--ink)); }
+.iconbadge { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: var(--b, var(--muted)); color: var(--c, var(--ink)); flex: none; }
+.iconbadge .ic { font-size: 21px; }
+.circlebtn { width: 42px; height: 42px; border-radius: 50%; background: var(--surface); border: 1px solid var(--hair); display: grid; place-items: center; flex: none; }
+.circlebtn .ic { font-size: 22px; }
+.row { display: flex; align-items: center; gap: 12px; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; min-width: 0; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.divider { height: 1px; background: var(--hair); margin-left: 50px; }
+.progress { height: 6px; border-radius: 6px; background: var(--hair); overflow: hidden; }
+.progress > i { display: block; height: 100%; background: var(--ink); border-radius: 6px; transition: width .6s cubic-bezier(.2,.9,.25,1); }
+.toggle { width: 51px; height: 31px; border-radius: 999px; background: var(--hair); position: relative; flex: none; transition: background .2s; }
+.toggle::after { content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,.2); transition: transform .22s cubic-bezier(.2,.9,.25,1); }
+.toggle.on { background: var(--m-accent, var(--ok)); }
+.toggle.on::after { transform: translateX(20px); }
+.bubble { position: relative; background: var(--surface); border-radius: 18px; padding: 11px 15px; font-weight: 800; font-size: 14.5px; line-height: 1.35; box-shadow: 0 6px 16px var(--shadow); text-align: center; }
+.bubble::after { content: ""; position: absolute; width: 16px; height: 16px; background: var(--surface); transform: rotate(45deg); border-radius: 3px; }
+.bubble.t-bottom::after { bottom: -6px; left: calc(50% - 8px); }
+.bubble.t-left::after { left: -6px; top: calc(50% - 8px); }
+.bubble.t-left { text-align: left; }
+
+/* ---------- mascot ---------- */
+.mascot { position: relative; width: var(--s); height: var(--s); flex: none; }
+.mascot .circle { position: absolute; left: 10.94%; top: 7.03%; width: 78.13%; height: 78.13%; border-radius: 50%; background: var(--t); }
+.mascot img { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; user-select: none; }
+.mascot .deco.light { display: var(--deco-light); }
+.mascot .deco.dark { display: var(--deco-dark); }
+.mascot .deco { animation: deco 2.2s ease-in-out infinite; transform-origin: 80% 25%; }
+.mascot.breathe .body { animation: breathe 3s ease-in-out infinite; transform-origin: 50% 100%; }
+.mascot.float .body { animation: float 4.2s ease-in-out infinite; transform-origin: 50% 100%; }
+.mascot.bounce .body { animation: bounce .62s cubic-bezier(.3,.8,.4,1) infinite; transform-origin: 50% 100%; }
+@keyframes breathe { 0%,100% { transform: scale(1.008, .988) } 50% { transform: scale(.992, 1.012) } }
+@keyframes float { 0%,100% { transform: translateY(2.2%) } 50% { transform: translateY(-2.2%) } }
+@keyframes bounce { 0%,100% { transform: translateY(0) scale(1.05,.94) } 15% { transform: translateY(0) scale(1,1) } 50% { transform: translateY(-7%) } 85% { transform: translateY(0) } }
+@keyframes deco { 0%,100% { transform: scale(1) translateY(0) } 50% { transform: scale(1.07) translateY(-1.5%) } }
+.avatar { border-radius: 50%; overflow: hidden; flex: none; display: block; }
+@media (prefers-reduced-motion: reduce) { .mascot .body, .mascot .deco, .slide-in, .slide-back, .rise, .fade-in { animation: none !important; } }
+
+/* ---------- onboarding ---------- */
+.ob-head { display: flex; align-items: center; gap: 14px; padding: calc(var(--top) + 6px) 20px 6px; }
+.ob-head .back { width: 36px; height: 36px; display: grid; place-items: center; }
+.ob-head .back .ic { font-size: 28px; }
+.ob-head .progress { flex: 1; height: 6px; }
+.host { display: flex; align-items: center; gap: 4px; }
+.option { display: flex; align-items: center; gap: 14px; width: 100%; padding: 11px 14px; text-align: left; background: var(--surface); border: 1px solid var(--hair); border-radius: 20px; box-shadow: 0 3px 8px var(--shadow); font-weight: 800; font-size: 15.5px; transition: transform .15s; }
+.option:active { transform: scale(.98); }
+.option .iconbadge { width: 40px; height: 40px; }
+.option.sel { border: 2px solid var(--ink); padding: 10px 13px; }
+.option.sel .iconbadge { background: var(--ink); color: var(--inv); }
+.option .mark { margin-left: auto; color: var(--ink3); font-size: 24px; }
+.option.sel .mark { color: var(--ink); }
+.lineup { display: flex; flex-direction: column; align-items: center; }
+.lineup .r { display: flex; justify-content: center; }
+.lineup .m { display: flex; flex-direction: column; align-items: center; font-weight: 900; font-size: 14.5px; animation: pop .6s cubic-bezier(.3,.8,.4,1.2) both; }
+.slider { width: 100%; accent-color: var(--blob-accent); height: 30px; }
+.goal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.goal-opt { height: 92px; border-radius: 20px; background: var(--surface); border: 1px solid var(--hair); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; position: relative; }
+.goal-opt b { font-size: 24px; font-weight: 900; }
+.goal-opt span { font-size: 12.5px; font-weight: 700; color: var(--ink2); }
+.goal-opt.sel { background: var(--ink); color: var(--inv); border-color: var(--ink); }
+.goal-opt.sel span { color: var(--inv); opacity: .75; }
+.goal-opt em { position: absolute; top: 8px; right: 8px; font-style: normal; font-size: 10.5px; font-weight: 900; padding: 3px 7px; border-radius: 999px; background: var(--m-tint); color: var(--m-accent); }
+.hold { position: relative; height: 58px; border-radius: 999px; background: var(--muted); overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; }
+.hold .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 58px; border-radius: 999px; background: var(--hc, var(--ink)); display: flex; align-items: center; justify-content: flex-end; color: var(--inv); }
+.hold .fill .ic { width: 58px; text-align: center; font-size: 24px; }
+.hold .label { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; font-size: 16.5px; pointer-events: none; }
+
+/* ---------- app shell ---------- */
+.tabbar { position: absolute; left: 16px; right: 16px; bottom: 18px; height: 62px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(20px) saturate(1.6); -webkit-backdrop-filter: blur(20px) saturate(1.6); border: 1px solid var(--hair); box-shadow: 0 10px 30px var(--shadow); display: flex; padding: 5px; z-index: 20; }
+.tab { flex: 1; border-radius: 999px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; font-size: 11px; font-weight: 800; color: var(--ink); }
+.tab .ic { font-size: 23px; }
+.tab.on { background: var(--muted); color: var(--m-accent); }
+.minibar { position: absolute; left: 16px; right: 16px; bottom: 90px; height: 56px; border-radius: 999px; background: #1e1e22; color: #fff; display: flex; align-items: center; gap: 12px; padding: 0 18px 0 8px; z-index: 19; box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+.minibar b { font-size: 19px; font-weight: 900; margin-left: auto; }
+.startbar { position: absolute; left: 20px; right: 20px; bottom: 90px; z-index: 19; }
+.startbar .btn { box-shadow: 0 10px 24px rgba(0,0,0,.18); }
+.hero { border-radius: 36px; background: color-mix(in srgb, var(--m-tint) 55%, transparent); padding: 18px 0 16px; display: flex; flex-direction: column; align-items: center; }
+.stepper { display: flex; align-items: center; justify-content: space-between; }
+.bigmin { font-size: 60px; font-weight: 900; line-height: 1; text-align: center; }
+.presets { display: flex; gap: 8px; }
+.presets button { flex: 1; height: 38px; border-radius: 999px; background: var(--muted); font-weight: 900; }
+.presets button.on { background: var(--ink); color: var(--inv); }
+.optrow { display: flex; align-items: center; gap: 12px; padding: 10px 0; width: 100%; text-align: left; }
+.optrow input[type=text] { border: 0; background: transparent; flex: 1; min-width: 0; font-weight: 700; font-size: 15.5px; outline: none; }
+.optrow input::placeholder { color: var(--ink3); }
+.optrow select { border: 0; background: transparent; font-weight: 800; color: var(--ink2); text-align: right; outline: none; }
+.title-l { font-size: 34px; font-weight: 900; letter-spacing: -.4px; margin: 0; }
+.ring { transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-linecap: round; }
+.stat { display: flex; flex-direction: column; gap: 4px; }
+.stat .ic { font-size: 18px; color: var(--c); }
+.stat b { font-size: 22px; font-weight: 900; }
+.stat span { font-size: 12px; color: var(--ink2); font-weight: 700; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.seg { display: flex; background: var(--muted); border-radius: 12px; padding: 3px; }
+.seg button { flex: 1; height: 32px; border-radius: 10px; font-weight: 800; font-size: 13.5px; color: var(--ink2); }
+.seg button.on { background: var(--surface); color: var(--ink); box-shadow: 0 2px 6px var(--shadow); }
+.bars { display: flex; align-items: flex-end; gap: 6px; height: 170px; position: relative; padding-top: 10px; }
+.bars .b { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+.bars .b i { width: 100%; border-radius: 7px; background: var(--m-accent); min-height: 4px; }
+.bars .b i.low { opacity: .42; }
+.bars .b span { font-size: 11px; font-weight: 800; color: var(--ink3); }
+.bars .goal { position: absolute; left: 0; right: 0; border-top: 2px dashed var(--ink3); opacity: .6; }
+.dots { display: flex; gap: 4px; }
+.dots i { width: 18px; height: 18px; border-radius: 50%; font-style: normal; font-size: 10px; font-weight: 900; display: grid; place-items: center; background: var(--muted); color: var(--ink3); }
+.dots i.on { background: var(--m-accent); color: #fff; }
+.crewcard { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 6px; border-radius: 28px; background: var(--surface); border: 1px solid var(--hair); position: relative; }
+.crewcard.me { border: 2.5px solid var(--m-accent); }
+.crewcard .lv { font-size: 12px; font-weight: 900; color: var(--m-accent); background: color-mix(in srgb, var(--m-tint) 75%, transparent); padding: 4px 10px; border-radius: 999px; }
+.badge { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--muted); color: var(--ink3); border: 3px solid var(--hair); }
+.badge .ic { font-size: 25px; }
+.badge.on { background: var(--m-tint); color: var(--m-accent); border-color: color-mix(in srgb, var(--m-accent) 45%, transparent); }
+
+/* ---------- sheets & alerts ---------- */
+.scrim { position: absolute; inset: 0; background: var(--scrim); z-index: 40; animation: fadeIn .25s ease both; }
+.sheet { position: absolute; left: 0; right: 0; bottom: 0; max-height: calc(100% - var(--top) - 8px); z-index: 41; background: var(--bg); border-radius: 32px 32px 0 0; display: flex; flex-direction: column; animation: rise .38s cubic-bezier(.2,.9,.25,1) both; }
+.sheet .grab { width: 40px; height: 5px; border-radius: 3px; background: var(--hair); margin: 9px auto 4px; flex: none; }
+.sheet .bar { display: flex; align-items: center; justify-content: space-between; padding: 4px 18px 8px; font-weight: 900; font-size: 16.5px; }
+.sheet .bar button { font-weight: 800; color: var(--m-accent, var(--ink)); }
+.alertwrap { position: absolute; inset: 0; z-index: 51; display: grid; place-items: center; padding: 20px; }
+.alert { width: 280px; max-width: 100%; border-radius: 22px; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); text-align: center; overflow: hidden; animation: pop .3s ease both; box-shadow: 0 20px 50px rgba(0,0,0,.3); }
+.alert .t { padding: 20px 18px 16px; }
+.alert h4 { margin: 0 0 6px; font-size: 16.5px; font-weight: 900; }
+.alert p { margin: 0; font-size: 13.5px; color: var(--ink2); font-weight: 600; line-height: 1.4; }
+.alert .acts { display: flex; border-top: 1px solid var(--hair); }
+.alert .acts button { flex: 1; height: 46px; font-weight: 800; color: var(--orbit-accent); }
+.alert .acts button + button { border-left: 1px solid var(--hair); }
+.alert .acts button.strong { font-weight: 900; }
+.toast { position: absolute; top: calc(var(--top) + 6px); left: 50%; transform: translateX(-50%); z-index: 70; background: var(--surface); border: 1px solid var(--hair); border-radius: 999px; padding: 6px 18px 6px 6px; display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 14px; box-shadow: 0 10px 26px rgba(0,0,0,.14); animation: toast 3s ease both; white-space: nowrap; max-width: 92%; }
+@keyframes toast { 0% { opacity: 0; transform: translate(-50%, -20px) } 10%, 85% { opacity: 1; transform: translate(-50%, 0) } 100% { opacity: 0; transform: translate(-50%, -10px) } }
+
+/* ---------- session ---------- */
+.session { position: absolute; inset: 0; z-index: 35; display: flex; flex-direction: column; background: linear-gradient(to bottom, color-mix(in srgb, var(--m-tint) 75%, var(--bg)), var(--m-wash) 45%, var(--bg)); animation: rise .45s cubic-bezier(.2,.9,.25,1) both; }
+.session .clock { font-size: 74px; font-weight: 900; text-align: center; letter-spacing: -1px; line-height: 1; }
+.ringwrap { position: relative; width: 300px; height: 300px; margin: 8px auto 0; }
+.ringwrap .disc { position: absolute; inset: 6px; border-radius: 50%; background: color-mix(in srgb, var(--surface) 55%, transparent); }
+.ringwrap svg { position: absolute; inset: 0; }
+.ringwrap .mascot { position: absolute; left: 25px; top: 35px; }
+.speed { display: flex; gap: 6px; justify-content: center; }
+.speed button { padding: 5px 11px; border-radius: 999px; font-size: 12px; font-weight: 900; background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--ink2); }
+.speed button.on { background: var(--ink); color: var(--inv); }
+#confetti { position: absolute; inset: 0; pointer-events: none; z-index: 45; }
+
+/* ---------- lock screen + shield ---------- */
+.lock { position: absolute; inset: 0; z-index: 48; color: #fff; background: radial-gradient(120% 80% at 20% 10%, #8aa4dc, transparent 60%), radial-gradient(120% 90% at 90% 90%, #b590c9, transparent 60%), #4b5d8f; display: flex; flex-direction: column; align-items: center; animation: fadeIn .35s ease both; }
+.island { margin-top: 11px; height: 37px; min-width: 250px; border-radius: 22px; background: #000; display: flex; align-items: center; justify-content: space-between; padding: 0 12px 0 7px; gap: 10px; }
+.island b { color: var(--vivid); font-size: 15px; font-weight: 900; }
+.lock .time { font-size: 82px; font-weight: 800; letter-spacing: -2px; margin-top: 20px; line-height: 1; }
+.lock .date { font-size: 18px; font-weight: 800; opacity: .85; margin-top: 6px; }
+.la { width: calc(100% - 24px); margin-top: 34px; background: rgba(22,22,26,.92); border-radius: 24px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.la .tm { font-size: 34px; font-weight: 900; margin-left: auto; color: #fff; }
+.la .bar { height: 5px; border-radius: 4px; background: rgba(255,255,255,.18); overflow: hidden; }
+.la .bar i { display: block; height: 100%; background: var(--vivid); }
+.la .lb { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.18); color: #fff; }
+.fakeapps { display: flex; gap: 18px; margin-top: auto; margin-bottom: 30px; flex-wrap: wrap; justify-content: center; padding: 0 20px; }
+.fakeapp { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #fff; }
+.fakeapp i { width: 60px; height: 60px; border-radius: 15px; display: grid; place-items: center; font-style: normal; font-size: 26px; font-weight: 900; color: #fff; box-shadow: 0 6px 14px rgba(0,0,0,.2); }
+.shield { position: absolute; inset: 0; z-index: 49; background: color-mix(in srgb, var(--m-tint) 70%, var(--bg)); display: flex; flex-direction: column; align-items: center; padding: calc(var(--top) + 40px) 28px 30px; text-align: center; animation: fadeIn .3s ease both; }
+.applet { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 15px; flex: none; }
+</style>
+
+</head>
+<body>
+<div class="stage">
+  <aside class="about">
+    <h1>Focus Crew</h1>
+    <p>This is a playable web preview of the iPhone app. Go through the onboarding, meet your companion, start a focus session and try opening a blocked app.</p>
+    <p class="note">On a real iPhone, Focus Crew blocks apps with Apple's Screen Time and shows widgets and a Live Activity. Here those parts are simulated. Your progress stays in this browser only.</p>
+    <div class="row">
+      <button class="pill-btn" data-a="restart">Restart onboarding</button>
+      <button class="pill-btn" data-a="sample">Add a sample week</button>
+    </div>
+  </aside>
+  <div class="device" id="device">
+    <div class="notch" aria-hidden="true"></div>
+    <div class="statusbar" id="statusbar" aria-hidden="true"><span id="sbtime">9:41</span><span><span class="ic">signal_cellular_alt</span> <span class="ic">wifi</span> <span class="ic">battery_full</span></span></div>
+    <div id="app"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+// =====================================================================
+// Data
+// =====================================================================
+const ORDER = ['orbit', 'spark', 'leaf', 'pebble', 'blob'];
+const M = {
+  orbit: { name: 'Orbit', title: 'The Focus Companion', trait: 'Focus', icon: 'adjust', tagline: 'Calm, steady, always in the zone.', minutes: 25, vivid: '#7DA6F2',
+    bio: 'Orbit floats you away from the noise. A quiet co-pilot for deep work, Orbit keeps you on course one session at a time.', specialty: 'Classic 25-minute deep-work sessions',
+    greet: ['Systems ready. Shall we focus?', 'Clear skies for deep work today.', "Let's drift away from the noise.", 'One small step for focus.'],
+    enc: ['Steady orbit. Keep going.', "You're in the zone. I can tell.", 'Distractions are light-years away.', 'Smooth flying so far.'],
+    done: ['Mission complete! Beautiful focus.', 'Touchdown. That was stellar.', 'Perfect landing. Proud of you.'],
+    quit: ['Re-entry happens. Every launch teaches us something.', "We'll relaunch soon. The stars aren't going anywhere."],
+    rest: ['Floating in zero-g for a minute.', 'Look at something far away. Like the moon.'],
+    shield: 'Orbit is keeping you on course' },
+  spark: { name: 'Spark', title: 'The Motivation Boost', trait: 'Energy', icon: 'bolt', tagline: 'Small wins, big momentum.', minutes: 15, vivid: '#FFAB5E',
+    bio: 'Spark turns “I’ll do it later” into “I’m doing it now.” Short, punchy sessions that build momentum fast.', specialty: 'Quick 15-minute sprints that beat procrastination',
+    greet: ["Let's go! What are we crushing today?", "I've got energy for both of us!", 'Tiny start, huge momentum.', "Five minutes in and you'll be flying."],
+    enc: ["You're on fire! Literally, I'm a flame.", "Don't stop now. Momentum is everything!", 'Look at you go!', 'This is the good part. Push!'],
+    done: ['Boom! Session crushed!', "That's what I'm talking about!", 'You just turned “later” into “done”!'],
+    quit: ["No worries, we'll reignite in a bit!", "Even sparks flicker. Let's try again soon."],
+    rest: ['Recharge time! Shake it out.', 'Quick break, then we go again!'],
+    shield: 'Spark says: not now, superstar!' },
+  leaf: { name: 'Leaf', title: 'The Rest Guardian', trait: 'Recovery', icon: 'dark_mode', tagline: 'Slow down to speed up.', minutes: 30, vivid: '#8FC780',
+    bio: 'Leaf reminds you that rest is part of the work. Gentle sessions, real breaks and a phone-free wind-down every night.', specialty: 'Balanced sessions, real breaks and a bedtime wind-down',
+    greet: ["Breathe in. Let's take this slowly.", 'No rush. One calm session at a time.', 'Rested minds focus best.', "Hi… let's do this gently."],
+    enc: ["Nice and steady. You're doing great.", 'Remember to unclench your jaw.', 'Slow and steady wins.', 'Just this one task. Nothing else.'],
+    done: ['Lovely work. Now, a real break.', 'Peaceful and productive. My favourite.', 'Time to stretch, sip water and rest your eyes.'],
+    quit: ["It's okay to stop. Rest, then return.", "Be kind to yourself. We'll try again."],
+    rest: ['Stretch, sip some water, breathe.', 'This is my favourite part.'],
+    shield: 'Leaf is guarding your calm' },
+  pebble: { name: 'Pebble', title: 'The Discipline Coach', trait: 'Habits', icon: 'fitness_center', tagline: 'No excuses. Just reps.', minutes: 45, vivid: '#B2BFD6',
+    bio: "Pebble is small but unshakeable. Strict mode on, apps locked, and a coach that won't let you quit early.", specialty: "Strict sessions that can't be skipped",
+    greet: ['Phone down. Focus up.', "Discipline is a habit. Let's train.", 'No excuses today.', "Rocks don't scroll. Neither do we."],
+    enc: ['Hold the line.', "Stay solid. You've got this.", "Discomfort means it's working.", "Not one tap. I'm watching."],
+    done: ['Solid work. Respect.', 'Another rep in the bank.', 'Unshakeable. Same time tomorrow.'],
+    quit: ['We stop today, we come back stronger.', 'Setbacks are part of training. Reset.'],
+    rest: ['Short rest. Then back to work.', "Recover. Don't scroll."],
+    shield: 'Pebble says: hold the line' },
+  blob: { name: 'Blob', title: 'The Progress Tracker', trait: 'Progress', icon: 'trending_up', tagline: 'Every minute counts.', minutes: 25, vivid: '#B5A6F5',
+    bio: "Blob loves numbers. It tracks every focused minute, celebrates every streak and shows you how far you've come.", specialty: 'Streaks, stats and weekly progress',
+    greet: ['Ready to add some minutes to the chart?', 'Your graph wants to go up today!', 'Every session counts. I count them.', "Let's make today's bar the tallest."],
+    enc: ["Data says: you're doing great.", 'Progress bar loading… keep going!', 'Each minute is a new data point.', 'Trend line: up and to the right.'],
+    done: ['New data point unlocked!', 'Look at that bar grow!', 'Your weekly trend just went up.'],
+    quit: ['Partial minutes still count on my chart.', 'Every bit of focus is logged. Try again soon.'],
+    rest: ['Breaks are part of the data too.', 'Resting improves your next session.'],
+    shield: 'Blob is protecting your streak' },
+};
+const RESTING = { orbit: 'happy', spark: 'happy', leaf: 'sleepy', pebble: 'focused', blob: 'happy' };
+
+// [key, title, icon, weights]
+const Q = {
+  age: { title: 'How old are you?', sub: 'This helps us tailor your plan.', host: 'orbit', line: "Let's get to know you!", factor: .5, opts: [
+    ['u18', 'Under 18', 'person', { spark: 1 }], ['18', '18 – 24', 'person', { spark: 1 }], ['25', '25 – 34', 'person', { orbit: .5 }],
+    ['35', '35 – 44', 'person', { orbit: .5, blob: .5 }], ['45', '45 – 54', 'person', { leaf: 1 }], ['55', '55 or older', 'person', { leaf: 1 }]] },
+  role: { title: 'What best describes you?', sub: "We'll suggest sessions that fit your days.", host: 'spark', line: 'What fills your days?', factor: 1, opts: [
+    ['student', 'Student', 'school', { orbit: 1, spark: 1 }], ['pro', 'Working professional', 'work', { orbit: 1.5 }], ['creator', 'Creator or freelancer', 'brush', { spark: 1.5 }],
+    ['founder', 'Founder or business owner', 'lightbulb', { pebble: 1, blob: 1 }], ['parent', 'Parent or caregiver', 'family_restroom', { leaf: 1.5 }], ['other', 'Something else', 'auto_awesome', {}]] },
+  struggles: { multi: true, title: 'What do you struggle with most?', sub: 'Pick everything that sounds like you.', host: 'pebble', line: 'No judgement here. Pinky promise.', factor: 1, opts: [
+    ['scrolling', 'Endless scrolling', 'swipe_down', { pebble: 2, orbit: .5 }], ['procrastination', 'Procrastinating', 'hourglass_top', { spark: 2.5 }],
+    ['focus', 'Staying focused', 'adjust', { orbit: 2.5 }], ['sleep', 'Phone in bed at night', 'bed', { leaf: 2.5 }],
+    ['notifications', 'Constant notifications', 'notifications_active', { orbit: 1, pebble: 1 }], ['motivation', 'Low motivation', 'battery_2_bar', { spark: 2, blob: .5 }],
+    ['multitasking', 'Jumping between apps', 'layers', { orbit: 1.5, pebble: .5 }], ['breaks', 'Forgetting to take breaks', 'coffee', { leaf: 2 }]] },
+  sinks: { multi: true, title: 'Where does your time disappear?', sub: "We'll suggest these for your block list.", host: 'leaf', line: 'Which apps pull you in?', factor: .5, opts: [
+    ['social', 'Social media', 'group', { pebble: 1 }], ['short', 'Short videos', 'smart_display', { pebble: 1 }], ['streaming', 'YouTube & streaming', 'tv', { leaf: .5, pebble: .5 }],
+    ['games', 'Games', 'sports_esports', { spark: .5, pebble: .5 }], ['news', 'News & Reddit', 'newspaper', { leaf: .5 }], ['shopping', 'Shopping', 'shopping_bag', { blob: .5 }],
+    ['messaging', 'Messaging', 'chat', { orbit: .5 }], ['work', 'Email & work chat', 'mail', { orbit: 1 }]] },
+  times: { multi: true, title: 'When is it hardest to put your phone down?', sub: 'Pick all that apply.', host: 'orbit', line: 'Timing matters a lot.', factor: .7, opts: [
+    ['morning', 'Right after waking up', 'wb_twilight', { spark: 1 }], ['workday', 'During work or class', 'laptop_mac', { orbit: 1 }], ['afternoon', 'The afternoon slump', 'wb_sunny', { spark: 1 }],
+    ['evening', 'Evenings at home', 'weekend', { blob: .5, leaf: .5 }], ['bedtime', 'In bed before sleep', 'bedtime', { leaf: 1.5 }]] },
+  span: { title: 'How long can you focus before reaching for your phone?', sub: "Be honest, there's no wrong answer.", host: 'spark', line: 'Quick check of your focus muscles!', factor: 1, opts: [
+    ['u5', 'Less than 5 minutes', 'speed', { spark: 1.5 }], ['5', '5 – 15 minutes', 'speed', { spark: 1.5 }], ['15', '15 – 30 minutes', 'speed', { orbit: 1 }],
+    ['30', '30 – 60 minutes', 'speed', { orbit: .5, pebble: .5 }], ['60', 'More than an hour', 'speed', { pebble: 1 }]] },
+  goal: { title: "What's your main goal?", sub: 'Your crew will cheer you on towards it.', host: 'leaf', line: 'What would make life better?', factor: 1.5, opts: [
+    ['deep', 'Do deep, focused work', 'psychology', { orbit: 2 }], ['study', 'Study and learn better', 'menu_book', { orbit: 1, blob: 1 }], ['sleep', 'Sleep better', 'bedtime', { leaf: 2 }],
+    ['presence', 'Be present with people', 'favorite', { leaf: 1, pebble: 1 }], ['habits', 'Build better habits', 'verified', { pebble: 1.5, blob: 1 }], ['calm', 'Feel calmer, less anxious', 'spa', { leaf: 1.5 }]] },
+  motivation: { title: 'How do you like to be motivated?', sub: 'This decides who joins you.', host: 'blob', line: 'Last one! This decides who joins you.', factor: 1.5, opts: [
+    ['gentle', 'Gentle encouragement', 'thumb_up', { orbit: 2 }], ['tough', 'Tough love, no excuses', 'fitness_center', { pebble: 3 }], ['data', 'Stats, charts and streaks', 'bar_chart', { blob: 3 }],
+    ['energy', 'Hype and high energy', 'local_fire_department', { spark: 3 }], ['calm', 'Calm and quiet support', 'air', { leaf: 3 }]] },
+};
+const QUESTIONS = ['age', 'role', 'hours', 'struggles', 'sinks', 'times', 'span', 'goal', 'motivation'];
+const STEPS = ['welcome', 'introBlock', 'introFocus', 'introProgress', 'name', 'age', 'role', 'hours', 'struggles', 'sinks', 'times', 'span', 'goal', 'motivation',
+  'reality', 'analyzing', 'reveal', 'plan', 'dailyGoal', 'screenTime', 'apps', 'notifications', 'pledge', 'paywall'];
+const SPAN_SESSION = { u5: 10, 5: 15, 15: 25, 30: 45, 60: 60 };
+const SPAN_GOAL = { u5: 45, 5: 60, 15: 90, 30: 120, 60: 180 };
+const MID_AGE = { u18: 16, 18: 21, 25: 30, 35: 40, 45: 50, 55: 60 };
+const MOTIVE_MASCOT = { gentle: 'orbit', tough: 'pebble', data: 'blob', energy: 'spark', calm: 'leaf' };
+
+// Apps for the simulated Screen Time picker
+const APPS = [
+  ['Instagram', '#D9468C', 'social'], ['TikTok', '#111111', 'short'], ['YouTube', '#E2302B', 'streaming'], ['X', '#222222', 'social'],
+  ['Snapchat', '#E8C51C', 'social'], ['Reddit', '#F05A23', 'news'], ['Netflix', '#B8121B', 'streaming'], ['Facebook', '#2F64D6', 'social'],
+  ['WhatsApp', '#26A85A', 'messaging'], ['Twitch', '#7B4FD6', 'streaming'], ['Amazon', '#E79A1B', 'shopping'], ['Games', '#5865F2', 'games'],
+  ['News', '#F23D50', 'news'], ['Slack', '#4A154B', 'work'], ['Mail', '#2E82F0', 'work'], ['Pinterest', '#D02331', 'social'],
+];
+const SOUNDS = [['off', 'Off', 'volume_off'], ['brown', 'Brown noise', 'graphic_eq'], ['pink', 'Pink noise', 'graphic_eq'], ['white', 'White noise', 'air'], ['rain', 'Soft rain', 'rainy'], ['ocean', 'Ocean waves', 'waves']];
+const TEMPLATES = [
+  { name: 'Work hours', icon: 'work', start: '09:00', end: '17:00', days: [1, 2, 3, 4, 5], mascot: 'orbit' },
+  { name: 'Study time', icon: 'menu_book', start: '16:00', end: '19:00', days: [1, 2, 3, 4, 5], mascot: 'blob' },
+  { name: 'Bedtime', icon: 'bedtime', start: '22:30', end: '07:00', days: [0, 1, 2, 3, 4, 5, 6], mascot: 'leaf' },
+  { name: 'Morning routine', icon: 'wb_twilight', start: '06:30', end: '09:00', days: [0, 1, 2, 3, 4, 5, 6], mascot: 'spark' },
+  { name: 'No-phone dinner', icon: 'restaurant', start: '19:00', end: '20:30', days: [0, 1, 2, 3, 4, 5, 6], mascot: 'pebble' },
+];
+const BADGES = [
+  ['first', 'Lift-off', 'Complete your first focus session.', 'send', 'orbit'], ['s3', 'On a roll', 'Focus 3 days in a row.', 'local_fire_department', 'spark'],
+  ['s7', 'Week warrior', 'Focus 7 days in a row.', 'whatshot', 'blob'], ['s30', 'Unstoppable', 'Focus 30 days in a row.', 'workspace_premium', 'pebble'],
+  ['h1', 'First hour', 'Focus for 1 hour in total.', 'schedule', 'orbit'], ['h10', 'Deep diver', 'Focus for 10 hours in total.', 'water', 'leaf'],
+  ['h50', 'Focus master', 'Focus for 50 hours in total.', 'landscape', 'blob'], ['marathon', 'Marathon', 'Finish a single 90-minute session.', 'directions_run', 'pebble'],
+  ['early', 'Early bird', 'Finish a session before 8 AM.', 'wb_twilight', 'spark'], ['night', 'Night owl', 'Finish a session after 10 PM.', 'bedtime', 'leaf'],
+  ['iron', 'Iron will', 'Finish a session in strict mode.', 'lock', 'pebble'], ['five', 'Five a day', 'Finish 5 sessions in one day.', 'front_hand', 'spark'],
+  ['tour', 'Crew tour', 'Focus with all five crew members.', 'groups', 'orbit'], ['goal', 'Goal getter', 'Hit your daily focus goal.', 'track_changes', 'blob'],
+  ['weekend', 'Weekend focus', 'Finish a session on a weekend.', 'wb_sunny', 'spark'], ['planner', 'Planner', 'Create a blocking schedule.', 'event_repeat', 'pebble'],
+];
+const DAYL = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
+// =====================================================================
+// State
+// =====================================================================
+const KEY = 'focus-crew-web-v1';
+const fresh = () => ({
+  stage: 'onboarding', step: 0,
+  ob: { name: '', age: null, role: null, hours: 5, struggles: [], sinks: [], times: [], span: null, goal: null, motivation: null },
+  mascot: 'orbit', matched: null, goalMin: 90, sessionMin: 25, breakMin: 5, strictDefault: false, sound: 'off',
+  screenTime: false, blockList: [], notifications: false, reminder: '09:00', pledged: false,
+  history: [], schedules: [], unlocked: {}, tab: 'focus', active: null, createdAt: Date.now(),
+});
+let S;
+try { S = JSON.parse(localStorage.getItem(KEY)) || fresh(); } catch (e) { S = fresh(); }
+S = Object.assign(fresh(), S);
+const U = { dir: 1, sheet: null, completion: null, gaveUp: null, alert: null, lock: false, shield: null, range: 'week', speed: 1,
+  seed: Math.floor(Math.random() * 100), revealed: false, detailMood: null, draft: null, pickerFor: null, endConfirm: false, holding: null };
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
+
+// =====================================================================
+// Helpers
+// =====================================================================
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const ic = (n, cls = '') => `<span class="ic ${cls}" aria-hidden="true">${n}</span>`;
+const pick = (arr, seed) => arr[Math.abs(seed) % arr.length];
+const firstName = () => (S.ob.name.trim().split(/\s+/)[0] || 'friend');
+const mv = (m) => `--t:var(--${m}-tint);--m-tint:var(--${m}-tint);--m-accent:var(--${m}-accent);--m-wash:var(--${m}-wash);--vivid:${M[m].vivid}`;
+const clock = (sec) => { sec = Math.max(0, Math.ceil(sec)); const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s = sec % 60; return h ? `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}` : `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; };
+const dur = (min) => { min = Math.round(min); const h = Math.floor(min / 60), m = min % 60; return h && m ? `${h}h ${m}m` : h ? `${h}h` : `${m}m`; };
+const longDur = (min) => { min = Math.round(min); const h = Math.floor(min / 60), m = min % 60; return h && m ? `${h} hr ${m} min` : h ? `${h} hr` : `${m} min`; };
+const timeStr = (d) => d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+const dayStart = (d) => { const x = new Date(d); x.setHours(0, 0, 0, 0); return x.getTime(); };
+const sameDay = (a, b) => dayStart(a) === dayStart(b);
+
+function mascot(m, mood, size, o = {}) {
+  const circle = o.circle !== false, motion = o.motion || 'breathe';
+  const deco = o.deco !== false && (m !== 'leaf' || mood === 'sleepy');
+  return `<div class="mascot ${motion}" style="--s:${size}px;${mv(m)}" role="img" aria-label="${M[m].name}, ${M[m].title}">
+    ${circle ? '<div class="circle"></div>' : ''}
+    ${deco ? `<img class="deco light" src="img/${m}_deco.webp" alt=""><img class="deco dark" src="img/${m}_deco_dark.webp" alt="">` : ''}
+    <img class="body" data-m="${m}" data-mood="${mood}" src="img/${m}_${mood}.webp" alt="">
+  </div>`;
+}
+const avatar = (m, size, mood = 'happy') => `<img class="avatar" width="${size}" height="${size}" src="img/${m}_avatar${mood === 'happy' ? '' : '_' + mood}.webp" alt="${M[m].name}">`;
+const bubble = (text, tail = 'bottom') => `<div class="bubble t-${tail}">${esc(text)}</div>`;
+const chip = (t, i, c = 'var(--ink)', bg = '') => `<span class="chip" style="--c:${c};${bg ? 'background:' + bg : ''}">${ic(i)}${esc(t)}</span>`;
+const badgeIcon = (i, b = 'var(--m-tint)', c = 'var(--m-accent)') => `<span class="iconbadge" style="--b:${b};--c:${c}">${ic(i)}</span>`;
+const toggle = (on, action, extra = '') => `<button class="toggle ${on ? 'on' : ''}" role="switch" aria-checked="${on}" data-a="${action}" ${extra}></button>`;
+const appTile = (name, size = 34) => { const a = APPS.find((x) => x[0] === name) || [name, '#888']; return `<span class="applet" style="background:${a[1]};width:${size}px;height:${size}px">${esc(name[0])}</span>`; };
+
+// =====================================================================
+// Stats
+// =====================================================================
+const focusSessions = () => S.history.filter((h) => h.kind !== 'rest');
+const secOnDay = (d) => focusSessions().filter((h) => sameDay(h.start, d)).reduce((a, h) => a + h.focused, 0);
+const isStreakDay = (d) => focusSessions().some((h) => h.completed && sameDay(h.start, d));
+function streak() {
+  let d = new Date(); d.setHours(12, 0, 0, 0);
+  if (!isStreakDay(d)) { d.setDate(d.getDate() - 1); if (!isStreakDay(d)) return 0; }
+  let n = 0; while (isStreakDay(d)) { n++; d.setDate(d.getDate() - 1); } return n;
+}
+function bestStreak() {
+  const days = [...new Set(focusSessions().filter((h) => h.completed).map((h) => dayStart(h.start)))].sort((a, b) => a - b);
+  let best = 0, run = 0, prev = null;
+  for (const d of days) { run = prev !== null && Math.round((d - prev) / 864e5) === 1 ? run + 1 : 1; best = Math.max(best, run); prev = d; }
+  return best;
+}
+const totalSec = () => focusSessions().reduce((a, h) => a + h.focused, 0);
+function daily(n) { const out = []; const d = new Date(); d.setHours(12, 0, 0, 0); for (let i = n - 1; i >= 0; i--) { const x = new Date(d); x.setDate(d.getDate() - i); out.push({ date: x, min: Math.round(secOnDay(x) / 60) }); } return out; }
+const bondMinutes = (m) => Math.round(focusSessions().filter((h) => h.mascot === m).reduce((a, h) => a + h.focused, 0) / 60);
+const threshold = (l) => (l <= 1 ? 0 : 30 * (l - 1) * l);
+function bond(min) { let l = 1; while (min >= threshold(l + 1)) l++; const lo = threshold(l), hi = threshold(l + 1); return { level: l, progress: (min - lo) / (hi - lo), toNext: hi - min, title: ['New friends', 'Getting along', 'Focus buddies', 'Trusted partners', 'Best friends'][l - 1] || (l <= 8 ? 'Inseparable' : 'Legendary duo') }; }
+function badgeProgress(id) {
+  const done = focusSessions().filter((h) => h.completed), tot = totalSec() / 60, bs = bestStreak();
+  const perDay = {}; done.forEach((h) => { const k = dayStart(h.start); perDay[k] = (perDay[k] || 0) + 1; });
+  const minPerDay = {}; focusSessions().forEach((h) => { const k = dayStart(h.start); minPerDay[k] = (minPerDay[k] || 0) + h.focused / 60; });
+  const b = (v) => [v ? 1 : 0, 1];
+  switch (id) {
+    case 'first': return [Math.min(1, done.length), 1];
+    case 's3': return [Math.min(3, bs), 3]; case 's7': return [Math.min(7, bs), 7]; case 's30': return [Math.min(30, bs), 30];
+    case 'h1': return [Math.min(60, tot), 60]; case 'h10': return [Math.min(600, tot), 600]; case 'h50': return [Math.min(3000, tot), 3000];
+    case 'marathon': return b(done.some((h) => h.focused >= 5400));
+    case 'early': return b(done.some((h) => new Date(h.end).getHours() < 8));
+    case 'night': return b(done.some((h) => new Date(h.end).getHours() >= 22));
+    case 'iron': return b(done.some((h) => h.strict));
+    case 'five': return [Math.min(5, Math.max(0, ...Object.values(perDay))), 5];
+    case 'tour': return [new Set(focusSessions().map((h) => h.mascot)).size, 5];
+    case 'goal': return [Math.min(S.goalMin, Math.max(0, ...Object.values(minPerDay))), S.goalMin];
+    case 'weekend': return b(done.some((h) => [0, 6].includes(new Date(h.start).getDay())));
+    case 'planner': return b(S.schedules.length > 0);
+  }
+  return [0, 1];
+}
+function checkBadges() {
+  const fresh = [];
+  for (const [id] of BADGES) { const [c, t] = badgeProgress(id); if (c >= t && !S.unlocked[id]) { S.unlocked[id] = Date.now(); fresh.push(id); } }
+  return fresh;
+}
+
+// =====================================================================
+// Matching
+// =====================================================================
+function match() {
+  const sc = Object.fromEntries(ORDER.map((m) => [m, 0]));
+  const add = (w, f = 1) => { for (const k in w) sc[k] += w[k] * f; };
+  const one = (q) => { const v = S.ob[q]; if (v) { const o = Q[q].opts.find((x) => x[0] === v); if (o) add(o[3], Q[q].factor); } };
+  const many = (q) => S.ob[q].forEach((v) => { const o = Q[q].opts.find((x) => x[0] === v); if (o) add(o[3], Q[q].factor); });
+  ['age', 'role', 'span', 'goal', 'motivation'].forEach(one); ['struggles', 'sinks', 'times'].forEach(many);
+  if (S.ob.hours >= 7) add({ pebble: 1.5 });
+  const tie = MOTIVE_MASCOT[S.ob.motivation] || 'orbit';
+  let best = tie; for (const m of ORDER) if (sc[m] > sc[best]) best = m;
+  return best;
+}
+function reasons(m) {
+  const o = S.ob, out = [];
+  const goalTitle = o.goal ? Q.goal.opts.find((x) => x[0] === o.goal)[1].toLowerCase() : '';
+  if (m === 'orbit') { if (o.struggles.includes('focus')) out.push('You told us staying focused is hard. Orbit is built for deep work.'); if (o.goal === 'deep' || o.goal === 'study') out.push(`You want to ${goalTitle}. Orbit's sessions are made for exactly that.`); if (o.motivation === 'gentle') out.push('You like gentle encouragement. Orbit never nags.'); }
+  if (m === 'spark') { if (o.struggles.includes('procrastination')) out.push('Procrastination is your nemesis. Spark makes starting easy.'); if (o.struggles.includes('motivation')) out.push('Low motivation? Spark brings the energy.'); if (o.span === 'u5' || o.span === '5') out.push('Short, winnable sprints fit your attention span right now.'); if (o.motivation === 'energy') out.push('You asked for hype. Spark has plenty.'); }
+  if (m === 'leaf') { if (o.struggles.includes('sleep') || o.times.includes('bedtime')) out.push('Your phone follows you to bed. Leaf guards your wind-down.'); if (o.struggles.includes('breaks')) out.push('You forget to take breaks. Leaf never does.'); if (o.goal === 'calm' || o.goal === 'sleep') out.push(`You want to ${goalTitle}. That's Leaf's specialty.`); }
+  if (m === 'pebble') { if (o.struggles.includes('scrolling')) out.push('Endless scrolling needs a firm hand. Pebble locks the door.'); if (o.hours >= 6) out.push(`${Math.round(o.hours)} hours a day is a lot. Pebble's strict mode helps you cut back.`); if (o.motivation === 'tough') out.push('You asked for tough love. Pebble delivers.'); }
+  if (m === 'blob') { if (o.motivation === 'data') out.push('You love seeing progress. Blob turns every minute into a chart.'); if (o.goal === 'habits') out.push('Habits stick when you can see them. Blob tracks every streak.'); if (o.role === 'founder') out.push('You run on metrics. So does Blob.'); }
+  if (!out.length) out.push(`${M[m].name}'s style matches how you answered: ${M[m].tagline.toLowerCase()}`);
+  if (out.length < 2) out.push(M[m].specialty + '.');
+  return out.slice(0, 3);
+}
+const remainingYears = () => Math.max(5, 80 - (MID_AGE[S.ob.age] || 30));
+
+// =====================================================================
+// Sound (Web Audio)
+// =====================================================================
+let ctx = null, noise = null, noiseGain = null;
+function audio() { if (!ctx) { try { ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { ctx = null; } } if (ctx && ctx.state === 'suspended') ctx.resume(); return ctx; }
+function makeNoise(kind) {
+  const c = audio(); if (!c) return null;
+  const secs = kind === 'ocean' ? 9 : 6, len = Math.floor(c.sampleRate * secs);
+  const buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
+  let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0, br = 0, drop = 0, tone = 0, ph = 0;
+  for (let i = 0; i < len; i++) {
+    const w = Math.random() * 2 - 1;
+    b0 = .99886 * b0 + w * .0555179; b1 = .99332 * b1 + w * .0750759; b2 = .969 * b2 + w * .153852; b3 = .8665 * b3 + w * .3104856; b4 = .55 * b4 + w * .5329522; b5 = -.7616 * b5 - w * .016898;
+    const pink = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + w * .5362) * .11; b6 = w * .115926;
+    br = (br + .02 * w) / 1.02; const brown = br * 3.2;
+    let v = 0;
+    if (kind === 'white') v = w * .16; else if (kind === 'pink') v = pink * .9; else if (kind === 'brown') v = brown * .9;
+    else if (kind === 'rain') { if (drop < .001 && Math.random() < .0009) { drop = .15 + Math.random() * .25; tone = 1800 + Math.random() * 2400; } drop *= .9985; ph += tone / c.sampleRate; v = pink * .45 + brown * .35 + Math.sin(ph * 2 * Math.PI) * drop * .25; }
+    else if (kind === 'ocean') { const sw = .55 + .45 * Math.sin(2 * Math.PI * i / len); v = brown * (.35 + .75 * sw); }
+    d[i] = v;
+  }
+  // crossfade the loop seam
+  const fade = Math.floor(c.sampleRate * .25); for (let i = 0; i < fade; i++) { const t = i / fade; d[i] = d[i] * t + d[len - fade + i] * (1 - t); }
+  return buf;
+}
+function playSound(kind) {
+  stopSound(); if (kind === 'off') return; const c = audio(); if (!c) return;
+  const buf = makeNoise(kind); if (!buf) return;
+  noise = c.createBufferSource(); noise.buffer = buf; noise.loop = true;
+  noiseGain = c.createGain(); noiseGain.gain.value = 0; noise.connect(noiseGain).connect(c.destination); noise.start();
+  noiseGain.gain.linearRampToValueAtTime(.55, c.currentTime + 1.2);
+}
+function stopSound() { if (noise) { try { noise.stop(); } catch (e) {} noise.disconnect(); noise = null; } }
+function chime(notes = [1046.5, 1318.5, 1568]) {
+  const c = audio(); if (!c) return;
+  notes.forEach((f, i) => {
+    const t = c.currentTime + i * .14, o = c.createOscillator(), o2 = c.createOscillator(), g = c.createGain();
+    o.frequency.value = f; o2.frequency.value = f * 2; o.type = o2.type = 'sine';
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.18, t + .01); g.gain.exponentialRampToValueAtTime(.0001, t + 1.6);
+    const g2 = c.createGain(); g2.gain.value = .35; o.connect(g); o2.connect(g2).connect(g); g.connect(c.destination);
+    o.start(t); o2.start(t); o.stop(t + 1.7); o2.stop(t + 1.7);
+  });
+}
+
+// =====================================================================
+// Views: onboarding
+// =====================================================================
+function obHeader() {
+  const p = S.step / (STEPS.length - 1);
+  return `<div class="ob-head"><button class="back" data-a="obBack" aria-label="Back" ${S.step === 0 ? 'style="visibility:hidden"' : ''}>${ic('chevron_left')}</button>
+    <div class="progress"><i style="width:${(p * 100).toFixed(1)}%"></i></div><span style="width:36px"></span></div>`;
+}
+const page = (content, footer, o = {}) => `<div class="screen ${U.dir > 0 ? 'slide-in' : 'slide-back'}" style="${o.style || ''}">${o.noHead ? '' : obHeader()}
+  <div class="scroll"><div class="pad stack" style="padding-top:${o.noHead ? 'calc(var(--top) + 8px)' : '12px'};padding-bottom:24px">${content}</div></div>
+  <div class="footer">${footer}</div></div>`;
+const host = (m, text, mood = 'idle') => `<div class="host">${mascot(m, mood, 78, { deco: false })}${bubble(text, 'left')}</div>`;
+const qHead = (key, title, sub) => {
+  const q = Q[key] || { host: 'blob', line: 'I love numbers. Give me one!' }, n = QUESTIONS.indexOf(key) + 1;
+  return `${host(q.host, q.line)}<div class="eyebrow" style="color:var(--${q.host}-accent)">Question ${n} of ${QUESTIONS.length}</div><h2 class="h2">${esc(title)}</h2><p class="sub">${esc(sub)}</p>`;
+};
+
+function obView() {
+  const step = STEPS[S.step], o = S.ob;
+  switch (step) {
+    case 'welcome': {
+      const mem = (m, mood, i) => `<div class="m" style="animation-delay:${.12 + i * .09}s">${mascot(m, mood, 128, { motion: 'float' })}<span style="margin-top:-2px">${M[m].name}</span></div>`;
+      return `<div class="screen fade-in"><div class="scroll"><div class="pad col" style="align-items:center;text-align:center;padding-top:calc(var(--top) + 26px);gap:6px">
+        <div style="font-size:21px;font-weight:800;color:var(--ink2)">Meet your</div><div style="font-size:42px;font-weight:900;letter-spacing:-.6px">Focus Crew</div>
+        <div class="lineup" style="margin-top:22px"><div class="r" style="gap:0;margin-bottom:-8px">${mem('orbit', 'happy', 0)}${mem('spark', 'happy', 1)}${mem('leaf', 'sleepy', 2)}</div>
+        <div class="r">${mem('pebble', 'focused', 3)}${mem('blob', 'happy', 4)}</div></div>
+        <p class="sub" style="margin-top:22px;padding:0 10px">Five tiny companions that help you put the phone down, block distractions and actually get things done.</p></div></div>
+        <div class="footer"><button class="btn primary" data-a="obNext">Get started</button><div class="small" style="text-align:center">Takes about 3 minutes. Everything stays on your device.</div></div></div>`;
+    }
+    case 'introBlock': case 'introFocus': case 'introProgress': {
+      const d = { introBlock: ['pebble', 'focused', 'Block the apps that steal your time', 'Pick your distractions once. Pebble locks them during focus sessions and on your schedule.', [['lock', 'Apps, categories and websites'], ['event_repeat', 'Automatic schedules'], ['back_hand', 'Strict mode for tough days']]],
+        introFocus: ['orbit', 'focused', 'Focus with a friend by your side', "Start a timer and your companion focuses with you: on the Lock Screen, the Dynamic Island and even next to your Mac's notch.", [['timer', 'Focus timer with breaks'], ['smartphone', 'Live Activity & widgets'], ['laptop_mac', 'Mac notch companion']]],
+        introProgress: ['blob', 'happy', 'Watch your progress grow', 'Every focused minute counts. Build streaks, unlock badges and grow your bond with the crew.', [['local_fire_department', 'Daily streaks'], ['bar_chart', 'Weekly insights'], ['workspace_premium', '16 badges to collect']]] }[step];
+      return page(`<div style="height:260px;border-radius:36px;background:var(--${d[0]}-wash);display:grid;place-items:center">${mascot(d[0], d[1], 230, { motion: 'float' })}</div>
+        <h1 class="h1">${d[2]}</h1><p class="sub">${d[3]}</p>
+        <div class="stack" style="gap:12px">${d[4].map(([i, t]) => `<div class="row" style="${mv(d[0])}">${badgeIcon(i, `color-mix(in srgb, var(--${d[0]}-tint) 60%, transparent)`)}<b style="font-size:16px">${t}</b></div>`).join('')}</div>`,
+        `<button class="btn primary" data-a="obNext">Continue</button>`);
+    }
+    case 'name':
+      return page(`${host('orbit', "Hi! I'm Orbit. Before we start…", 'happy')}<h1 class="h1">What should we call you?</h1>
+        <input id="name" type="text" autocomplete="given-name" placeholder="Your first name" value="${esc(o.name)}" style="height:64px;border-radius:20px;border:2px solid var(--ink);background:var(--surface);padding:0 20px;font-size:22px;font-weight:800;outline:none" maxlength="30">
+        <p class="small">Your crew will use it to cheer you on.</p>`,
+        `<button class="btn primary" id="nameNext" data-a="obNext" ${o.name.trim() ? '' : 'disabled'}>Continue</button>`);
+    case 'hours': {
+      const h = o.hours, mood = h < 3 ? 'happy' : h < 5 ? 'idle' : 'sad';
+      const react = h < 2 ? "Impressive! Let's keep it that way." : h < 4 ? 'Pretty average. We can do better!' : h < 6 ? "That adds up fast. We'll fix this together." : h < 9 ? "Oof. That's a part-time job." : 'Yikes! Good thing you found us.';
+      return page(`${qHead('hours', 'How many hours a day do you spend on your phone?', 'A rough guess is fine. You can check in Settings › Screen Time.')}
+        <div class="card big col" style="align-items:center;gap:4px;padding:20px">
+          <div id="hoursMascot">${mascot('blob', mood, 150)}</div>
+          <div class="row" style="gap:6px;align-items:baseline"><b id="hoursVal" class="num" style="font-size:64px;font-weight:900;line-height:1">${h >= 12 ? '12+' : h}</b><span style="font-size:22px;font-weight:900;color:var(--ink2)">hours</span></div>
+          <div id="hoursReact" class="sub" style="font-weight:800">${react}</div>
+          <input id="hours" class="slider" type="range" min="1" max="12" step="0.5" value="${h}" aria-label="Hours per day" style="margin-top:14px">
+          <div class="row small" style="width:100%;justify-content:space-between"><span>1h</span><span>6h</span><span>12h+</span></div></div>`,
+        `<button class="btn primary" data-a="obNext">Continue</button>`);
+    }
+    case 'reality': {
+      const years = (o.hours / 24 * remainingYears()), cut = Math.min(2, o.hours / 2), saved = cut / 24 * remainingYears();
+      const cutText = cut >= 2 ? '2 hours' : cut >= 1 ? (cut === 1 ? '1 hour' : cut.toFixed(1) + ' hours') : Math.round(cut * 60) + ' minutes';
+      return page(`${host('leaf', 'Okay, deep breath…', 'sad')}<h2 class="h2" style="font-size:22px">At your current pace, you'll spend</h2>
+        <div style="border-radius:28px;background:color-mix(in srgb, var(--flame) 12%, transparent);padding:26px 10px;text-align:center">
+          <div id="years" class="num" data-to="${years.toFixed(1)}" style="font-size:92px;font-weight:900;color:var(--flame);line-height:1">0.0</div>
+          <div style="font-size:19px;font-weight:900;margin-top:6px">years of your life on your phone</div></div>
+        <div class="grid2"><div class="card stat" style="--c:var(--flame)">${ic('calendar_month')}<b class="num">${Math.round(o.hours * 365).toLocaleString()}h</b><span>every year</span></div>
+          <div class="card stat" style="--c:var(--flame)">${ic('schedule')}<b class="num">${Math.round(o.hours * 7)}h</b><span>every week</span></div></div>
+        <div class="card row" style="align-items:flex-start">${avatar('spark', 44)}<div><b style="font-size:16px">The good news?</b><p class="sub" style="margin-top:4px">Cutting just ${cutText} a day gives you back <b style="color:var(--ink)">${saved.toFixed(1)} years</b>. That's what we're here for.</p></div></div>
+        <p class="small">Based on your estimate of ${o.hours} hours a day until age 80.</p>`,
+        `<button class="btn primary" data-a="obNext">Let's change that</button>`);
+    }
+    case 'analyzing': {
+      const items = ['Analysing your answers', 'Mapping your distraction triggers', 'Picking your session length', 'Matching you with a companion', 'Building your focus plan'];
+      return `<div class="screen fade-in"><div class="col" style="flex:1;align-items:center;justify-content:center;gap:24px;padding:20px">
+        <div style="position:relative;width:210px;height:210px"><svg class="ring" width="210" height="210" viewBox="0 0 210 210"><circle cx="105" cy="105" r="96" stroke="var(--hair)" stroke-width="12"/><circle id="anRing" cx="105" cy="105" r="96" stroke="var(--ink)" stroke-width="12" stroke-dasharray="603.2" stroke-dashoffset="603.2"/></svg>
+          <div id="anMascot" style="position:absolute;inset:20px">${mascot('orbit', 'idle', 170, { deco: false })}</div></div>
+        <div id="anPct" class="num" style="font-size:40px;font-weight:900">0%</div>
+        <div class="col" style="gap:12px;align-self:stretch;padding:0 30px">${items.map((t, i) => `<div class="row an-item" data-i="${i}" style="gap:12px;font-weight:700;color:var(--ink3)"><span class="an-dot" style="width:24px;height:24px;border-radius:50%;background:var(--hair);display:grid;place-items:center;color:var(--inv)"></span>${t}</div>`).join('')}</div>
+      </div></div>`;
+    }
+    case 'reveal': {
+      const m = S.mascot, matchedText = S.mascot === S.matched ? `${esc(firstName())}, your focus companion is…` : 'You picked…';
+      return `<div class="screen fade-in" style="background:var(--${m}-wash);${mv(m)}"><div class="scroll"><div class="pad col" style="align-items:center;gap:14px;padding-top:calc(var(--top) + 22px);padding-bottom:20px;text-align:center">
+        <div style="font-size:19px;font-weight:800;color:var(--ink2)">${matchedText}</div>
+        <div style="animation:pop .7s .25s cubic-bezier(.3,.8,.4,1.2) both">${mascot(m, 'excited', 250, { motion: 'bounce' })}</div>
+        <div style="font-size:48px;font-weight:900;line-height:1">${M[m].name}</div><div style="font-size:19px;font-weight:800;color:var(--ink2)">${M[m].title}</div>
+        ${chip(M[m].trait, M[m].icon, `var(--${m}-accent)`, 'var(--surface)')}
+        <div class="card" style="text-align:left;width:100%"><b style="font-size:16px">Why ${M[m].name}?</b><div class="stack" style="gap:10px;margin-top:10px">${reasons(m).map((r) => `<div class="row" style="align-items:flex-start;gap:10px">${ic('check_circle', '')}<span style="font-weight:700;line-height:1.35">${esc(r)}</span></div>`).join('').replaceAll('class="ic "', `class="ic" style="color:var(--${m}-accent)"`)}</div></div>
+      </div></div><div class="footer"><button class="btn primary" data-a="obNext">Continue with ${M[m].name}</button><button class="btn quiet" data-a="pickMascot">Meet the others</button></div></div>`;
+    }
+    case 'plan': {
+      const m = S.mascot, sess = SPAN_SESSION[o.span] || M[m].minutes;
+      const rows = [['track_changes', 'Daily focus goal', longDur(S.goalMin)], ['timer', 'Session length', `${sess} min`], ['coffee', 'Breaks', o.struggles.includes('breaks') ? '10 min' : '5 min'],
+        ['lock', 'Block during focus', o.sinks.slice(0, 2).map((s) => Q.sinks.opts.find((x) => x[0] === s)[1]).join(', ') || 'Your choice'], [m === 'pebble' ? 'back_hand' : 'thumb_up', 'Coaching style', m === 'pebble' ? 'Strict' : 'Supportive']];
+      if (o.struggles.includes('sleep') || o.times.includes('bedtime')) rows.push(['bedtime', 'Bedtime block', '10:30 PM – 7:00 AM']);
+      const tgt = S.goalMin * 7 / 60, wk = [.35, .6, .82, 1].map((x) => x * tgt);
+      return page(`<div class="row">${avatar(m, 52)}<div><div class="eyebrow" style="color:var(--${m}-accent)">Your plan is ready</div><h2 class="h2">${esc(firstName())}'s focus plan</h2></div></div>
+        <div class="card big" style="padding:6px 14px;${mv(m)}">${rows.map(([i, t, v], k) => `${k ? '<div class="divider"></div>' : ''}<div class="row" style="padding:12px 0">${badgeIcon(i, 'color-mix(in srgb, var(--m-tint) 55%, transparent)')}<span class="grow" style="font-weight:700">${t}</span><b style="text-align:right">${esc(v)}</b></div>`).join('')}</div>
+        <div class="card big"><b style="font-size:16px">Your first 4 weeks</b><div class="row" style="align-items:flex-end;height:160px;gap:14px;margin-top:12px">${wk.map((h, i) => `<div class="col grow" style="align-items:center;gap:6px;justify-content:flex-end;height:100%"><b style="font-size:12px;color:${i === 3 ? `var(--${m}-accent)` : 'var(--ink2)'}">${Math.round(h)}h</b><div style="width:100%;height:${30 + 90 * h / wk[3]}px;border-radius:10px;background:var(--${m}-${i === 3 ? 'accent' : 'tint'})"></div><span class="small" style="font-size:11px">Week ${i + 1}</span></div>`).join('')}</div>
+        <p class="sub" style="font-size:13.5px;margin-top:10px">Build up gradually to ${longDur(S.goalMin)} of focus a day. Small steps, real change.</p></div>`,
+        `<button class="btn primary" data-a="obNext">Looks good</button>`);
+    }
+    case 'dailyGoal': {
+      const rec = SPAN_GOAL[o.span] || 90, labels = { 30: 'Easy start', 60: 'Steady', 90: 'Balanced', 120: 'Ambitious', 180: 'Deep worker', 240: 'Beast mode' };
+      return page(`${host('blob', 'Pick a goal you can hit on a normal day.')}<h2 class="h2">Set your daily focus goal</h2>
+        <div class="goal-grid" style="${mv(S.mascot)}">${[30, 60, 90, 120, 180, 240].map((g) => `<button class="goal-opt ${S.goalMin === g ? 'sel' : ''}" data-a="setGoal" data-v="${g}"><b>${dur(g)}</b><span>${labels[g]}</span>${g === rec ? '<em>For you</em>' : ''}</button>`).join('')}</div>
+        <p class="small">You can change this any time in Settings.</p>`, `<button class="btn primary" data-a="obNext">Set goal</button>`);
+    }
+    case 'screenTime':
+      return page(`<div style="height:230px;border-radius:36px;background:var(--pebble-wash);display:flex;align-items:center;justify-content:center;gap:0">${mascot('pebble', S.screenTime ? 'happy' : 'focused', 200)}<span class="ic" style="font-size:66px;color:${S.screenTime ? 'var(--ok)' : 'var(--pebble-accent)'}">${S.screenTime ? 'verified_user' : 'shield_lock'}</span></div>
+        <h1 class="h1">Let Pebble guard your apps</h1><p class="sub">Focus Crew uses Apple's Screen Time to block distracting apps while you focus. Apple shows a permission prompt next.</p>
+        <div class="card stack" style="gap:14px;${mv('pebble')}">${[['lock', 'Private by design', 'Your app usage never leaves your iPhone. Not even we can see it.'], ['back_hand', "You're in control", 'Choose exactly what gets blocked and change it any time.'], ['phone_iphone', 'Powered by Apple', 'Built on the same Screen Time technology as iOS itself.']].map(([i, t, d]) => `<div class="row" style="align-items:flex-start">${badgeIcon(i, 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<div><b>${t}</b><div class="sub" style="font-size:13.5px">${d}</div></div></div>`).join('')}</div>`,
+        S.screenTime ? `<button class="btn primary" data-a="obNext">Continue</button>` : `<button class="btn primary" data-a="askScreenTime">Connect Screen Time</button><button class="btn quiet" data-a="obNext">Not now</button>`);
+    case 'apps':
+      return page(`${host('pebble', "Tell me what to guard. I don't take bribes.", 'focused')}<h1 class="h1">Which apps distract you?</h1>
+        <p class="sub">These get blocked during focus sessions. Picking whole categories like Social or Games works great.</p>
+        ${o.sinks.length ? `<div class="small" style="font-weight:800">Based on your answers, try blocking</div><div class="row" style="flex-wrap:wrap;gap:8px">${o.sinks.map((s) => { const q = Q.sinks.opts.find((x) => x[0] === s); return chip(q[1], q[2], 'var(--pebble-accent)', 'var(--surface)'); }).join('')}</div>` : ''}
+        <button class="card row" style="text-align:left" data-a="openPicker" ${S.screenTime ? '' : 'disabled'}><span class="iconbadge" style="--b:var(--ink);--c:var(--inv);width:44px;height:44px">${ic(S.blockList.length ? 'check' : 'add')}</span>
+          <div class="grow"><b style="font-size:16px">${S.blockList.length ? 'Your block list' : 'Choose apps to block'}</b><div class="sub" style="font-size:13.5px">${S.blockList.length ? S.blockList.length + ' apps selected' : "Opens Apple's app picker"}</div></div>${ic('chevron_right')}</button>
+        ${S.blockList.length ? `<div class="row" style="gap:6px;flex-wrap:wrap">${S.blockList.map((a) => appTile(a, 36)).join('')}</div>` : ''}
+        ${S.screenTime ? '' : '<p class="small">Connect Screen Time first to choose apps. You can do it later from the Blocks tab.</p>'}`,
+        `<button class="btn primary" data-a="obNext">${S.blockList.length ? 'Save block list' : 'Skip for now'}</button>`);
+    case 'notifications':
+      return page(`<div style="height:280px;border-radius:36px;background:var(--spark-wash);position:relative;display:flex;justify-content:center">${mascot('spark', 'excited', 210, { motion: 'float' })}
+          <div style="position:absolute;left:16px;right:16px;bottom:14px;border-radius:20px;padding:11px 12px;display:flex;gap:10px;align-items:center;background:color-mix(in srgb, var(--surface) 88%, transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 8px 20px var(--shadow)">
+          <img src="img/orbit_avatar.webp" width="34" height="34" style="border-radius:8px" alt=""><div class="grow" style="font-size:13px"><div class="row" style="justify-content:space-between"><b>Focus Crew</b><span class="small" style="font-size:12px">now</span></div><b>${M[S.mascot].name}: Session complete!</b><div style="color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">You focused for 25 minutes. Take a break!</div></div></div></div>
+        <h1 class="h1">Want a friendly nudge?</h1><p class="sub">We'll tell you when a session ends, remind you to focus and help you protect your streak. Never spam.</p>
+        <div class="card row" style="${mv('spark')}">${badgeIcon('alarm', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<b class="grow">Daily reminder</b><input id="reminder" type="time" value="${S.reminder}" style="border:0;background:var(--muted);border-radius:10px;padding:6px 10px;font-weight:800"></div>`,
+        `<button class="btn primary" data-a="askNotifications">Allow notifications</button><button class="btn quiet" data-a="obNext">Not now</button>`);
+    case 'pledge': {
+      const m = S.mascot, lines = [`Protect ${longDur(S.goalMin)} of focus every day`, 'Pick up my phone with intention, not habit', 'Be kind to myself when I slip up', `Let ${M[m].name} help me get there`];
+      return page(`<h1 class="h1">Make a promise to yourself</h1>
+        <div class="card big stack" style="gap:14px;padding:20px"><div style="font-size:19px;font-weight:700">I, <b>${esc(S.ob.name || 'friend')}</b>, promise to:</div>
+          ${lines.map((l) => `<div class="row" style="align-items:flex-start;gap:10px"><span class="ic" style="font-size:22px;color:${S.pledged ? `var(--${m}-accent)` : 'var(--ink3)'}">${S.pledged ? 'check_circle' : 'radio_button_unchecked'}</span><b style="font-weight:800">${esc(l)}</b></div>`).join('')}</div>
+        <div style="display:flex;justify-content:center">${mascot(m, S.pledged ? 'excited' : 'idle', 190, { motion: S.pledged ? 'bounce' : 'breathe' })}</div>`,
+        S.pledged ? `<button class="btn primary" data-a="obNext">Continue</button>` : `<div class="hold" id="hold" data-done="pledge" style="--hc:var(--ink)"><div class="fill">${ic('touch_app')}</div><div class="label">Hold to commit</div></div><div class="small" style="text-align:center">Press and hold until the bar fills up</div>`);
+    }
+    case 'paywall': {
+      const m = S.mascot, crew = ORDER.filter((x) => x !== m); crew.splice(2, 0, m);
+      const feats = [['shield_lock', 'Unlimited app blocking', 'Apps, categories and websites'], ['event_repeat', 'Smart schedules', 'Work, study and bedtime blocks'], ['groups', 'The whole crew', 'All five companions and their moods'],
+        ['smartphone', 'Live Activities & widgets', 'Lock Screen, Dynamic Island, Home Screen'], ['laptop_mac', 'Mac notch companion', 'See your session next to the notch'], ['bar_chart', 'Insights & streaks', 'Charts, badges and bond levels']];
+      return `<div class="screen fade-in" style="background:linear-gradient(to bottom, var(--${m}-wash), var(--bg) 50%);${mv(m)}"><div class="scroll"><div class="pad col" style="align-items:center;gap:16px;padding-top:calc(var(--top) + 14px);padding-bottom:20px;text-align:center">
+        <div class="row" style="align-items:flex-end;gap:0">${crew.map((x, i) => `<div style="margin:0 -11px;z-index:${x === m ? 2 : (i === 1 || i === 3 ? 1 : 0)}">${mascot(x, x === m ? 'excited' : RESTING[x], x === m ? 140 : (i === 0 || i === 4 ? 64 : 82), { deco: x === m, motion: 'float' })}</div>`).join('')}</div>
+        <div style="font-size:36px;font-weight:900">Focus Crew</div>
+        <span class="chip" style="background:var(--${m}-tint);color:var(--${m}-accent);font-size:15px;padding:9px 16px">${ic('redeem')}Free during early access</span>
+        <p class="sub">Every feature is unlocked. No trial, no card, no catch.</p>
+        <div class="card big" style="width:100%;text-align:left;padding:8px 16px">${feats.map(([i, t, d]) => `<div class="row" style="padding:10px 0">${badgeIcon(i, 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<div class="grow"><b>${t}</b><div class="sub" style="font-size:13px">${d}</div></div><span class="ic" style="color:var(--ok);font-size:22px">check_circle</span></div>`).join('')}</div>
+      </div></div><div class="footer"><button class="btn primary" data-a="finishOnboarding">Start focusing, it's free</button><div class="small" style="text-align:center">You won't be charged. We'll always tell you before anything changes.</div></div></div>`;
+    }
+    default: {
+      const q = Q[step], multi = q.multi, sel = S.ob[step];
+      return page(`${qHead(step, q.title, q.sub)}<div class="stack" style="gap:10px">${q.opts.map(([k, t, i]) => {
+        const on = multi ? sel.includes(k) : sel === k;
+        return `<button class="option ${on ? 'sel' : ''}" data-a="${multi ? 'toggleOpt' : 'chooseOpt'}" data-q="${step}" data-v="${k}" aria-pressed="${on}"><span class="iconbadge">${ic(i)}</span><span class="grow">${t}</span><span class="ic mark">${multi ? (on ? 'check_box' : 'check_box_outline_blank') : (on ? 'check_circle' : 'radio_button_unchecked')}</span></button>`;
+      }).join('')}</div>`, `<button class="btn primary" data-a="obNext" ${multi ? (sel.length ? '' : 'disabled') : (sel ? '' : 'disabled')}>${multi ? (sel.length ? `Continue (${sel.length})` : 'Pick at least one') : 'Continue'}</button>`);
+    }
+  }
+}
+
+// =====================================================================
+// Views: main app
+// =====================================================================
+function greeting() { const h = new Date().getHours(); return h >= 5 && h < 12 ? 'Good morning' : h < 17 && h >= 12 ? 'Good afternoon' : h >= 17 && h < 22 ? 'Good evening' : 'Hello, night owl'; }
+function schedActive(s, d = new Date()) {
+  if (!s.enabled) return false;
+  const [sh, sm] = s.start.split(':').map(Number), [eh, em] = s.end.split(':').map(Number), st = sh * 60 + sm, en = eh * 60 + em, mn = d.getHours() * 60 + d.getMinutes(), wd = d.getDay(), y = (wd + 6) % 7;
+  return en <= st ? (s.days.includes(wd) && mn >= st) || (s.days.includes(y) && mn < en) : s.days.includes(wd) && mn >= st && mn < en;
+}
+const fmtHM = (hm) => { const [h, m] = hm.split(':').map(Number); const d = new Date(); d.setHours(h, m, 0, 0); return timeStr(d); };
+
+function focusTab() {
+  const m = S.mascot, b = bond(bondMinutes(m)), goal = S.goalMin, today = secOnDay(new Date()), prog = Math.min(1, today / (goal * 60)), sessions = focusSessions().filter((h) => h.completed && sameDay(h.start, new Date())).length;
+  const line = S.active ? pick(M[m].enc, U.seed) : pick(M[m].greet, U.seed);
+  const R = 37, C = 2 * Math.PI * R;
+  return `<div class="scroll" style="background:var(--${m}-wash)"><div class="pad stack" style="padding-top:calc(var(--top) + 6px);padding-bottom:170px">
+    <div class="row"><div class="grow"><div style="font-weight:800;color:var(--ink2);font-size:14.5px">${greeting()},</div><div class="title-l" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(firstName())}</div></div>
+      <span class="chip" style="background:var(--surface);border:1px solid var(--hair);height:42px;font-size:17px;--c:${streak() ? 'var(--flame)' : 'var(--ink3)'}">${ic('local_fire_department')}${streak()}</span>
+      <button class="circlebtn" data-a="openSettings" aria-label="Settings">${ic('settings')}</button></div>
+    <div class="hero" style="${mv(m)}"><div style="padding:0 24px" data-a="nextLine">${bubble(line)}</div>
+      <div data-a="nextLine" style="cursor:pointer">${mascot(m, S.active ? 'focused' : 'idle', 220, { motion: 'float' })}</div>
+      <div class="row" style="gap:8px"><b style="font-size:19px">${M[m].name}</b>${chip('Lv ' + b.level, 'favorite', `var(--${m}-accent)`, 'var(--surface)')}</div></div>
+    ${S.active ? `<button class="card big row" data-a="openSession">${ic('timer')}<div class="grow" style="text-align:left"><b style="font-size:16.5px">Session in progress</b><div class="sub">Tap to return to your timer</div></div>${ic('chevron_right')}</button>` : `
+    <div class="card big stack" style="gap:16px;padding:18px">
+      <div class="row" style="justify-content:space-between"><b style="color:var(--ink2);font-size:14px">Session length</b><span class="small">Ends at ${timeStr(new Date(Date.now() + S.sessionMin * 60000))}</span></div>
+      <div class="stepper"><button class="circlebtn" style="width:48px;height:48px" data-a="minutes" data-v="-5" aria-label="Shorter">${ic('remove')}</button>
+        <div><div class="bigmin num">${S.sessionMin}</div><div style="text-align:center;font-weight:800;color:var(--ink2)">minutes</div></div>
+        <button class="circlebtn" style="width:48px;height:48px" data-a="minutes" data-v="5" aria-label="Longer">${ic('add')}</button></div>
+      <div class="presets">${[15, 25, 45, 60, 90].map((p) => `<button class="${S.sessionMin === p ? 'on' : ''}" data-a="preset" data-v="${p}">${p}</button>`).join('')}</div></div>
+    <div class="card big" style="padding:4px 14px;${mv(m)}">
+      <label class="optrow">${badgeIcon('edit', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<input id="intention" type="text" placeholder="What will you work on?" maxlength="60" value="${esc(U.intention || '')}"></label><div class="divider"></div>
+      <div class="optrow"><button class="row grow" style="text-align:left" data-a="openPicker">${badgeIcon('shield_lock', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<div class="grow"><b>Block list</b><div class="sub" style="font-size:13px">${S.screenTime ? (S.blockList.length ? S.blockList.length + ' apps' : 'Tap to choose apps') : 'Tap to connect Screen Time'}</div></div></button>${toggle(U.block !== false && S.screenTime && S.blockList.length > 0, 'toggleBlock')}</div><div class="divider"></div>
+      <div class="optrow">${badgeIcon('back_hand', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<div class="grow"><b>Strict mode</b><div class="sub" style="font-size:13px">No pausing, and ending early takes effort</div></div>${toggle(U.strict ?? S.strictDefault, 'toggleStrict')}</div><div class="divider"></div>
+      <label class="optrow">${badgeIcon(SOUNDS.find((s) => s[0] === S.sound)[2], 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<b class="grow">Focus sound</b><select id="sound">${SOUNDS.map(([k, t]) => `<option value="${k}" ${S.sound === k ? 'selected' : ''}>${t}</option>`).join('')}</select></label></div>`}
+    <div class="card big row" style="gap:18px;${mv(m)}"><div style="position:relative;width:86px;height:86px;flex:none"><svg class="ring" width="86" height="86" viewBox="0 0 86 86"><circle cx="43" cy="43" r="${R}" stroke="color-mix(in srgb, var(--m-tint) 70%, transparent)" stroke-width="11"/><circle cx="43" cy="43" r="${R}" stroke="var(--m-accent)" stroke-width="11" stroke-dasharray="${C}" stroke-dashoffset="${C * (1 - Math.max(.002, prog))}"/></svg>
+      <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center"><div><b style="font-size:17px">${Math.round(prog * 100)}%</b><div style="font-size:10.5px;font-weight:800;color:var(--ink2)">of goal</div></div></div></div>
+      <div class="grow"><b style="color:var(--ink2);font-size:14px">Today</b><div style="font-size:19px;font-weight:900">${dur(today / 60)} of ${dur(goal)}</div><div class="row small" style="gap:12px;margin-top:4px;font-size:12.5px;color:var(--ink2)"><span>${ic('check_circle')} ${sessions} session${sessions === 1 ? '' : 's'}</span><span>${ic('local_fire_department')} ${streak()} day streak</span></div></div></div>
+  </div></div>`;
+}
+
+function blocksTab() {
+  const active = S.schedules.find((s) => schedActive(s));
+  return `<div class="scroll"><div class="pad stack" style="padding-top:calc(var(--top) + 8px);padding-bottom:110px">
+    <div class="row" style="justify-content:space-between"><h1 class="title-l">Blocks</h1><button class="circlebtn" data-a="openTemplates" aria-label="Add schedule">${ic('add')}</button></div>
+    ${S.screenTime ? '' : `<div class="card big stack" style="gap:12px"><div class="row">${mascot('pebble', 'focused', 84, { deco: false })}<div><b style="font-size:16.5px">Connect Screen Time</b><div class="sub" style="font-size:13.5px">Pebble needs Apple's permission to block apps. Your data stays on this iPhone.</div></div></div><button class="btn primary" data-a="askScreenTime">Connect</button></div>`}
+    ${active ? `<div class="row" style="padding:14px;border-radius:28px;background:color-mix(in srgb, var(--${active.mascot}-tint) 60%, transparent)">${mascot(active.mascot, 'focused', 64, { deco: false })}<div><div class="eyebrow" style="color:var(--${active.mascot}-accent)">Active now</div><b style="font-size:16.5px">${esc(active.name)}</b><div class="sub" style="font-size:13px">${M[active.mascot].name} is guarding ${active.apps.length} apps until ${fmtHM(active.end)}</div></div></div>` : ''}
+    <button class="card big stack" style="gap:12px;text-align:left;${mv(S.mascot)}" data-a="openPicker"><div class="row">${badgeIcon('adjust', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<div class="grow"><b style="font-size:16.5px">Focus block list</b><div class="sub" style="font-size:13px">Blocked during every focus session</div></div><b style="color:var(--m-accent)">Edit</b></div>
+      ${S.blockList.length ? `<div class="row" style="gap:6px;flex-wrap:wrap">${S.blockList.map((a) => appTile(a, 32)).join('')}</div>` : '<div class="small">Nothing yet. Tap to choose apps, categories or websites.</div>'}</button>
+    <div class="row" style="justify-content:space-between;padding:6px 4px 0"><h3 class="h3">Schedules</h3><button style="font-weight:800;color:var(--ink2)" data-a="openTemplates">Add</button></div>
+    ${S.schedules.length ? S.schedules.map((s, i) => `<div class="card big stack" style="gap:12px;${mv(s.mascot)};opacity:${s.enabled ? 1 : .6}"><div class="row"><button class="row grow" style="text-align:left" data-a="editSchedule" data-i="${i}">${badgeIcon(s.icon, 'color-mix(in srgb, var(--m-tint) 70%, transparent)')}<div class="grow"><div class="row" style="gap:6px"><b style="font-size:16.5px">${esc(s.name)}</b>${schedActive(s) ? '<span class="chip" style="padding:2px 7px;font-size:10.5px;background:var(--ok);color:#fff">ON NOW</span>' : ''}</div><div class="sub" style="font-size:14px">${fmtHM(s.start)} – ${fmtHM(s.end)}</div></div></button>${toggle(s.enabled, 'toggleSchedule', `data-i="${i}"`)}</div>
+      <div class="row" style="justify-content:space-between"><div class="dots">${[1, 2, 3, 4, 5, 6, 0].map((d) => `<i class="${s.days.includes(d) ? 'on' : ''}">${DAYL[d]}</i>`).join('')}</div><span class="small" style="color:${s.apps.length ? 'var(--ink2)' : 'var(--warn)'}">${ic('lock')} ${s.apps.length ? s.apps.length + ' blocked' : 'No apps'}</span></div></div>`).join('')
+      : `<div class="card big col" style="align-items:center;gap:8px;text-align:center;padding:20px">${mascot('leaf', 'sleepy', 120)}<b style="font-size:16.5px">No schedules yet</b><p class="sub">Block apps automatically during work, study or bedtime. No timer needed.</p><button class="btn primary" data-a="openTemplates" style="margin-top:6px">Create a schedule</button></div>`}
+    <div class="row" style="align-items:flex-start;padding:0 4px">${avatar('blob', 36)}<p class="sub" style="font-size:13.5px">Tip: schedules keep working even when Focus Crew is closed. Blocked apps show a reminder from your crew.</p></div>
+  </div></div>`;
+}
+
+function insightsTab() {
+  const days = U.range === 'week' ? 7 : 30, data = daily(days), sum = data.reduce((a, d) => a + d.min, 0), goal = S.goalMin;
+  const since = dayStart(Date.now()) - (days - 1) * 864e5, ss = focusSessions().filter((h) => h.start >= since), comp = ss.filter((h) => h.completed).length, rate = ss.length ? comp / ss.length : 0;
+  const max = Math.max(goal, ...data.map((d) => d.min), 1), hist = Array(24).fill(0); focusSessions().forEach((h) => { hist[new Date(h.start).getHours()] += h.focused; }); const hmax = Math.max(1, ...hist);
+  const bestHour = hist.indexOf(Math.max(...hist)), m = S.mascot;
+  const insight = !focusSessions().length ? "Finish your first session and I'll start crunching numbers!" : `You focus best around ${new Date(2020, 0, 1, bestHour).toLocaleTimeString([], { hour: 'numeric' })}. Try scheduling deep work then!`;
+  const recent = [...focusSessions()].sort((a, b) => b.start - a.start).slice(0, 10);
+  return `<div class="scroll"><div class="pad stack" style="padding-top:calc(var(--top) + 8px);padding-bottom:110px;${mv(m)}">
+    <h1 class="title-l">Insights</h1>
+    <div class="seg"><button class="${U.range === 'week' ? 'on' : ''}" data-a="range" data-v="week">Week</button><button class="${U.range === 'month' ? 'on' : ''}" data-a="range" data-v="month">Month</button></div>
+    <div class="grid2"><div class="card stat" style="--c:var(--m-accent)">${ic('schedule')}<b class="num">${dur(sum)}</b><span>focused this ${U.range}</span></div><div class="card stat" style="--c:var(--ok)">${ic('check_circle')}<b class="num">${comp}</b><span>sessions completed</span></div>
+      <div class="card stat" style="--c:var(--flame)">${ic('local_fire_department')}<b class="num">${streak()} / ${bestStreak()}</b><span>streak / best</span></div><div class="card stat" style="--c:var(--blob-accent)">${ic('track_changes')}<b class="num">${Math.round(rate * 100)}%</b><span>completion rate</span></div></div>
+    <div class="card big"><b style="font-size:16.5px">Focus time</b><div class="sub" style="font-size:13px">Daily average ${dur(sum / days)} · Goal ${dur(goal)}</div>
+      <div class="bars" role="img" aria-label="Focus minutes per day">${`<div class="goal" style="bottom:${22 + (148 - 10) * goal / max}px"></div>`}${data.map((d, i) => `<div class="b"><i class="${d.min >= goal ? '' : 'low'}" style="height:${(148 - 10) * d.min / max}px" title="${d.min} min"></i><span>${days === 7 ? DAYL[d.date.getDay()] : (i % 7 === 0 ? d.date.getDate() : '')}</span></div>`).join('')}</div></div>
+    ${!focusSessions().length ? `<div class="card big col" style="gap:10px;align-items:flex-start"><b>No sessions yet</b><p class="sub" style="font-size:13.5px">Start a session on the Focus tab, or fill this screen with an example week to see how it looks.</p><button class="btn secondary" data-a="sample">Add a sample week</button></div>` : ''}
+    <div class="row" style="align-items:center">${mascot('blob', 'happy', 70, { deco: false })}${bubble(insight, 'left')}</div>
+    <div class="card big"><b style="font-size:16.5px">When you focus</b><div class="row" style="align-items:flex-end;gap:3px;height:64px;margin-top:12px">${hist.map((v) => `<i style="flex:1;border-radius:3px;height:${10 + 50 * v / hmax}px;background:color-mix(in srgb, var(--m-accent) ${15 + 85 * v / hmax}%, transparent)"></i>`).join('')}</div>
+      <div class="row small" style="justify-content:space-between;font-size:11px;margin-top:6px"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>11 PM</span></div></div>
+    <div class="card big"><div class="row" style="justify-content:space-between"><b style="font-size:16.5px">Screen time today</b>${ic('hourglass_top')}</div><p class="sub" style="font-size:13.5px;margin-top:6px">On iPhone this card shows your real screen time and top apps from Apple's Screen Time report. The numbers never leave your phone.</p></div>
+    <h3 class="h3" style="padding:0 4px">Recent sessions</h3>
+    ${recent.length ? `<div class="card big" style="padding:6px 14px">${recent.map((s, i) => `${i ? '<div class="divider"></div>' : ''}<div class="row" style="padding:10px 0">${avatar(s.mascot, 38)}<div class="grow"><b style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.intention || 'Focus session')}</b><span class="small" style="font-size:12px">${new Date(s.start).toLocaleString([], { weekday: 'short', hour: 'numeric', minute: '2-digit' })}</span></div><div style="text-align:right"><b>${dur(s.focused / 60)}</b><div style="font-size:11px;font-weight:900;color:${s.completed ? 'var(--ok)' : 'var(--ink3)'}">${s.completed ? 'Completed' : 'Ended early'}</div></div></div>`).join('')}</div>` : '<p class="small" style="padding:0 4px">Your sessions will show up here.</p>'}
+  </div></div>`;
+}
+
+function crewTab() {
+  const m = S.mascot, b = bond(bondMinutes(m)), got = BADGES.filter(([id]) => S.unlocked[id]).length;
+  const sorted = [...BADGES].sort((a, c) => (S.unlocked[c[0]] ? 1 : 0) - (S.unlocked[a[0]] ? 1 : 0));
+  return `<div class="scroll"><div class="pad stack" style="padding-top:calc(var(--top) + 8px);padding-bottom:110px">
+    <div class="row" style="justify-content:space-between"><h1 class="title-l">Your crew</h1><button class="circlebtn" data-a="openSettings" aria-label="Settings">${ic('settings')}</button></div>
+    <div style="border-radius:32px;padding:18px;background:color-mix(in srgb, var(--${m}-tint) 60%, transparent);${mv(m)}" class="stack">
+      <div class="row" style="gap:6px">${mascot(m, RESTING[m], 150, { motion: 'float' })}<div class="col" style="gap:5px"><div class="eyebrow" style="color:var(--m-accent)">Your companion</div><div style="font-size:34px;font-weight:900;line-height:1">${M[m].name}</div><div class="sub" style="font-size:14px">${M[m].title}</div><div>${chip(M[m].trait, M[m].icon, 'var(--m-accent)', 'var(--surface)')}</div></div></div>
+      <div><div class="row" style="justify-content:space-between"><b style="font-size:14.5px">Bond level ${b.level} <span style="color:var(--ink2);font-weight:700">· ${b.title}</span></b><span class="small" style="font-size:12px">${b.toNext} min to Lv ${b.level + 1}</span></div><div class="progress" style="height:10px;margin-top:8px;background:var(--surface)"><i style="width:${b.progress * 100}%;background:var(--m-accent)"></i></div></div></div>
+    <h3 class="h3" style="padding:0 4px">The crew</h3>
+    <div class="grid2">${ORDER.map((x) => `<button class="crewcard ${x === m ? 'me' : ''}" style="${mv(x)}" data-a="openDetail" data-m="${x}">${mascot(x, RESTING[x], 118, { motion: 'still' })}<b style="font-size:16.5px">${M[x].name}</b><span class="small" style="font-size:12px;color:var(--ink2)">${M[x].title}</span><span class="lv">${ic('favorite')} Lv ${bond(bondMinutes(x)).level}</span>${x === m ? `<span class="ic" style="position:absolute;top:10px;right:10px;color:var(--m-accent);font-size:24px">check_circle</span>` : ''}</button>`).join('')}</div>
+    <div class="row" style="justify-content:space-between;padding:6px 4px 0"><h3 class="h3">Badges</h3><button style="font-weight:800;color:var(--ink2)" data-a="openBadges">See all</button></div>
+    <button class="card big" data-a="openBadges" style="text-align:left"><b>${got} of ${BADGES.length} collected</b><div class="row" style="justify-content:space-between;margin-top:12px">${sorted.slice(0, 5).map(([id, t, , i, bm]) => `<div class="col" style="align-items:center;gap:6px;width:56px;${mv(bm)}"><span class="badge ${S.unlocked[id] ? 'on' : ''}">${ic(S.unlocked[id] ? i : 'lock')}</span><span style="font-size:10.5px;font-weight:900;white-space:nowrap;color:${S.unlocked[id] ? 'var(--ink)' : 'var(--ink3)'}">${t}</span></div>`).join('')}</div></button>
+  </div></div>`;
+}
+
+function appView() {
+  const t = S.tab, m = S.mascot;
+  const body = t === 'focus' ? focusTab() : t === 'blocks' ? blocksTab() : t === 'insights' ? insightsTab() : crewTab();
+  const tabs = [['focus', 'Focus', 'adjust'], ['blocks', 'Blocks', 'shield'], ['insights', 'Insights', 'bar_chart'], ['crew', 'Crew', 'sentiment_satisfied']];
+  return `<div class="screen fade-in" style="${mv(m)}">${body}
+    ${S.active ? `<button class="minibar" data-a="openSession">${avatar(S.active.mascot, 38, 'focused')}<div style="text-align:left"><div style="font-size:12px;font-weight:800;opacity:.7">${S.active.kind === 'rest' ? 'On a break' : S.active.pausedAt ? 'Paused' : 'Focusing'}</div><div style="font-weight:800;font-size:14.5px;max-width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(S.active.intention || 'with ' + M[S.active.mascot].name)}</div></div><b class="num js-remaining">${clock(remaining())}</b></button>`
+      : t === 'focus' ? `<div class="startbar"><button class="btn primary" data-a="start">${ic('play_arrow')}Start ${S.sessionMin}-min focus</button></div>` : ''}
+    <nav class="tabbar">${tabs.map(([k, l, i]) => `<button class="tab ${t === k ? 'on' : ''}" data-a="tab" data-v="${k}" aria-label="${l}">${ic(i)}<span>${l}</span></button>`).join('')}</nav></div>`;
+}
+
+// =====================================================================
+// Session
+// =====================================================================
+const remaining = () => { const a = S.active; return a ? Math.max(0, a.planned - a.elapsed) : 0; };
+function sessionLine() {
+  const a = S.active, m = a.mascot;
+  if (a.kind === 'rest') return pick(M[m].rest, U.seed);
+  if (a.pausedAt) return "Take a breath. I'll wait right here.";
+  if (remaining() < 60) return 'Final minute! Finish strong.';
+  const bucket = Math.floor(a.elapsed / 180);
+  return bucket === 0 ? pick(M[m].greet, U.seed) : pick(M[m].enc, U.seed + bucket);
+}
+function sessionView() {
+  const a = S.active, m = a.mascot, rest = a.kind === 'rest', R = 143, C = 2 * Math.PI * R, prog = a.elapsed / a.planned;
+  const mood = rest ? 'sleepy' : a.pausedAt ? 'idle' : 'focused';
+  const ends = new Date(Date.now() + remaining() * 1000 / U.speed);
+  return `<div class="session" style="${mv(m)}">
+    <div class="row" style="padding:calc(var(--top) + 4px) 20px 0;justify-content:space-between">
+      <button class="circlebtn" data-a="minimize" aria-label="Minimise">${ic('keyboard_arrow_down')}</button>
+      <div style="text-align:center;min-width:0"><div class="eyebrow" style="color:var(--m-accent)">${rest ? 'Break' : a.pausedAt ? 'Paused' : 'Focusing with ' + M[m].name}</div><b style="font-size:16.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px">${esc(a.intention || (rest ? 'Rest your eyes' : M[m].tagline))}</b></div>
+      <button class="circlebtn" data-a="cycleSound" aria-label="Focus sound">${ic(S.sound === 'off' ? 'volume_off' : 'volume_up')}</button></div>
+    <div class="col" style="flex:1;align-items:center;justify-content:center;min-height:0">
+      <div style="padding:0 36px">${bubble(sessionLine())}</div>
+      <div class="ringwrap"><div class="disc"></div><svg class="ring" width="300" height="300" viewBox="0 0 300 300"><circle cx="150" cy="150" r="${R}" stroke="var(--m-tint)" stroke-width="14"/><circle id="sRing" cx="150" cy="150" r="${R}" stroke="var(--m-accent)" stroke-width="14" stroke-dasharray="${C}" stroke-dashoffset="${C * (1 - Math.max(.002, prog))}" style="transition:stroke-dashoffset .25s linear"/></svg>
+        ${mascot(m, mood, 250, { circle: false, deco: !a.pausedAt, motion: a.pausedAt ? 'breathe' : 'float' })}</div>
+      <div class="clock num js-remaining" style="margin-top:14px">${clock(remaining())}</div>
+      <div class="row" style="gap:8px;margin-top:10px;flex-wrap:wrap;justify-content:center">
+        ${a.blocking ? (a.pausedAt ? chip('Apps unlocked', 'lock_open', 'var(--warn)', 'var(--surface)') : chip(a.items + ' blocked', 'lock', 'var(--m-accent)', 'var(--surface)')) : ''}
+        ${a.strict ? chip('Strict', 'back_hand', 'var(--m-accent)', 'var(--surface)') : ''}
+        ${a.pausedAt ? '' : `<span class="chip" style="background:var(--surface);--c:var(--m-accent)">${ic('schedule')}Ends <span class="js-ends">${timeStr(ends)}</span></span>`}</div>
+      <div class="speed" style="margin-top:14px"><span class="small" style="align-self:center">Preview speed</span>${[1, 60, 300].map((s) => `<button class="${U.speed === s ? 'on' : ''}" data-a="speed" data-v="${s}">${s === 1 ? 'Real time' : '×' + s}</button>`).join('')}</div>
+    </div>
+    <div class="col" style="gap:10px;padding:0 20px 22px">
+      ${!rest && a.blocking && !a.pausedAt ? `<button class="btn quiet" data-a="showLock">${ic('lock')}See the Lock Screen and blocked apps</button>` : ''}
+      <div class="row" style="gap:12px">${rest ? `<button class="btn secondary" data-a="endSession">Skip break</button><button class="btn primary" data-a="focusAgain">Focus again</button>`
+        : a.pausedAt ? `<button class="btn secondary" style="width:110px" data-a="askEnd">End</button><button class="btn accent" data-a="resume">${ic('play_arrow')}Resume</button>`
+        : `${!a.strict ? `<button class="btn secondary" data-a="pause">${ic('pause')}Pause</button>` : ''}<button class="btn secondary" data-a="askEnd">${ic('stop')}${a.strict ? 'Give up' : 'End session'}</button>`}</div></div>
+  </div>`;
+}
+function endSheet() {
+  const a = S.active, m = a.mascot;
+  return `<div class="scrim" data-a="closeSheet"></div><div class="sheet" style="${mv(m)}"><div class="grab"></div><div class="pad col" style="align-items:center;gap:12px;padding-bottom:22px;text-align:center">
+    ${mascot(m, 'sad', 140, { deco: false })}<h2 class="h2" style="font-size:23px">${a.strict ? 'Pebble-level discipline, remember?' : 'End this session early?'}</h2>
+    <p class="sub">You've focused for ${longDur(Math.max(1, Math.floor(a.elapsed / 60)))}. ${longDur(Math.max(1, Math.floor(remaining() / 60)))} to go. Minutes you've done still count.</p>
+    <button class="btn accent" data-a="closeSheet">Keep going</button>
+    ${a.strict ? `<div class="hold" id="hold" data-done="giveup" data-dur="5000" style="--hc:var(--bad);width:100%"><div class="fill">${ic('touch_app')}</div><div class="label">Hold 5 seconds to give up</div></div>` : `<button class="btn secondary" data-a="endSession">End session</button>`}</div></div>`;
+}
+function completionView() {
+  const c = U.completion, m = c.mascot, pct = Math.round(Math.min(1, c.today / (c.goal * 60)) * 100);
+  return `<div class="session" style="${mv(m)};background:linear-gradient(to bottom, var(--m-tint), var(--m-wash) 40%, var(--bg))">
+    <div class="scroll"><div class="pad col" style="align-items:center;gap:14px;padding-top:calc(var(--top) + 20px);padding-bottom:20px;text-align:center">
+      <div class="eyebrow" style="color:var(--m-accent)">Session complete</div>
+      <div style="animation:pop .6s cubic-bezier(.3,.8,.4,1.2) both">${mascot(m, 'excited', 190, { motion: 'bounce' })}</div>
+      <div style="font-size:52px;font-weight:900;line-height:1">+${longDur(c.minutes)}</div><div style="font-size:19px;font-weight:800;color:var(--ink2)">${esc(c.line)}</div>
+      ${c.intention ? `<span class="chip" style="background:var(--surface)">${ic('check_circle')}${esc(c.intention)}</span>` : ''}
+      <div class="grid3" style="width:100%"><div class="card stat" style="--c:var(--warn);text-align:left">${ic('wb_sunny')}<b class="num">${dur(c.today / 60)}</b><span>today</span></div><div class="card stat" style="--c:var(--flame);text-align:left">${ic('local_fire_department')}<b class="num">${c.streak}</b><span>day streak</span></div><div class="card stat" style="--c:var(--m-accent);text-align:left">${ic('track_changes')}<b class="num">${pct}%</b><span>of goal</span></div></div>
+      <div class="card big row" style="width:100%;text-align:left">${avatar(m, 52)}<div class="grow"><div class="row" style="justify-content:space-between"><b style="color:${c.after.level > c.before.level ? 'var(--m-accent)' : 'var(--ink)'}">${c.after.level > c.before.level ? 'Level up! Lv ' + c.after.level : `Bond with ${M[m].name} · Lv ${c.after.level}`}</b><span class="small" style="font-size:12px">${c.after.title}</span></div>
+        <div class="progress" style="height:10px;margin:8px 0 4px;background:var(--m-tint)"><i id="bondBar" style="width:${(c.after.level > c.before.level ? 0 : c.before.progress) * 100}%;background:var(--m-accent)" data-to="${c.after.progress * 100}"></i></div><span class="small" style="font-size:12px">${c.after.toNext} min to level ${c.after.level + 1}</span></div></div>
+      ${c.badges.length ? `<div class="card big" style="width:100%;text-align:left"><b>${c.badges.length === 1 ? 'New badge!' : 'New badges!'}</b>${c.badges.map((id) => { const bd = BADGES.find((x) => x[0] === id); return `<div class="row" style="margin-top:12px;${mv(bd[4])}"><span class="badge on" style="width:48px;height:48px">${ic(bd[3])}</span><div><b>${bd[1]}</b><div class="sub" style="font-size:13px">${bd[2]}</div></div></div>`; }).join('')}</div>` : ''}
+    </div></div>
+    <div class="row" style="gap:12px;padding:12px 20px 22px;border-top:1px solid var(--hair);background:var(--bg)"><button class="btn secondary" data-a="startBreak">${ic('coffee')}${S.breakMin}-min break</button><button class="btn primary" data-a="doneCompletion">Done</button></div>
+    <canvas id="confetti"></canvas></div>`;
+}
+function lockView() {
+  const a = S.active, m = a.mascot, prog = a.elapsed / a.planned, now = new Date();
+  return `<div class="lock" style="${mv(m)}">
+    <div class="island">${avatar(m, 24, 'focused')}<b class="num js-remaining">${clock(remaining())}</b></div>
+    <div class="time num">${now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }).replace(/\s?[AP]M/i, '')}</div>
+    <div class="date">${now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' })}</div>
+    <div class="la"><div class="row" style="gap:14px"><span style="width:56px;height:56px;border-radius:50%;background:var(--m-tint);display:grid;place-items:center;overflow:hidden;flex:none"><img src="img/${m}_focused.webp" width="66" height="66" alt=""></span>
+      <div class="grow" style="min-width:0"><div style="color:var(--vivid);font-weight:800;font-size:14px">Focusing with ${M[m].name}</div><b style="font-size:16px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(a.intention || M[m].tagline)}</b></div><span class="tm num js-remaining">${clock(remaining())}</span></div>
+      <div class="row" style="gap:10px"><div class="bar grow"><i class="js-prog" style="width:${prog * 100}%"></i></div>${a.strict ? '' : `<span class="lb">${ic('pause')}</span><span class="lb">${ic('close')}</span>`}</div></div>
+    <div style="margin-top:22px;font-size:13px;font-weight:700;opacity:.85;text-align:center;padding:0 30px">Tap an app to see what happens when you open a blocked app</div>
+    <div class="fakeapps">${(S.blockList.length ? S.blockList : ['Instagram', 'TikTok', 'YouTube']).slice(0, 4).map((n) => { const ap = APPS.find((x) => x[0] === n) || [n, '#555']; return `<button class="fakeapp" data-a="openShield" data-v="${esc(n)}"><i style="background:${ap[1]}">${esc(n[0])}</i>${esc(n)}</button>`; }).join('')}</div>
+    <button class="btn" style="width:auto;padding:0 22px;height:44px;background:rgba(255,255,255,.2);color:#fff;margin-bottom:24px;font-size:15px" data-a="hideLock">Back to the app</button></div>`;
+}
+function shieldView() {
+  const a = S.active, m = a.mascot, ends = new Date(Date.now() + remaining() * 1000 / U.speed);
+  const goal = a.intention ? `“${esc(a.intention)}”` : 'your focus session';
+  return `<div class="shield" style="${mv(m)}">${mascot(m, a.strict ? 'focused' : 'idle', 170, { circle: false })}
+    <h2 class="h2" style="font-size:24px;margin-top:10px">${M[m].shield}</h2>
+    <p class="sub" style="margin-top:10px">${esc(U.shield)} is blocked while you work on ${goal}. It unlocks at ${timeStr(ends)}. You've got this!</p>
+    <div style="margin-top:auto;width:100%" class="col"><button class="btn" style="background:#1e1e22;color:#fff" data-a="closeShield">Back to focus</button>${a.strict ? '' : `<button class="btn quiet" data-a="shieldBreak">I need a break</button>`}</div>
+    <div class="small" style="margin-top:10px">This is the screen Focus Crew shows over blocked apps on iPhone.</div></div>`;
+}
+
+// =====================================================================
+// Sheets
+// =====================================================================
+function sheetView() {
+  const sh = U.sheet; if (!sh) return '';
+  const wrap = (title, body, right = '') => `<div class="scrim" data-a="closeSheet"></div><div class="sheet" style="${mv(S.mascot)}"><div class="grab"></div><div class="bar"><span style="width:60px"></span><span>${title}</span><span style="width:60px;text-align:right">${right || '<button data-a="closeSheet">Done</button>'}</span></div><div class="scroll"><div class="pad stack" style="padding-bottom:28px">${body}</div></div></div>`;
+  if (sh === 'end') return endSheet();
+  if (sh === 'picker') {
+    const sel = U.draft;
+    return wrap('Choose apps', `<p class="sub" style="font-size:13.5px">On iPhone this is Apple's own app picker. Pick the apps to block during focus.</p>
+      <div class="card big" style="padding:4px 14px">${APPS.map(([n], i) => `${i ? '<div class="divider" style="margin-left:46px"></div>' : ''}<button class="row" style="width:100%;padding:9px 0;text-align:left" data-a="pickApp" data-v="${esc(n)}">${appTile(n)}<b class="grow">${esc(n)}</b><span class="ic" style="font-size:24px;color:${sel.includes(n) ? 'var(--m-accent)' : 'var(--ink3)'}">${sel.includes(n) ? 'check_circle' : 'radio_button_unchecked'}</span></button>`).join('')}</div>`,
+      '<button data-a="savePicker">Save</button>');
+  }
+  if (sh === 'mascots') return wrap('Choose your companion', ORDER.map((x) => `<button class="card row" style="text-align:left;${mv(x)};${x === S.mascot ? 'border:2px solid var(--ink)' : ''}" data-a="setMascot" data-m="${x}">${mascot(x, RESTING[x], 88, { motion: 'still' })}<div class="grow"><div class="row" style="gap:6px"><b style="font-size:18px">${M[x].name}</b>${x === S.matched ? `<span class="chip" style="padding:3px 7px;font-size:10px;background:var(--m-tint);color:var(--m-accent)">BEST MATCH</span>` : ''}</div><div class="sub" style="font-size:13.5px">${M[x].title}</div><div class="small" style="font-size:12px">${M[x].specialty}</div></div><span class="ic" style="font-size:24px;color:${x === S.mascot ? 'var(--ink)' : 'var(--ink3)'}">${x === S.mascot ? 'check_circle' : 'radio_button_unchecked'}</span></button>`).join(''));
+  if (sh === 'badges') return wrap('Badges', `<div class="grid2">${BADGES.map(([id, t, d, i, bm]) => { const [c, tg] = badgeProgress(id), on = !!S.unlocked[id]; return `<div class="card big col" style="align-items:center;gap:7px;text-align:center;${mv(bm)}"><span class="badge ${on ? 'on' : ''}" style="width:62px;height:62px">${ic(on ? i : 'lock')}</span><b style="color:${on ? 'var(--ink)' : 'var(--ink2)'}">${t}</b><span class="sub" style="font-size:12px">${d}</span>${on ? `<span style="font-size:11px;font-weight:900;color:var(--m-accent)">${new Date(S.unlocked[id]).toLocaleDateString([], { month: 'short', day: 'numeric' })}</span>` : `<div class="progress" style="width:80%"><i style="width:${Math.min(1, c / tg) * 100}%;background:var(--m-accent)"></i></div>`}</div>`; }).join('')}</div>`);
+  if (sh === 'detail') {
+    const x = U.detailFor, mood = U.detailMood || RESTING[x], b = bond(bondMinutes(x)), n = focusSessions().filter((h) => h.mascot === x && h.completed).length;
+    return `<div class="scrim" data-a="closeSheet"></div><div class="sheet" style="${mv(x)};background:linear-gradient(to bottom, var(--m-tint), var(--m-wash) 35%, var(--bg) 60%)"><div class="grab"></div><button class="circlebtn" id="closeDetail" data-a="closeSheet" aria-label="Close" style="position:absolute;top:14px;right:16px;width:34px;height:34px;z-index:2">${ic('close')}</button><div class="scroll"><div class="pad col" style="align-items:center;gap:14px;padding-bottom:20px;text-align:center">
+      <div data-a="cycleMood" style="cursor:pointer">${mascot(x, mood, 230, { motion: mood === 'excited' ? 'bounce' : 'float' })}</div>
+      <div class="row" style="gap:6px;flex-wrap:wrap;justify-content:center">${['idle', 'happy', 'focused', 'sleepy', 'sad', 'excited'].map((md) => `<button class="chip" style="${md === mood ? 'background:var(--m-accent);color:#fff' : 'background:var(--surface)'}" data-a="setMood" data-v="${md}">${md[0].toUpperCase() + md.slice(1)}</button>`).join('')}</div>
+      <div style="font-size:40px;font-weight:900;line-height:1">${M[x].name}</div><div style="font-size:18px;font-weight:800;color:var(--ink2)">${M[x].title}</div>${chip(M[x].trait, M[x].icon, 'var(--m-accent)', 'var(--surface)')}
+      <div class="card big" style="text-align:left;width:100%"><b style="font-size:19px">“${M[x].tagline}”</b><p class="sub" style="margin-top:8px">${M[x].bio}</p><div style="margin-top:10px;font-weight:800;color:var(--m-accent)">${ic('auto_awesome')} ${M[x].specialty}</div></div>
+      <div class="grid3" style="width:100%;text-align:left"><div class="card stat" style="--c:var(--m-accent)">${ic('favorite')}<b>Lv ${b.level}</b><span>${b.title}</span></div><div class="card stat" style="--c:var(--m-accent)">${ic('schedule')}<b>${dur(bondMinutes(x))}</b><span>together</span></div><div class="card stat" style="--c:var(--m-accent)">${ic('check_circle')}<b>${n}</b><span>sessions</span></div></div>
+    </div></div><div class="footer">${x === S.mascot ? `<div class="btn" style="background:var(--m-tint);color:var(--m-accent)">${ic('check_circle')}${M[x].name} is your companion</div>` : `<button class="btn primary" data-a="setMascot" data-m="${x}" ${S.active ? 'disabled' : ''}>Make ${M[x].name} my companion</button>`}</div></div>`;
+  }
+  if (sh === 'templates') return wrap('New schedule', TEMPLATES.map((t, i) => `<button class="card row" style="text-align:left;${mv(t.mascot)}" data-a="useTemplate" data-i="${i}">${badgeIcon(t.icon, 'color-mix(in srgb, var(--m-tint) 70%, transparent)')}<div class="grow"><b style="font-size:16px">${t.name}</b><div class="sub" style="font-size:13px">${fmtHM(t.start)} – ${fmtHM(t.end)} · ${t.days.length === 7 ? 'Every day' : 'Weekdays'}</div></div>${avatar(t.mascot, 32)}</button>`).join('')
+    + `<button class="card row" style="text-align:left" data-a="useTemplate" data-i="-1"><span class="iconbadge" style="--b:var(--ink);--c:var(--inv)">${ic('add')}</span><b class="grow" style="font-size:16px">Custom schedule</b></button>`);
+  if (sh === 'editor') {
+    const d = U.draft, isNew = U.editIndex === -1;
+    return `<div class="scrim" data-a="closeSheet"></div><div class="sheet" style="${mv(d.mascot)}"><div class="grab"></div><div class="bar"><button data-a="closeSheet">Cancel</button><span>${isNew ? 'New schedule' : 'Edit schedule'}</span><button data-a="saveSchedule" ${d.days.length && d.name.trim() ? '' : 'disabled'} style="font-weight:900">Save</button></div><div class="scroll"><div class="pad stack" style="padding-bottom:28px">
+      <div style="display:flex;justify-content:center">${mascot(d.mascot, 'focused', 120)}</div>
+      <div class="card big stack" style="gap:12px"><input id="schedName" type="text" value="${esc(d.name)}" maxlength="30" style="border:0;background:transparent;font-size:20px;font-weight:900;outline:none" aria-label="Schedule name">
+        <div class="row" style="gap:8px;flex-wrap:wrap">${['work', 'menu_book', 'bedtime', 'wb_twilight', 'restaurant', 'directions_run', 'psychology', 'home'].map((i) => `<button class="iconbadge" style="${i === d.icon ? '--b:var(--ink);--c:var(--inv)' : ''}" data-a="schedIcon" data-v="${i}" aria-label="${i}">${ic(i)}</button>`).join('')}</div></div>
+      <div class="card big" style="padding:4px 14px"><label class="optrow">${badgeIcon('play_circle', 'color-mix(in srgb, var(--m-tint) 70%, transparent)')}<b class="grow">Starts</b><input id="schedStart" type="time" value="${d.start}" style="border:0;background:var(--muted);border-radius:10px;padding:6px 10px;font-weight:800"></label><div class="divider"></div>
+        <label class="optrow">${badgeIcon('stop_circle', 'color-mix(in srgb, var(--m-tint) 70%, transparent)')}<b class="grow">Ends</b><input id="schedEnd" type="time" value="${d.end}" style="border:0;background:var(--muted);border-radius:10px;padding:6px 10px;font-weight:800"></label></div>
+      <div class="card big stack" style="gap:12px"><b style="color:var(--ink2);font-size:14px">Repeat on</b><div class="row" style="gap:6px">${[1, 2, 3, 4, 5, 6, 0].map((x) => `<button style="flex:1;height:40px;border-radius:50%;font-weight:900;${d.days.includes(x) ? 'background:var(--m-accent);color:#fff' : 'background:var(--muted)'}" data-a="schedDay" data-v="${x}">${DAYL[x]}</button>`).join('')}</div></div>
+      <button class="card big row" style="text-align:left" data-a="schedApps">${badgeIcon('shield_lock', 'color-mix(in srgb, var(--m-tint) 70%, transparent)')}<div class="grow"><b>Apps to block</b><div class="sub" style="font-size:13px">${d.apps.length ? d.apps.length + ' apps' : 'Uses your focus block list if empty'}</div></div>${ic('chevron_right')}</button>
+      <div class="card big stack" style="gap:12px"><b style="color:var(--ink2);font-size:14px">Guardian</b><div class="row" style="justify-content:space-between">${ORDER.map((x) => `<button data-a="schedMascot" data-v="${x}" style="opacity:${x === d.mascot ? 1 : .5};border-radius:50%;${x === d.mascot ? `box-shadow:0 0 0 3px var(--${x}-accent)` : ''}" aria-label="${M[x].name}">${avatar(x, 50)}</button>`).join('')}</div></div>
+      ${isNew ? '' : `<button class="btn quiet" style="color:var(--bad)" data-a="deleteSchedule">Delete schedule</button>`}
+    </div></div></div>`;
+  }
+  if (sh === 'settings') {
+    const step = (label, icon, key, min, max, inc) => `<div class="optrow">${badgeIcon(icon, 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<div class="grow"><b>${label}</b><div style="font-size:13px;font-weight:800;color:var(--m-accent)">${longDur(S[key])}</div></div><button class="circlebtn" style="width:36px;height:36px" data-a="stepSetting" data-k="${key}" data-v="${-inc}" data-min="${min}" data-max="${max}" aria-label="Less">${ic('remove')}</button><button class="circlebtn" style="width:36px;height:36px" data-a="stepSetting" data-k="${key}" data-v="${inc}" data-min="${min}" data-max="${max}" aria-label="More">${ic('add')}</button></div>`;
+    return wrap('Settings', `<div class="card big row">${avatar(S.mascot, 56)}<div class="grow"><input id="settingsName" type="text" value="${esc(S.ob.name)}" maxlength="30" style="border:0;background:transparent;font-size:19px;font-weight:900;outline:none;width:100%" aria-label="Your name"><div class="small" style="font-size:12px">Focusing with ${M[S.mascot].name} since ${new Date(S.createdAt).toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' })}</div></div></div>
+      <div class="small" style="font-weight:900;padding:0 4px">FOCUS</div>
+      <div class="card big" style="padding:4px 14px">${step('Daily goal', 'track_changes', 'goalMin', 15, 480, 15)}<div class="divider"></div>${step('Default session', 'timer', 'sessionMin', 5, 180, 5)}<div class="divider"></div>${step('Break length', 'coffee', 'breakMin', 1, 30, 1)}<div class="divider"></div>
+        <div class="optrow">${badgeIcon('back_hand', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<b class="grow">Strict mode by default</b>${toggle(S.strictDefault, 'toggleStrictDefault')}</div></div>
+      <div class="small" style="font-weight:900;padding:0 4px">BLOCKING</div>
+      <div class="card big" style="padding:4px 14px"><div class="optrow">${badgeIcon('hourglass_top', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<b class="grow">Screen Time</b>${S.screenTime ? `<span style="color:var(--ok);font-weight:800">${ic('check_circle')} Connected</span>` : '<button style="font-weight:900;color:var(--m-accent)" data-a="askScreenTime">Connect</button>'}</div><div class="divider"></div>
+        <button class="optrow" data-a="openPicker">${badgeIcon('shield_lock', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<b class="grow">Focus block list</b><span class="sub">${S.blockList.length ? S.blockList.length + ' apps' : 'Nothing selected'}</span></button></div>
+      <div class="small" style="font-weight:900;padding:0 4px">COMPANIONS</div>
+      <div class="card big" style="padding:4px 14px"><div class="optrow">${badgeIcon('laptop_mac', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<div class="grow"><b>Mac notch companion</b><div class="sub" style="font-size:13px">Your session shows next to the MacBook notch</div></div></div><div class="divider"></div>
+        <button class="optrow" data-a="pickMascot">${badgeIcon('groups', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<b class="grow">Change companion</b>${ic('chevron_right')}</button></div>
+      <div class="small" style="font-weight:900;padding:0 4px">THIS PREVIEW</div>
+      <div class="card big" style="padding:4px 14px"><button class="optrow" data-a="sample">${badgeIcon('bar_chart', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<b class="grow">Add a sample week of sessions</b></button><div class="divider"></div>
+        <button class="optrow" data-a="restart">${badgeIcon('replay', 'color-mix(in srgb, var(--m-tint) 60%, transparent)')}<b class="grow">Restart onboarding</b></button><div class="divider"></div>
+        <button class="optrow" data-a="askReset" style="color:var(--bad)">${badgeIcon('delete', 'color-mix(in srgb, var(--bad) 15%, transparent)', 'var(--bad)')}<b class="grow">${U.confirmReset ? 'Tap again to erase everything' : 'Reset all data'}</b></button></div>
+      <div class="col" style="align-items:center;gap:8px;padding-top:6px"><div class="row" style="gap:0">${ORDER.map((x) => `<span style="margin:0 -5px;border-radius:50%;box-shadow:0 0 0 3px var(--bg)">${avatar(x, 34)}</span>`).join('')}</div><span class="small" style="font-size:12px">Focus Crew 1.0 · web preview</span></div>`);
+  }
+  if (sh === 'gaveup') {
+    const r = U.gaveUp, m = r.mascot;
+    return `<div class="scrim" data-a="closeSheet"></div><div class="sheet" style="${mv(m)}"><div class="grab"></div><div class="pad col" style="align-items:center;gap:12px;padding-bottom:22px;text-align:center">${mascot(m, 'sad', 130, { deco: false })}<h2 class="h2">That's okay</h2><p class="sub">${esc(pick(M[m].quit, r.focused))}</p>${r.focused >= 60 ? chip(`+${longDur(Math.round(r.focused / 60))} still counted`, 'check_circle', 'var(--ok)', 'var(--surface)') : ''}<button class="btn primary" data-a="closeSheet" style="margin-top:6px">Got it</button></div></div>`;
+  }
+  return '';
+}
+function alertView() {
+  const a = U.alert; if (!a) return '';
+  return `<div class="scrim" style="z-index:50"></div><div class="alertwrap"><div class="alert" role="alertdialog" aria-label="${a.title}"><div class="t"><h4>${a.title}</h4><p>${a.text}</p></div><div class="acts">${a.buttons.map(([l, act, strong]) => `<button class="${strong ? 'strong' : ''}" data-a="${act}">${l}</button>`).join('')}</div></div></div>`;
+}
+
+// =====================================================================
+// Render
+// =====================================================================
+const app = $('#app');
+let toastTimer = null;
+function render() {
+  let html = S.stage === 'onboarding' ? obView() : appView();
+  if (S.stage === 'app' && S.active && U.sessionOpen && !U.completion) html += sessionView();
+  if (U.completion) html += completionView();
+  if (S.active && U.lock) html += lockView();
+  if (S.active && U.shield) html += shieldView();
+  html += sheetView() + alertView();
+  if (U.toast) html += `<div class="toast">${avatar(S.mascot, 30)}${esc(U.toast)}</div>`;
+  app.innerHTML = html;
+  const sb = $('#statusbar'); if (sb) sb.classList.toggle('light', !!(U.lock));
+  after();
+  U.dir = 0;
+}
+function toast(t) { U.toast = t; clearTimeout(toastTimer); toastTimer = setTimeout(() => { U.toast = null; const el = $('.toast'); if (el) el.remove(); }, 3000); }
+
+// Wire up per-screen behaviour after each render
+function after() {
+  const step = STEPS[S.step];
+  const name = $('#name'); if (name) { name.addEventListener('input', () => { S.ob.name = name.value; save(); $('#nameNext').disabled = !name.value.trim(); }); name.addEventListener('keydown', (e) => { if (e.key === 'Enter' && name.value.trim()) next(); }); setTimeout(() => name.focus({ preventScroll: true }), 350); }
+  const hours = $('#hours'); if (hours) hours.addEventListener('input', () => { S.ob.hours = parseFloat(hours.value); save(); const h = S.ob.hours; $('#hoursVal').textContent = h >= 12 ? '12+' : h;
+    const mood = h < 3 ? 'happy' : h < 5 ? 'idle' : 'sad'; const img = $('#hoursMascot .body'); if (img && img.dataset.mood !== mood) { img.dataset.mood = mood; img.src = `img/blob_${mood}.webp`; }
+    $('#hoursReact').textContent = h < 2 ? "Impressive! Let's keep it that way." : h < 4 ? 'Pretty average. We can do better!' : h < 6 ? "That adds up fast. We'll fix this together." : h < 9 ? "Oof. That's a part-time job." : 'Yikes! Good thing you found us.'; });
+  const years = $('#years'); if (years) { const to = parseFloat(years.dataset.to), t0 = performance.now(); const step2 = (t) => { const p = Math.min(1, (t - t0 - 300) / 1500); if (p > 0) years.textContent = (to * (1 - Math.pow(1 - p, 3))).toFixed(1); if (p < 1 && years.isConnected) requestAnimationFrame(step2); }; requestAnimationFrame(step2); }
+  if (step === 'analyzing' && S.stage === 'onboarding') runAnalysis();
+  const intention = $('#intention'); if (intention) intention.addEventListener('input', () => { U.intention = intention.value; });
+  const sound = $('#sound'); if (sound) sound.addEventListener('change', () => { S.sound = sound.value; save(); render(); });
+  const rem = $('#reminder'); if (rem) rem.addEventListener('change', () => { S.reminder = rem.value; save(); });
+  const sn = $('#settingsName'); if (sn) sn.addEventListener('input', () => { S.ob.name = sn.value; save(); });
+  const schedName = $('#schedName'); if (schedName) schedName.addEventListener('input', () => { U.draft.name = schedName.value; const btn = $('[data-a="saveSchedule"]'); if (btn) btn.disabled = !(U.draft.days.length && U.draft.name.trim()); });
+  ['schedStart', 'schedEnd'].forEach((id) => { const el = $('#' + id); if (el) el.addEventListener('change', () => { U.draft[id === 'schedStart' ? 'start' : 'end'] = el.value; }); });
+  const hold = $('#hold'); if (hold) setupHold(hold);
+  const bar = $('#bondBar'); if (bar) setTimeout(() => { bar.style.width = bar.dataset.to + '%'; }, 500);
+  if ($('#confetti') && !U.confettiDone) { U.confettiDone = true; confetti($('#confetti')); }
+  if (U.reveal) { U.reveal = false; setTimeout(() => confetti(null), 300); }
+}
+
+function setupHold(el) {
+  const dur = parseInt(el.dataset.dur || '1600', 10), fill = el.querySelector('.fill'), label = el.querySelector('.label'), base = label.textContent;
+  let t0 = 0, raf = 0, done = false;
+  const tick = (t) => { const p = Math.min(1, (t - t0) / dur); fill.style.width = `max(58px, ${p * 100}%)`; label.style.color = p > .5 ? 'var(--inv)' : 'var(--ink)'; if (p >= 1) { done = true; finish(); return; } raf = requestAnimationFrame(tick); };
+  const start = (e) => { e.preventDefault(); if (done) return; t0 = performance.now(); label.textContent = el.dataset.done === 'giveup' ? 'Are you really sure…' : 'Keep holding…'; raf = requestAnimationFrame(tick); };
+  const stop = () => { if (done) return; cancelAnimationFrame(raf); fill.style.transition = 'width .3s'; fill.style.width = '58px'; label.textContent = base; label.style.color = 'var(--ink)'; setTimeout(() => { fill.style.transition = ''; }, 300); };
+  const finish = () => { if (el.dataset.done === 'pledge') { S.pledged = true; save(); confetti(null); render(); setTimeout(() => { if (STEPS[S.step] === 'pledge') next(); }, 1500); } else { U.sheet = null; endSession(false); } };
+  el.addEventListener('pointerdown', start); el.addEventListener('pointerup', stop); el.addEventListener('pointerleave', stop); el.addEventListener('pointercancel', stop);
+  el.addEventListener('keydown', (e) => { if ((e.key === ' ' || e.key === 'Enter') && !t0) start(e); }); el.addEventListener('keyup', stop); el.tabIndex = 0; el.setAttribute('role', 'button');
+}
+
+function runAnalysis() {
+  if (U.analyzing) return; U.analyzing = true;
+  const ring = $('#anRing'), pct = $('#anPct'), items = [...document.querySelectorAll('.an-item')], C = 603.2, t0 = performance.now(), D = 4200; let spot = 0, lastSpot = 0;
+  const f = (t) => {
+    if (!ring.isConnected) { U.analyzing = false; return; }
+    const p = Math.min(1, (t - t0) / D); ring.style.strokeDashoffset = C * (1 - p); pct.textContent = Math.round(p * 100) + '%';
+    const checked = Math.min(items.length, Math.floor(p * (items.length + 1)));
+    items.forEach((it, i) => { if (i < checked && !it.dataset.on) { it.dataset.on = 1; it.style.color = 'var(--ink)'; it.style.fontWeight = 800; const d = it.querySelector('.an-dot'); d.style.background = 'var(--ink)'; d.innerHTML = ic('check'); d.firstChild.style.fontSize = '15px'; } });
+    if (t - lastSpot > 650) { lastSpot = t; spot = (spot + 1) % 5; const host = $('#anMascot'); if (host) host.innerHTML = mascot(ORDER[spot], 'idle', 170, { deco: false }); }
+    if (p < 1) requestAnimationFrame(f); else setTimeout(() => { U.analyzing = false; S.matched = match(); S.mascot = S.matched; S.goalMin = SPAN_GOAL[S.ob.span] || 90; save(); U.reveal = true; next(); }, 450);
+  };
+  requestAnimationFrame(f);
+}
+
+function confetti(canvas) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let own = false;
+  if (!canvas) { canvas = document.createElement('canvas'); canvas.id = 'confetti'; canvas.style.zIndex = 46; app.appendChild(canvas); own = true; }
+  const dpr = window.devicePixelRatio || 1, w = app.clientWidth, h = app.clientHeight; canvas.width = w * dpr; canvas.height = h * dpr; canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+  const c2 = canvas.getContext('2d'); c2.scale(dpr, dpr);
+  const cs = getComputedStyle(document.documentElement), colors = ['--orbit-accent', '--spark-accent', '--leaf-accent', '--blob-accent', '--flame', '--spark-tint'].map((v) => cs.getPropertyValue(v).trim() || '#f90');
+  const P = Array.from({ length: 110 }, () => ({ x: Math.random() * w, d: Math.random() * .5, sp: .3 + Math.random() * .8, spin: (Math.random() - .5) * 720, dr: Math.random() * 6, s: 7 + Math.random() * 6, c: colors[Math.floor(Math.random() * colors.length)], shape: Math.floor(Math.random() * 3) }));
+  const t0 = performance.now(), D = 3.2;
+  const f = (t) => {
+    if (!canvas.isConnected) return; const s = (t - t0) / 1000; c2.clearRect(0, 0, w, h);
+    for (const p of P) { const l = s - p.d; if (l < 0 || l > D) continue; const y = -20 + l * p.sp * h / 2.2 + 130 * l * l; if (y > h + 30) continue;
+      const x = p.x + Math.sin(l * 3 + p.dr) * 24; c2.save(); c2.globalAlpha = l > D - .6 ? (D - l) / .6 : 1; c2.translate(x, y); c2.rotate(l * p.spin * Math.PI / 180); c2.fillStyle = p.c;
+      if (p.shape === 2) { c2.beginPath(); c2.ellipse(0, 0, p.s / 2, p.s / 3, 0, 0, Math.PI * 2); c2.fill(); } else c2.fillRect(-p.s / 2, -p.s / 4, p.s, p.shape ? p.s : p.s / 2); c2.restore(); }
+    if (s < D + .6) requestAnimationFrame(f); else if (own) canvas.remove();
+  };
+  requestAnimationFrame(f);
+}
+
+// =====================================================================
+// Actions
+// =====================================================================
+function next() { if (S.step < STEPS.length - 1) { S.step++; U.dir = 1; save(); render(); app.querySelector('.scroll')?.scrollTo(0, 0); } }
+function back() { let s = S.step - 1; if (STEPS[s] === 'analyzing') s--; if (s >= 0) { S.step = s; U.dir = -1; save(); render(); } }
+
+function startSession(kind, minutes) {
+  if (S.active) return;
+  const blocking = kind === 'focus' && U.block !== false && S.screenTime && S.blockList.length > 0;
+  S.active = { kind, mascot: S.mascot, planned: minutes * 60, elapsed: 0, start: Date.now(), lastTick: Date.now(), pausedAt: null, intention: kind === 'focus' ? (U.intention || '').trim() : '', strict: kind === 'focus' && (U.strict ?? S.strictDefault), blocking, items: blocking ? S.blockList.length : 0 };
+  U.intention = ''; U.sessionOpen = true; U.completion = null; U.seed++; save();
+  if (kind === 'focus' && S.sound !== 'off') playSound(S.sound);
+  render();
+}
+function endSession(completed) {
+  const a = S.active; if (!a) return;
+  stopSound();
+  const focused = Math.round(completed ? a.planned : a.elapsed), m = a.mascot, before = bond(bondMinutes(m));
+  const rec = { start: a.start, end: Date.now(), planned: a.planned, focused, completed, mascot: m, intention: a.intention, strict: a.strict, kind: a.kind };
+  if (a.kind === 'focus' && (completed || focused >= 60)) S.history.push(rec);
+  S.active = null; U.lock = false; U.shield = null; U.sheet = null; U.sessionOpen = false;
+  if (a.kind === 'focus') {
+    if (completed) { chime(); const badges = checkBadges(); U.completion = { mascot: m, minutes: Math.round(focused / 60), line: pick(M[m].done, S.history.length), intention: a.intention, today: secOnDay(new Date()), goal: S.goalMin, streak: streak(), before, after: bond(bondMinutes(m)), badges }; U.confettiDone = false; }
+    else { U.gaveUp = rec; U.sheet = 'gaveup'; }
+  } else if (completed) { chime([784, 1046.5]); toast("Break's over. Ready for another round?"); }
+  save(); render();
+}
+function tick() {
+  const a = S.active; if (!a) return;
+  const now = Date.now(), dt = (now - a.lastTick) / 1000; a.lastTick = now;
+  if (!a.pausedAt) a.elapsed += dt * U.speed;
+  if (a.elapsed >= a.planned) { a.elapsed = a.planned; endSession(true); return; }
+  const r = remaining();
+  document.querySelectorAll('.js-remaining').forEach((el) => { el.textContent = clock(r); });
+  const ring = $('#sRing'); if (ring) { const C = 2 * Math.PI * 143; ring.style.strokeDashoffset = C * (1 - Math.max(.002, a.elapsed / a.planned)); }
+  document.querySelectorAll('.js-prog').forEach((el) => { el.style.width = (a.elapsed / a.planned * 100) + '%'; });
+  const ends = $('.js-ends'); if (ends) ends.textContent = timeStr(new Date(now + r * 1000 / U.speed));
+  if (Math.floor(a.elapsed) % 5 === 0) save();
+}
+setInterval(tick, 250);
+// Blink: idle eyes close briefly every few seconds.
+setInterval(() => { document.querySelectorAll('img.body[data-mood="idle"]').forEach((img, i) => { setTimeout(() => { img.src = `img/${img.dataset.m}_blink.webp`; setTimeout(() => { if (img.dataset.mood === 'idle') img.src = `img/${img.dataset.m}_idle.webp`; }, 140); }, i * 90); }); }, 4300);
+// Status bar clock
+const sbt = $('#sbtime'); const setSb = () => { sbt.textContent = new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }).replace(/\s?[AP]M/i, ''); }; setSb(); setInterval(setSb, 15000);
+
+function addSample() {
+  const intents = ['Quarterly report', 'Deep work', 'Read 30 pages', 'Design review', 'Inbox zero', 'Study Spanish', '', 'Write blog post'];
+  let seed = 7; const rnd = (n) => { seed = (seed * 9301 + 49297) % 233280; return Math.floor(seed / 233280 * n); };
+  for (let off = 7; off >= 1; off--) {
+    const day = new Date(); day.setDate(day.getDate() - off); let hour = 8 + rnd(3);
+    for (let k = 0, n = 1 + rnd(3); k < n; k++) { const mins = [15, 25, 25, 45, 50, 60][rnd(6)], d = new Date(day); d.setHours(hour, rnd(50), 0, 0); const ok = rnd(10) < 9, f = ok ? mins * 60 : (5 + rnd(10)) * 60;
+      S.history.push({ start: d.getTime(), end: d.getTime() + f * 1000, planned: mins * 60, focused: f, completed: ok, mascot: S.mascot, intention: intents[rnd(intents.length)], strict: false, kind: 'focus', sample: true }); hour += 1 + rnd(3); }
+  }
+  checkBadges(); save(); toast('Added an example week of sessions'); render();
+}
+
+const actions = {
+  restart: () => { S.stage = 'onboarding'; S.step = 0; S.pledged = false; U.sheet = null; U.dir = 1; save(); render(); },
+  sample: () => { U.sheet = null; if (S.stage === 'onboarding') { toast('Finish the onboarding first'); render(); return; } addSample(); },
+  obNext: next, obBack: back,
+  chooseOpt: (d) => { S.ob[d.q] = d.v; save(); render(); setTimeout(() => { if (STEPS[S.step] === d.q) next(); }, 320); },
+  toggleOpt: (d) => { const arr = S.ob[d.q], i = arr.indexOf(d.v); i >= 0 ? arr.splice(i, 1) : arr.push(d.v); save(); render(); },
+  setGoal: (d) => { S.goalMin = +d.v; save(); render(); },
+  pickMascot: () => { U.sheet = 'mascots'; render(); },
+  setMascot: (d) => { if (S.active) return; S.mascot = d.m; U.sheet = null; save(); if (S.stage === 'app') toast(`${M[d.m].name} is now your companion`); render(); },
+  askScreenTime: () => { U.alert = { title: '“Focus Crew” Would Like to Access Screen Time', text: 'Providing “Focus Crew” access to Screen Time may allow it to see your activity data, restrict content, and limit the usage of apps and websites.', buttons: [['Continue', 'grantScreenTime', true], ["Don't Allow", 'closeAlert']] }; render(); },
+  grantScreenTime: () => { U.alert = null; S.screenTime = true; save(); render(); if (S.stage === 'onboarding' && STEPS[S.step] === 'screenTime') setTimeout(() => { if (STEPS[S.step] === 'screenTime') next(); }, 700); },
+  closeAlert: () => { U.alert = null; render(); },
+  askNotifications: () => { U.alert = { title: '“Focus Crew” Would Like to Send You Notifications', text: 'Notifications may include alerts, sounds and icon badges. These can be configured in Settings.', buttons: [["Don't Allow", 'denyNotifications'], ['Allow', 'grantNotifications', true]] }; render(); },
+  grantNotifications: () => { U.alert = null; S.notifications = true; save(); next(); },
+  denyNotifications: () => { U.alert = null; next(); },
+  openPicker: () => { if (!S.screenTime) { actions.askScreenTime(); return; } U.draft = [...S.blockList]; U.pickerFor = 'focus'; U.sheet = 'picker'; render(); },
+  pickApp: (d) => { const i = U.draft.indexOf(d.v); i >= 0 ? U.draft.splice(i, 1) : U.draft.push(d.v); const sc = app.querySelector('.sheet .scroll'), y = sc ? sc.scrollTop : 0; render(); const sc2 = app.querySelector('.sheet .scroll'); if (sc2) sc2.scrollTop = y; },
+  savePicker: () => { if (U.pickerFor === 'schedule') { U.schedDraft.apps = [...U.draft]; U.draft = U.schedDraft; U.sheet = 'editor'; } else { S.blockList = [...U.draft]; U.sheet = null; save(); } render(); },
+  finishOnboarding: () => { S.stage = 'app'; S.tab = 'focus'; S.sessionMin = SPAN_SESSION[S.ob.span] || M[S.mascot].minutes; S.strictDefault = S.mascot === 'pebble'; S.breakMin = S.ob.struggles.includes('breaks') ? 10 : 5; save(); toast(`Welcome to the crew, ${firstName()}!`); render(); },
+  tab: (d) => { S.tab = d.v; save(); render(); app.querySelector('.scroll')?.scrollTo(0, 0); },
+  nextLine: () => { U.seed++; render(); },
+  minutes: (d) => { S.sessionMin = Math.min(180, Math.max(5, S.sessionMin + +d.v)); save(); render(); },
+  preset: (d) => { S.sessionMin = +d.v; save(); render(); },
+  toggleBlock: () => { if (!S.screenTime || !S.blockList.length) { actions.openPicker(); return; } U.block = U.block === false; render(); },
+  toggleStrict: () => { U.strict = !(U.strict ?? S.strictDefault); render(); },
+  start: () => { audio(); startSession('focus', S.sessionMin); },
+  openSession: () => { U.sessionOpen = true; render(); },
+  minimize: () => { U.sessionOpen = false; render(); },
+  pause: () => { const a = S.active; if (!a || a.strict) return; a.pausedAt = Date.now(); stopSound(); save(); render(); },
+  resume: () => { const a = S.active; if (!a) return; a.pausedAt = null; a.lastTick = Date.now(); if (a.kind === 'focus' && S.sound !== 'off') playSound(S.sound); save(); render(); },
+  askEnd: () => { U.sheet = 'end'; render(); },
+  endSession: () => { U.sheet = null; endSession(S.active && S.active.kind === 'rest' ? true : false); },
+  focusAgain: () => { stopSound(); S.active = null; save(); startSession('focus', S.sessionMin); },
+  speed: (d) => { U.speed = +d.v; render(); },
+  cycleSound: () => { const i = SOUNDS.findIndex((s) => s[0] === S.sound), nx = SOUNDS[(i + 1) % SOUNDS.length][0]; S.sound = nx; save(); if (S.active && !S.active.pausedAt && S.active.kind === 'focus') playSound(nx); else stopSound(); toast(`Focus sound: ${SOUNDS.find((s) => s[0] === nx)[1]}`); render(); },
+  showLock: () => { U.lock = true; render(); },
+  hideLock: () => { U.lock = false; render(); },
+  openShield: (d) => { U.shield = d.v; render(); },
+  closeShield: () => { U.shield = null; render(); },
+  shieldBreak: () => { U.shield = null; U.lock = false; U.sessionOpen = true; toast('Open the session to take a break'); render(); },
+  doneCompletion: () => { U.completion = null; render(); },
+  startBreak: () => { U.completion = null; startSession('rest', S.breakMin); },
+  closeSheet: () => { U.sheet = null; U.confirmReset = false; render(); },
+  openSettings: () => { U.sheet = 'settings'; render(); },
+  openBadges: () => { U.sheet = 'badges'; render(); },
+  openDetail: (d) => { U.detailFor = d.m; U.detailMood = null; U.sheet = 'detail'; render(); },
+  setMood: (d) => { U.detailMood = d.v; render(); },
+  cycleMood: () => { const moods = ['idle', 'happy', 'focused', 'sleepy', 'sad', 'excited'], cur = U.detailMood || RESTING[U.detailFor]; U.detailMood = moods[(moods.indexOf(cur) + 1) % moods.length]; render(); },
+  range: (d) => { U.range = d.v; render(); },
+  openTemplates: () => { U.sheet = 'templates'; render(); },
+  useTemplate: (d) => { const t = +d.i >= 0 ? TEMPLATES[+d.i] : { name: 'My schedule', icon: 'schedule', start: '09:00', end: '12:00', days: [1, 2, 3, 4, 5], mascot: 'orbit' }; U.draft = { ...t, days: [...t.days], apps: [...S.blockList], enabled: true, strict: false }; U.editIndex = -1; U.sheet = 'editor'; render(); },
+  editSchedule: (d) => { const s = S.schedules[+d.i]; U.draft = { ...s, days: [...s.days], apps: [...s.apps] }; U.editIndex = +d.i; U.sheet = 'editor'; render(); },
+  schedIcon: (d) => { U.draft.icon = d.v; render(); },
+  schedDay: (d) => { const v = +d.v, i = U.draft.days.indexOf(v); i >= 0 ? U.draft.days.splice(i, 1) : U.draft.days.push(v); render(); },
+  schedMascot: (d) => { U.draft.mascot = d.v; render(); },
+  schedApps: () => { if (!S.screenTime) { actions.askScreenTime(); return; } U.schedDraft = U.draft; U.draft = [...U.schedDraft.apps]; U.pickerFor = 'schedule'; U.sheet = 'picker'; render(); },
+  saveSchedule: () => { const d = U.draft; if (!d.days.length || !d.name.trim()) return; const s = { name: d.name.trim(), icon: d.icon, start: d.start, end: d.end, days: d.days, mascot: d.mascot, apps: d.apps.length ? d.apps : [...S.blockList], enabled: d.enabled !== false, strict: !!d.strict };
+    if (U.editIndex >= 0) S.schedules[U.editIndex] = s; else S.schedules.push(s); const nb = checkBadges(); U.sheet = null; U.pickerFor = null; save(); toast(nb.includes('planner') ? 'Badge unlocked: Planner' : `${s.name} saved`); render(); },
+  deleteSchedule: () => { S.schedules.splice(U.editIndex, 1); U.sheet = null; save(); render(); },
+  toggleSchedule: (d) => { const s = S.schedules[+d.i]; s.enabled = !s.enabled; save(); render(); },
+  stepSetting: (d) => { const k = d.k; S[k] = Math.min(+d.max, Math.max(+d.min, S[k] + +d.v)); save(); render(); },
+  toggleStrictDefault: () => { S.strictDefault = !S.strictDefault; U.strict = undefined; save(); render(); },
+  askReset: () => { if (!U.confirmReset) { U.confirmReset = true; render(); return; } stopSound(); S = fresh(); U.sheet = null; U.confirmReset = false; U.completion = null; save(); render(); },
+};
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-a]'); if (!el || el.disabled) return;
+  const f = actions[el.dataset.a]; if (f) { e.preventDefault(); f(el.dataset); }
+});
+
+// Resume a session that was running when the page was closed.
+if (S.active) { const a = S.active; if (!a.pausedAt) a.elapsed += (Date.now() - (a.lastTick || Date.now())) / 1000; a.lastTick = Date.now(); if (a.elapsed >= a.planned) { a.elapsed = a.planned; } }
+if (S.stage === 'onboarding' && STEPS[S.step] === 'analyzing') S.step = STEPS.indexOf('reality');
+U.dir = 1;
+render();
+if (S.active && S.active.elapsed >= S.active.planned) endSession(true);
+})();
+</script>
+
+</body>
+</html>
