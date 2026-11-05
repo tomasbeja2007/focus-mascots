@@ -1,0 +1,12 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+# macOS
+.DS_Store
+# Design tooling
+design/mascots/__pycache__/
+node_modules/

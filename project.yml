@@ -1,0 +1,230 @@
+# XcodeGen spec for Focus Crew.
+# The generated FocusCrew.xcodeproj is committed, so you only need XcodeGen
+# (brew install xcodegen) if you change this file:   xcodegen generate
+#
+# Team ID, bundle IDs and the App Group live in Configs/Shared.xcconfig.
+name: FocusCrew
+
+options:
+  bundleIdPrefix: com.focuscrew
+  createIntermediateGroups: true
+  developmentLanguage: en
+  groupSortPosition: top
+  deploymentTarget:
+    iOS: "17.0"
+    macOS: "14.0"
+
+configFiles:
+  Debug: Configs/Shared.xcconfig
+  Release: Configs/Shared.xcconfig
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: NO
+    ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS: NO
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+    DEAD_CODE_STRIPPING: YES
+    CODE_SIGN_STYLE: Automatic
+    CURRENT_PROJECT_VERSION: $(FC_BUILD_NUMBER)
+    MARKETING_VERSION: $(FC_VERSION)
+
+targets:
+  # ------------------------------------------------------------------ iOS app
+  FocusCrew:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+        excludes:
+          - "Resources/FocusCrew.storekit"
+      - path: App/Resources/FocusCrew.storekit
+        buildPhase: none
+      - path: Shared/Core
+      - path: Shared/UI
+      - path: Shared/MascotArt.xcassets
+      - path: Shared/Theme.xcassets
+      - path: Shared/Sounds
+        buildPhase: resources
+      - path: SharedIOS/Blocking
+      - path: SharedIOS/Live
+      - path: SharedIOS/Report
+      - path: SharedIOS/Widgets
+      - path: Shared/Privacy/PrivacyInfo.xcprivacy
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_NAME: FocusCrew
+        PRODUCT_BUNDLE_IDENTIFIER: $(FC_APP_BUNDLE_ID)
+        INFOPLIST_FILE: App/Info.plist
+        CODE_SIGN_ENTITLEMENTS: App/FocusCrew.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: YES
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+    dependencies:
+      - target: FocusCrewWidgets
+      - target: FocusCrewMonitor
+      - target: FocusCrewShield
+      - target: FocusCrewShieldAction
+      - target: FocusCrewReport
+
+  # -------------------------------------- Widgets, Live Activity, Control
+  FocusCrewWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Widgets
+      - path: Shared/Core
+      - path: Shared/UI
+      - path: Shared/MascotArt.xcassets
+      - path: Shared/Theme.xcassets
+      - path: SharedIOS/Live
+      - path: SharedIOS/Widgets
+      - path: Shared/Privacy/PrivacyInfo.xcprivacy
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(FC_APP_BUNDLE_ID).widgets
+        INFOPLIST_FILE: Widgets/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Widgets/Widgets.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+        SKIP_INSTALL: YES
+
+  # ------------------------------ Screen Time: schedule + session monitor
+  FocusCrewMonitor:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Monitor
+      - path: Shared/Core
+      - path: SharedIOS/Blocking
+      - path: Shared/Privacy/PrivacyInfo.xcprivacy
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(FC_APP_BUNDLE_ID).monitor
+        INFOPLIST_FILE: Monitor/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Monitor/Monitor.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+        SKIP_INSTALL: YES
+
+  # ------------------------------------------ Screen Time: custom shield
+  FocusCrewShield:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Shield
+      - path: Shared/Core
+      - path: SharedIOS/Blocking
+      - path: Shared/MascotArt.xcassets
+      - path: Shared/Theme.xcassets
+      - path: Shared/Privacy/PrivacyInfo.xcprivacy
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(FC_APP_BUNDLE_ID).shield
+        INFOPLIST_FILE: Shield/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Shield/Shield.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+        SKIP_INSTALL: YES
+
+  # ----------------------------------- Screen Time: shield button actions
+  FocusCrewShieldAction:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: ShieldAction
+      - path: Shared/Core
+      - path: SharedIOS/Blocking
+      - path: Shared/Privacy/PrivacyInfo.xcprivacy
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(FC_APP_BUNDLE_ID).shieldaction
+        INFOPLIST_FILE: ShieldAction/Info.plist
+        CODE_SIGN_ENTITLEMENTS: ShieldAction/ShieldAction.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+        SKIP_INSTALL: YES
+
+  # ------------------------------------ Screen Time: usage report (UI)
+  FocusCrewReport:
+    type: extensionkit-extension
+    platform: iOS
+    sources:
+      - path: Report
+      - path: Shared/Core
+      - path: Shared/UI
+      - path: Shared/MascotArt.xcassets
+      - path: Shared/Theme.xcassets
+      - path: SharedIOS/Report
+      - path: Shared/Privacy/PrivacyInfo.xcprivacy
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(FC_APP_BUNDLE_ID).report
+        INFOPLIST_FILE: Report/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Report/Report.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+        SKIP_INSTALL: YES
+
+  # ------------------------------------------------------- macOS companion
+  FocusCrewMac:
+    type: application
+    platform: macOS
+    sources:
+      - path: Mac
+      - path: Shared/Core
+      - path: Shared/UI
+      - path: Shared/MascotArt.xcassets
+      - path: Shared/Theme.xcassets
+      - path: Shared/Sounds
+        buildPhase: resources
+      - path: Shared/Privacy/PrivacyInfo.xcprivacy
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_NAME: Focus Crew
+        PRODUCT_MODULE_NAME: FocusCrewMac
+        PRODUCT_BUNDLE_IDENTIFIER: $(FC_MAC_BUNDLE_ID)
+        INFOPLIST_FILE: Mac/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Mac/FocusCrewMac.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_HARDENED_RUNTIME: YES
+        COMBINE_HIDPI_IMAGES: YES
+
+schemes:
+  FocusCrew:
+    build:
+      targets:
+        FocusCrew: all
+    run:
+      config: Debug
+      storeKitConfiguration: App/Resources/FocusCrew.storekit
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+  FocusCrewWidgets:
+    build:
+      targets:
+        FocusCrewWidgets: all
+        FocusCrew: all
+    run:
+      config: Debug
+  FocusCrewMac:
+    build:
+      targets:
+        FocusCrewMac: all
+    run:
+      config: Debug
+    archive:
+      config: Release

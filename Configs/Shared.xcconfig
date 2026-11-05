@@ -1,0 +1,23 @@
+// Focus Crew build configuration
+// -----------------------------------------------------------------------------
+// 1. Put your Apple Developer Team ID here (Xcode > Settings > Accounts, or
+//    developer.apple.com > Membership). Leave it empty to build for the simulator.
+DEVELOPMENT_TEAM =
+
+// 2. Bundle identifiers. These must be unique on the App Store, so change the
+//    "com.focuscrew" part to a reverse-domain you own. Every extension ID is
+//    derived from FC_APP_BUNDLE_ID automatically.
+FC_APP_BUNDLE_ID = com.focuscrew.app
+FC_MAC_BUNDLE_ID = com.focuscrew.mac
+
+// 3. App Group shared by the app and its extensions (widgets, Screen Time
+//    extensions). Must start with "group.".
+FC_APP_GROUP_ID = group.com.focuscrew.app
+
+// 4. iCloud key-value store shared by the iPhone and Mac apps (for the Mac
+//    notch indicator). Both apps use the iPhone app's identifier.
+FC_ICLOUD_KVS_ID = $(TeamIdentifierPrefix)$(FC_APP_BUNDLE_ID)
+
+// 5. Version shown on the App Store, and the build number (bump for every upload).
+FC_VERSION = 1.0.0
+FC_BUILD_NUMBER = 1

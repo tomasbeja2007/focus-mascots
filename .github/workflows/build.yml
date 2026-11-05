@@ -1,0 +1,170 @@
+name: Build
+
+on:
+  push:
+    branches: [main, "claude/**"]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      screenshots:
+        description: "Capture simulator screenshots"
+        type: boolean
+        default: true
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+env:
+  XCODE_APP: /Applications/Xcode_26.6.app
+
+jobs:
+  ios:
+    name: iOS app + extensions
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s "$XCODE_APP" && xcodebuild -version
+
+      - name: Generate Xcode project
+        run: |
+          brew install xcodegen >/dev/null
+          xcodegen generate --spec project.yml
+
+      - name: Build for iOS Simulator
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project FocusCrew.xcodeproj -scheme FocusCrew -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build/sim \
+            CODE_SIGNING_ALLOWED=NO COMPILER_INDEX_STORE_ENABLE=NO \
+            2>&1 | tee build-sim.log | grep -E "error:|warning: .*(deprecated|unreachable)|BUILD (SUCCEEDED|FAILED)" || true
+          grep -q "BUILD SUCCEEDED" build-sim.log
+
+      - name: Show compiler errors
+        if: failure()
+        run: |
+          grep -E "error:" build-sim.log | sort -u | head -150 || true
+          echo "----- tail -----"
+          tail -60 build-sim.log
+
+      - name: Build for iOS device (Release, unsigned)
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project FocusCrew.xcodeproj -scheme FocusCrew -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build/device \
+            CODE_SIGNING_ALLOWED=NO COMPILER_INDEX_STORE_ENABLE=NO \
+            2>&1 | tee build-device.log | grep -E "error:|BUILD (SUCCEEDED|FAILED)" || true
+          grep -q "BUILD SUCCEEDED" build-device.log
+
+      - name: Show device compiler errors
+        if: failure()
+        run: grep -E "error:" build-device.log | sort -u | head -150 || true
+
+      - name: Capture screenshots
+        if: github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.screenshots)
+        run: |
+          set -x
+          APP=$(find build/sim/Build/Products -maxdepth 2 -name "FocusCrew.app" | head -1)
+          BUNDLE=$(/usr/libexec/PlistBuddy -c "Print CFBundleIdentifier" "$APP/Info.plist")
+          RUNTIME=$(xcrun simctl list runtimes -j | python3 -c "import json,sys; r=[x for x in json.load(sys.stdin)['runtimes'] if x['platform']=='iOS' and x['isAvailable']]; print(r[-1]['identifier'])")
+          TYPE=$(xcrun simctl list devicetypes -j | python3 -c "import json,sys; t=[x['identifier'] for x in json.load(sys.stdin)['devicetypes'] if 'iPhone-17-Pro' in x['identifier'] and 'Max' not in x['identifier']]; print(t[0] if t else 'com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro')")
+          UDID=$(xcrun simctl create "Shots" "$TYPE" "$RUNTIME")
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl status_bar "$UDID" override --time "9:41" --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3 || true
+          xcrun simctl install "$UDID" "$APP"
+          mkdir -p shots
+          SCREENS=$(cat ci/screens.txt | grep -v '^#' | xargs)
+          for s in $SCREENS; do
+            for appearance in light dark; do
+              if [ "$appearance" = "dark" ] && ! grep -q "^$s$" ci/dark-screens.txt; then continue; fi
+              xcrun simctl ui "$UDID" appearance $appearance
+              xcrun simctl launch --terminate-running-process "$UDID" "$BUNDLE" -demoScreen "$s" >/dev/null
+              sleep 5
+              xcrun simctl io "$UDID" screenshot "shots/${s}-${appearance}.png" >/dev/null 2>&1 || true
+            done
+          done
+          xcrun simctl ui "$UDID" appearance light
+          ls -la shots
+
+      - name: Publish screenshots + generated project to ci-screenshots branch
+        if: github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.screenshots)
+        run: |
+          SHA=$(git rev-parse --short HEAD)
+          mkdir -p /tmp/publish/shots
+          cp shots/*.png /tmp/publish/shots/ 2>/dev/null || true
+          cp -R FocusCrew.xcodeproj /tmp/publish/FocusCrew.xcodeproj
+          cp build-sim.log /tmp/publish/build-sim.log
+          cd /tmp/publish
+          git init -q -b ci-screenshots
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          echo "Screenshots for $SHA" > README.md
+          git add -A
+          git commit -qm "Screenshots for $SHA"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" ci-screenshots
+
+  macos:
+    name: macOS companion
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s "$XCODE_APP"
+
+      - name: Generate Xcode project
+        run: |
+          brew install xcodegen >/dev/null
+          xcodegen generate --spec project.yml
+
+      - name: Build macOS app
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project FocusCrew.xcodeproj -scheme FocusCrewMac -configuration Debug \
+            -destination 'platform=macOS' -derivedDataPath build/mac \
+            CODE_SIGNING_ALLOWED=NO COMPILER_INDEX_STORE_ENABLE=NO \
+            2>&1 | tee build-mac.log | grep -E "error:|BUILD (SUCCEEDED|FAILED)" || true
+          grep -q "BUILD SUCCEEDED" build-mac.log
+
+      - name: Show compiler errors
+        if: failure()
+        run: grep -E "error:" build-mac.log | sort -u | head -150 || true
+
+      - name: Screenshot the Mac companion
+        if: github.event_name != 'pull_request'
+        run: |
+          APP=$(find build/mac/Build/Products -maxdepth 2 -name "*.app" | head -1)
+          open "$APP" --args -demoSession YES
+          sleep 6
+          mkdir -p macshots
+          screencapture -x macshots/mac-desktop.png || true
+          pkill -f "Focus Crew" || true
+          ls -la macshots
+
+      - name: Publish Mac screenshot to ci-mac-screenshots branch
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p /tmp/publish && cp macshots/*.png /tmp/publish/ 2>/dev/null || true
+          cp build-mac.log /tmp/publish/ || true
+          cd /tmp/publish
+          git init -q -b ci-mac-screenshots
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -qm "Mac screenshot"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" ci-mac-screenshots
