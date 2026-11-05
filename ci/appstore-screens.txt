@@ -1,0 +1,9 @@
+# Raw captures for App Store screenshots (6.9"), framed by design/appstore/frame.mjs
+ob-welcome
+home
+session
+live-activity
+blocks
+insights
+crew
+widgets

@@ -100,14 +100,30 @@ jobs:
             done
           done
           xcrun simctl ui "$UDID" appearance light
-          ls -la shots
+          xcrun simctl shutdown "$UDID" || true
+
+          # App Store set on a 6.9" iPhone (1320 x 2868)
+          MAXTYPE=$(xcrun simctl list devicetypes -j | python3 -c "import json,sys; t=[x['identifier'] for x in json.load(sys.stdin)['devicetypes'] if 'iPhone-17-Pro-Max' in x['identifier']]; print(t[0] if t else 'com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro-Max')")
+          MAX=$(xcrun simctl create "Shots Max" "$MAXTYPE" "$RUNTIME")
+          xcrun simctl boot "$MAX"
+          xcrun simctl bootstatus "$MAX" -b
+          xcrun simctl status_bar "$MAX" override --time "9:41" --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3 || true
+          xcrun simctl install "$MAX" "$APP"
+          mkdir -p shots/appstore
+          for s in $(cat ci/appstore-screens.txt | grep -v '^#' | xargs); do
+            xcrun simctl launch --terminate-running-process "$MAX" "$BUNDLE" -demoScreen "$s" >/dev/null
+            sleep 6
+            xcrun simctl io "$MAX" screenshot "shots/appstore/${s}.png" >/dev/null 2>&1 || true
+          done
+          ls -la shots shots/appstore
 
       - name: Publish screenshots + generated project to ci-screenshots branch
         if: github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.screenshots)
         run: |
           SHA=$(git rev-parse --short HEAD)
-          mkdir -p /tmp/publish/shots
+          mkdir -p /tmp/publish/shots/appstore
           cp shots/*.png /tmp/publish/shots/ 2>/dev/null || true
+          cp shots/appstore/*.png /tmp/publish/shots/appstore/ 2>/dev/null || true
           cp -R FocusCrew.xcodeproj /tmp/publish/FocusCrew.xcodeproj
           cp build-sim.log /tmp/publish/build-sim.log
           cd /tmp/publish

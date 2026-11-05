@@ -1,4 +1,5 @@
 import AppKit
+import SwiftUI
 import Foundation
 import Observation
 import ServiceManagement
@@ -79,6 +80,7 @@ final class MacModel {
         if UserDefaults.standard.bool(forKey: "demoSession") {
             local = ActiveSession(kind: .focus, minutes: 25, mascot: .orbit, intention: "Design review", start: Date().addingTimeInterval(-7 * 60 - 18))
             phone = CrewSnapshot.placeholder
+            showNotchPreview()
         }
         let store = NSUbiquitousKeyValueStore.default
         NotificationCenter.default.addObserver(
@@ -175,6 +177,24 @@ final class MacModel {
         } else {
             d.removeObject(forKey: Keys.local)
         }
+    }
+
+    @ObservationIgnored private var previewWindow: NSWindow?
+
+    /// Opens a window that renders the notch layout (debug / screenshots).
+    func showNotchPreview() {
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 668, height: 380),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        window.title = "Notch preview"
+        window.contentView = NSHostingView(rootView: NotchPreviewWindowContent())
+        window.center()
+        window.isReleasedWhenClosed = false
+        window.makeKeyAndOrderFront(nil)
+        previewWindow = window
     }
 
     private func applyLaunchAtLogin() {

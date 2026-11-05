@@ -3,11 +3,13 @@ import SwiftUI
 /// The black "ears" around the notch (or a floating pill) with the mascot and timer.
 struct NotchRootView: View {
     let layout: NotchLayout
+    /// Overrides the shared expanded state (used by the debug preview).
+    var forceExpanded: Bool?
     @State private var model = MacModel.shared
     @State private var hovering = false
 
     var body: some View {
-        let expanded = model.expanded
+        let expanded = forceExpanded ?? model.expanded
         VStack(spacing: 0) {
             collapsedRow
                 .frame(height: layout.hasNotch ? layout.notchHeight : 36)
@@ -164,5 +166,35 @@ struct NotchRootView: View {
                 .background(Capsule().fill(Color.white.opacity(0.16)))
         }
         .buttonStyle(.plain)
+    }
+}
+
+/// Debug preview of the notch indicator on a fake MacBook menu bar, so the notch
+/// layout can be checked on Macs (and CI machines) without a notch.
+struct NotchPreviewWindowContent: View {
+    private let layout = NotchLayout(hasNotch: true, notchWidth: 186, notchHeight: 32)
+
+    var body: some View {
+        VStack(spacing: 26) {
+            preview(expanded: false)
+            preview(expanded: true)
+        }
+        .padding(24)
+        .background(
+            LinearGradient(colors: [Color(red: 0.36, green: 0.45, blue: 0.68), Color(red: 0.62, green: 0.5, blue: 0.72)], startPoint: .topLeading, endPoint: .bottomTrailing)
+        )
+    }
+
+    private func preview(expanded: Bool) -> some View {
+        let size = expanded ? layout.expandedSize : layout.collapsedSize
+        return ZStack(alignment: .top) {
+            Rectangle().fill(.white.opacity(0.25)).frame(height: layout.notchHeight)
+            UnevenRoundedRectangle(bottomLeadingRadius: 10, bottomTrailingRadius: 10, style: .continuous)
+                .fill(.black)
+                .frame(width: layout.notchWidth, height: layout.notchHeight)
+            NotchRootView(layout: layout, forceExpanded: expanded)
+                .frame(width: size.width, height: size.height)
+        }
+        .frame(width: 620, height: layout.expandedSize.height, alignment: .top)
     }
 }
