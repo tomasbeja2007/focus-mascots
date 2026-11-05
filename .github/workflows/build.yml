@@ -166,6 +166,16 @@ jobs:
         if: failure()
         run: grep -E "error:" build-mac.log | sort -u | head -150 || true
 
+      - name: Run core unit tests
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project FocusCrew.xcodeproj -scheme FocusCrewCoreTests \
+            -destination 'platform=macOS' -derivedDataPath build/tests \
+            CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= COMPILER_INDEX_STORE_ENABLE=NO \
+            2>&1 | tee tests.log | grep -E "error:|Test Case .*(passed|failed)|Executed|TEST (SUCCEEDED|FAILED)" || true
+          grep -q "TEST SUCCEEDED" tests.log
+
       - name: Screenshot the Mac companion
         if: github.event_name != 'pull_request'
         run: |
@@ -182,6 +192,7 @@ jobs:
         run: |
           mkdir -p /tmp/publish && cp macshots/*.png /tmp/publish/ 2>/dev/null || true
           cp build-mac.log /tmp/publish/ || true
+          cp tests.log /tmp/publish/ || true
           cd /tmp/publish
           git init -q -b ci-mac-screenshots
           git config user.name "github-actions[bot]"

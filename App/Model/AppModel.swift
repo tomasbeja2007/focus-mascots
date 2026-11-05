@@ -133,6 +133,7 @@ final class AppModel {
             }
         }
         if screenTime.isAuthorized {
+            screenTime.syncIfNeeded(schedules: schedules)
             for schedule in schedules { Shields.refresh(schedule: schedule) }
         }
         refreshReminders()

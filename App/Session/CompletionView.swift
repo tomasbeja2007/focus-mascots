@@ -87,7 +87,7 @@ struct CompletionView: View {
                 .padding(.horizontal, Theme.pagePadding)
                 .padding(.top, 12)
                 .padding(.bottom, 8)
-                .background(Theme.background.opacity(0.94).ignoresSafeArea())
+                .background(Theme.background.ignoresSafeArea())
                 .overlay(alignment: .top) { Rectangle().fill(Theme.hairline).frame(height: 1) }
             }
             ConfettiView(count: 120).ignoresSafeArea()

@@ -34,19 +34,20 @@ struct PaywallView: View {
                 .ignoresSafeArea()
             OnboardingPage {
                 VStack(spacing: 18) {
-                    HStack(alignment: .bottom, spacing: -22) {
+                    HStack(alignment: .bottom, spacing: -24) {
                         ForEach(Array(crewOrder.enumerated()), id: \.offset) { index, m in
                             let isMain = m == mascot
                             MascotView(
                                 mascot: m,
                                 mood: isMain ? .excited : m.restingMood,
-                                size: isMain ? 160 : (index == 0 || index == 4 ? 74 : 92),
+                                size: isMain ? 140 : (index == 0 || index == 4 ? 64 : 82),
                                 showDecoration: isMain,
                                 motion: .float
                             )
                             .zIndex(isMain ? 2 : (index == 1 || index == 3 ? 1 : 0))
                         }
                     }
+                    .frame(maxWidth: .infinity)
                     .padding(.top, 8)
 
                     VStack(spacing: 8) {

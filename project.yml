@@ -199,7 +199,27 @@ targets:
         ENABLE_HARDENED_RUNTIME: YES
         COMBINE_HIDPI_IMAGES: YES
 
+  # ------------------------------------------- Unit tests for Shared/Core
+  FocusCrewCoreTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: Tests/CoreTests
+      - path: Shared/Core
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(FC_APP_BUNDLE_ID).coretests
+        GENERATE_INFOPLIST_FILE: YES
+
 schemes:
+  FocusCrewCoreTests:
+    build:
+      targets:
+        FocusCrewCoreTests: [test]
+    test:
+      config: Debug
+      targets:
+        - FocusCrewCoreTests
   FocusCrew:
     build:
       targets:

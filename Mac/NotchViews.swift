@@ -81,6 +81,12 @@ struct NotchRootView: View {
                 .scaledToFit()
                 .frame(width: avatarSize, height: avatarSize)
                 .clipShape(Circle())
+                .padding(2.5)
+                .overlay {
+                    if let s = model.current, model.celebrating == nil {
+                        ProgressRing(progress: s.progress(at: model.now), lineWidth: 2, tint: model.mascot.vivid, track: .white.opacity(0.15))
+                    }
+                }
             if !layout.hasNotch, let s = model.current, !s.intention.isEmpty {
                 Text(s.intention)
                     .font(.system(size: 12, weight: .semibold, design: .rounded))
@@ -91,7 +97,7 @@ struct NotchRootView: View {
         }
     }
 
-    private var avatarSize: CGFloat { layout.hasNotch ? max(18, min(26, layout.notchHeight - 8)) : 24 }
+    private var avatarSize: CGFloat { layout.hasNotch ? max(16, min(22, layout.notchHeight - 12)) : 22 }
 
     @ViewBuilder
     private var rightEar: some View {
@@ -138,9 +144,14 @@ struct NotchRootView: View {
                     Text(model.isLocal ? "On this Mac · ends \(s.endsAt.formatted(date: .omitted, time: .shortened))" : "On your iPhone · ends \(s.endsAt.formatted(date: .omitted, time: .shortened))")
                         .font(.system(size: 11, weight: .semibold, design: .rounded))
                         .foregroundStyle(.white.opacity(0.6))
-                    ProgressView(value: s.progress(at: model.now))
-                        .tint(s.mascot.vivid)
-                        .padding(.vertical, 2)
+                    GeometryReader { geo in
+                        ZStack(alignment: .leading) {
+                            Capsule().fill(Color.white.opacity(0.15))
+                            Capsule().fill(s.mascot.vivid).frame(width: max(6, geo.size.width * s.progress(at: model.now)))
+                        }
+                    }
+                    .frame(height: 6)
+                    .padding(.vertical, 2)
                     if model.isLocal {
                         HStack(spacing: 8) {
                             pill(s.isPaused ? "Resume" : "Pause", symbol: s.isPaused ? "play.fill" : "pause.fill") { model.togglePause() }

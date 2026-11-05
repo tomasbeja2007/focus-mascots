@@ -120,6 +120,15 @@ final class ScreenTimeService {
         }
     }
 
+    /// Registers schedules that iOS isn't monitoring yet (e.g. Screen Time was connected
+    /// after the schedules were created).
+    func syncIfNeeded(schedules: [BlockSchedule]) {
+        guard isAuthorized, !demoAuthorized else { return }
+        let registered = Set(DeviceActivityCenter().activities.compactMap(\.scheduleID))
+        let wanted = Set(schedules.filter { $0.isEnabled && $0.blockedItemCount > 0 }.map(\.id))
+        if registered != wanted { sync(schedules: schedules) }
+    }
+
     func removeAllBlocking() {
         Shields.clear(.focus)
         for name in DeviceActivityCenter().activities {
