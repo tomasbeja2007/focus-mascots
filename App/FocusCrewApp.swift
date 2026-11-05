@@ -6,6 +6,7 @@ struct FocusCrewApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
+        AppModel.shared.registerSystemHooks()
         #if DEBUG
         DemoMode.prepare(AppModel.shared)
         #endif

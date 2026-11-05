@@ -84,45 +84,56 @@ struct CrewStatusEntryView: View {
 struct FocusLiveActivityWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: FocusActivityAttributes.self) { context in
-            FocusLockScreenView(attributes: context.attributes, state: context.state)
+            FocusLockScreenView(attributes: context.attributes, state: context.displayState)
                 .activityBackgroundTint(Color(red: 0.09, green: 0.09, blue: 0.11).opacity(0.92))
                 .activitySystemActionForegroundColor(.white)
                 .widgetURL(URL(string: "focuscrew://session"))
         } dynamicIsland: { context in
             let m = context.attributes.mascot
+            let state = context.displayState
             return DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    IslandAvatar(mascot: m, mood: context.state.mascotMood, size: 52)
+                    IslandAvatar(mascot: m, mood: state.mascotMood, size: 52)
                         .padding(.leading, 4)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    LiveCountdown(state: context.state, font: .rounded(size: 30, weight: .heavy))
+                    LiveCountdown(state: state, font: .rounded(size: 30, weight: .heavy))
                         .foregroundStyle(m.vivid)
                         .frame(maxWidth: 120, alignment: .trailing)
                         .padding(.trailing, 4)
                 }
                 DynamicIslandExpandedRegion(.center) {
-                    Text(context.state.finished ? "Session complete!" : (context.state.isRest ? "On a break" : (context.state.isPaused ? "Paused" : "Focusing with \(m.name)")))
+                    Text(state.finished ? "Session complete!" : (state.isRest ? "On a break" : (state.isPaused ? "Paused" : "Focusing with \(m.name)")))
                         .font(.rounded(.subheadline, weight: .bold))
                         .foregroundStyle(.white)
                         .lineLimit(1)
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    IslandExpandedBottom(attributes: context.attributes, state: context.state)
+                    IslandExpandedBottom(attributes: context.attributes, state: state)
                         .padding(.horizontal, 4)
                 }
             } compactLeading: {
-                IslandAvatar(mascot: m, mood: context.state.mascotMood, size: 24)
+                IslandAvatar(mascot: m, mood: state.mascotMood, size: 24)
             } compactTrailing: {
-                LiveCountdown(state: context.state, font: .rounded(size: 15, weight: .bold))
+                LiveCountdown(state: state, font: .rounded(size: 15, weight: .bold))
                     .foregroundStyle(m.vivid)
                     .frame(maxWidth: 52)
             } minimal: {
-                IslandAvatar(mascot: m, mood: context.state.mascotMood, size: 22)
+                IslandAvatar(mascot: m, mood: state.mascotMood, size: 22)
             }
             .keylineTint(m.vivid)
             .widgetURL(URL(string: "focuscrew://session"))
         }
+    }
+}
+
+extension ActivityViewContext where Attributes == FocusActivityAttributes {
+    /// Once the session's end time passes (the activity goes stale), show it as finished
+    /// even if the app hasn't had a chance to update it yet.
+    var displayState: FocusActivityAttributes.ContentState {
+        var s = state
+        if isStale && !s.isPaused { s.finished = true; s.mood = MascotMood.excited.rawValue }
+        return s
     }
 }
 

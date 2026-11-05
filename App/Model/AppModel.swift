@@ -100,15 +100,21 @@ final class AppModel {
 
     // MARK: Lifecycle
 
-    func bootstrap() {
-        guard !didBootstrap else { return }
-        didBootstrap = true
+    /// Wires up everything that can run without UI: App Intents (Live Activity buttons,
+    /// Shortcuts, Control Center) and notification taps. Called from `App.init`, because
+    /// intents may launch the app in the background without ever creating a scene.
+    func registerSystemHooks() {
         IntentBridge.startFocus = { minutes in AppModel.shared.quickStart(minutes: minutes) }
         IntentBridge.pause = { AppModel.shared.pause() }
         IntentBridge.resume = { AppModel.shared.resume() }
         IntentBridge.end = { AppModel.shared.endFromOutside() }
         NotificationDelegate.shared.onOpenLink = { url in AppModel.shared.handle(url) }
         UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
+    }
+
+    func bootstrap() {
+        guard !didBootstrap else { return }
+        didBootstrap = true
         purchases.start()
         reconcile()
     }
@@ -187,6 +193,7 @@ final class AppModel {
     }
 
     func pause() {
+        if active == nil, let disk = SharedFiles.activeSession.load() { active = disk }
         guard var s = active, !s.isPaused, s.kind == .focus, !s.strict else { return }
         s.pausedAt = Date()
         active = s
@@ -200,6 +207,7 @@ final class AppModel {
     }
 
     func resume() {
+        if active == nil, let disk = SharedFiles.activeSession.load() { active = disk }
         guard var s = active, let pausedAt = s.pausedAt else { return }
         let pausedFor = Date().timeIntervalSince(pausedAt)
         s.pausedSeconds += pausedFor
@@ -223,6 +231,7 @@ final class AppModel {
 
     /// Ending from the Live Activity: strict sessions can't be ended from outside the app.
     func endFromOutside() {
+        if active == nil, let disk = SharedFiles.activeSession.load() { active = disk }
         guard let s = active else { return }
         if s.strict && s.kind == .focus {
             showSession = true

@@ -39,7 +39,7 @@ enum LiveActivityController {
             do {
                 _ = try Activity.request(
                     attributes: attributes,
-                    content: ActivityContent(state: state(for: session), staleDate: session.endsAt.addingTimeInterval(5 * 60)),
+                    content: ActivityContent(state: state(for: session), staleDate: session.endsAt),
                     pushType: nil
                 )
             } catch {
@@ -52,7 +52,7 @@ enum LiveActivityController {
         Task {
             let content = ActivityContent(
                 state: state(for: session),
-                staleDate: session.isPaused ? nil : session.endsAt.addingTimeInterval(5 * 60)
+                staleDate: session.isPaused ? nil : session.endsAt
             )
             for activity in Activity<FocusActivityAttributes>.activities {
                 await activity.update(content)
