@@ -73,9 +73,22 @@ See [`docs/APP_STORE.md`](docs/APP_STORE.md) for the full listing (description, 
 3. Replace `support@focuscrew.app` in `PurchaseManager.swift` with your real support address.
 4. Archive and upload.
 
+## Tests
+
+`Tests/CoreTests` holds 29 XCTest cases for the shared logic: mascot matching, streaks, bond levels, achievements, overnight schedules, pause and resume maths, and decoding of older data files. Run them with the **FocusCrewCoreTests** scheme (it runs on macOS, so no simulator is needed).
+
 ## CI
 
 `.github/workflows/build.yml` runs on every push:
 - builds the iOS app and all extensions for the Simulator (Debug) and for devices (Release, unsigned)
-- builds the Mac app
+- builds the Mac app and runs the unit tests
 - launches the app in an iPhone 17 Pro simulator, screenshots every screen in `ci/screens.txt` (light and some dark), and publishes them to the `ci-screenshots` branch
+- when run manually with **appstore** ticked (Actions › Build › Run workflow), it also captures the 6.9" App Store set listed in `ci/appstore-screens.txt`
+
+## App Store screenshots
+
+`docs/appstore/` holds ready-to-upload 1320 × 2868 screenshots (captioned, with the crew). To regenerate them from a fresh CI capture:
+
+```bash
+node design/appstore/frame.mjs <folder with the raw 6.9" captures> docs/appstore
+```

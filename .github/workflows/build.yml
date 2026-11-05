@@ -93,6 +93,15 @@ jobs:
           xcrun simctl status_bar "$UDID" override --time "9:41" --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3 || true
           xcrun simctl install "$UDID" "$APP"
           mkdir -p shots
+          # Run the app in a time zone where it's about 9:40 AM, to match the 9:41 status bar.
+          export SIMCTL_CHILD_TZ=$(python3 -c "
+          import datetime
+          now = datetime.datetime.now(datetime.timezone.utc)
+          off = round(9.65 - (now.hour + now.minute / 60))
+          off = ((off + 12) % 24) - 12
+          print('Etc/GMT' if off == 0 else 'Etc/GMT%+d' % -off)
+          ")
+          echo "Demo time zone: $SIMCTL_CHILD_TZ"
           SCREENS=$(cat ci/screens.txt | grep -v '^#' | xargs)
           for s in $SCREENS; do
             for appearance in light dark; do

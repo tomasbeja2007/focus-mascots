@@ -88,15 +88,18 @@ Choose **Data Not Collected**. The app has no analytics, no accounts and no serv
 
 ## Screenshots
 
-CI renders every screen on an iPhone 17 Pro simulator (`ci/screens.txt`); the images land on the `ci-screenshots` branch. Recommended set (6.9" and 6.3"):
+Ready to upload: `docs/appstore/01-…png` to `08-…png` (1320 × 2868, the 6.9" size App Store Connect asks for; it scales them down for smaller iPhones).
 
-1. `ob-welcome`: "Meet your Focus Crew"
-2. `home`: "Focus with a friend"
-3. `session`: "Block distractions while you work"
-4. `live-activity`: "Your crew on the Lock Screen"
-5. `insights`: "Watch your focus grow"
-6. `crew`: "Five companions, one goal"
-7. `widgets`: "Widgets for every screen"
+1. Meet your Focus Crew
+2. Focus with a friend
+3. Distractions stay locked
+4. Right on your Lock Screen
+5. Schedules that run themselves
+6. Watch your focus grow
+7. Five friends, one goal
+8. Widgets for every screen
+
+They're generated from real simulator captures by `design/appstore/frame.mjs` (see the README).
 
 ## Before you submit
 

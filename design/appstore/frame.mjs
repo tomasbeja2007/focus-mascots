@@ -60,7 +60,7 @@ for (const s of slides) {
     body{background:linear-gradient(170deg, ${c1} 0%, ${c2} 100%);font-family:'Nunito',sans-serif;position:relative}
     .blob{position:absolute;border-radius:50%;background:rgba(255,255,255,.35)}
     h1{position:absolute;top:150px;left:110px;right:110px;margin:0;font-size:132px;line-height:1.02;font-weight:900;color:#1E1F24;letter-spacing:-2px}
-    p{position:absolute;top:455px;left:112px;right:300px;margin:0;font-size:52px;line-height:1.25;font-weight:700;color:rgba(30,31,36,.62)}
+    p{position:absolute;top:455px;left:112px;right:410px;margin:0;font-size:52px;line-height:1.25;font-weight:700;color:rgba(30,31,36,.62)}
     .phone{position:absolute;top:700px;left:50%;transform:translateX(-50%);width:1000px;height:2174px;border-radius:118px;background:#111;padding:22px;box-sizing:border-box;box-shadow:0 60px 120px rgba(20,30,60,.28), 0 0 0 4px rgba(0,0,0,.05)}
     .phone img{width:100%;height:100%;border-radius:98px;display:block;object-fit:cover}
     .mascot{position:absolute;top:330px;right:40px;width:330px;height:330px}
