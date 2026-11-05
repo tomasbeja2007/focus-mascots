@@ -1,0 +1,468 @@
+Command line invocation:
+    /Applications/Xcode_26.6.app/Contents/Developer/usr/bin/xcodebuild test -project FocusCrew.xcodeproj -scheme FocusCrewCoreTests -destination platform=macOS -derivedDataPath build/tests CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= COMPILER_INDEX_STORE_ENABLE=NO
+
+Build settings from command line:
+    CODE_SIGN_IDENTITY = -
+    CODE_SIGN_STYLE = Manual
+    COMPILER_INDEX_STORE_ENABLE = NO
+    DEVELOPMENT_TEAM = 
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:129af4ca4bab1be81e751ad47760d12ab5e201f0, name:My Mac }
+{ platform:macOS, arch:x86_64, id:129af4ca4bab1be81e751ad47760d12ab5e201f0, name:My Mac }
+note: Using codesigning identity override: -
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'FocusCrewCoreTests' in project 'FocusCrew' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: d395fb0de05a59cc62a6b56363e5260d
+Build description path: /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/XCBuildData/d395fb0de05a59cc62a6b56363e5260d.xcbuilddata
+CreateBuildDirectory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products
+    cd /Users/runner/work/focus-mascots/focus-mascots/FocusCrew.xcodeproj
+    builtin-create-build-directory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products
+
+ClangStatCache /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk /Users/runner/work/focus-mascots/focus-mascots/build/tests/SDKStatCaches.noindex/macosx26.5-25F70-688ef53f1462e2c8f657fdc38a81448fee0e6409aa6676c5e6c013d148225433.sdkstatcache
+    cd /Users/runner/work/focus-mascots/focus-mascots/FocusCrew.xcodeproj
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -o /Users/runner/work/focus-mascots/focus-mascots/build/tests/SDKStatCaches.noindex/macosx26.5-25F70-688ef53f1462e2c8f657fdc38a81448fee0e6409aa6676c5e6c013d148225433.sdkstatcache
+
+CreateBuildDirectory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex
+    cd /Users/runner/work/focus-mascots/focus-mascots/FocusCrew.xcodeproj
+    builtin-create-build-directory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/runner/work/focus-mascots/focus-mascots/FocusCrew.xcodeproj
+    builtin-create-build-directory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrew-ddb56af9a15486ff47b4f318ee910f93-VFS/all-product-headers.yaml
+    cd /Users/runner/work/focus-mascots/focus-mascots/FocusCrew.xcodeproj
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrew-ddb56af9a15486ff47b4f318ee910f93-VFS/all-product-headers.yaml
+
+CreateBuildDirectory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug
+    cd /Users/runner/work/focus-mascots/focus-mascots/FocusCrew.xcodeproj
+    builtin-create-build-directory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug
+
+CreateBuildDirectory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/runner/work/focus-mascots/focus-mascots/FocusCrew.xcodeproj
+    builtin-create-build-directory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+    cd /Users/runner/work/focus-mascots/focus-mascots/FocusCrew.xcodeproj
+    builtin-create-build-directory /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/empty-FocusCrewCoreTests.plist (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/empty-FocusCrewCoreTests.plist
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests_const_extract_protocols.json (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.SwiftFileList (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.SwiftConstValuesFileList (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.LinkFileList (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-OutputFileMap.json (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests.hmap (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests.hmap
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests.DependencyStaticMetadataFileList (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests.DependencyMetadataFileList (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-project-headers.hmap (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-own-target-headers.hmap (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-generated-files.hmap (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-all-target-headers.hmap (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-all-non-framework-target-headers.hmap (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    write-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-all-non-framework-target-headers.hmap
+
+MkDir /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/MacOS (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    /bin/mkdir -p /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/MacOS
+
+MkDir /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    /bin/mkdir -p /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents
+
+MkDir /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    /bin/mkdir -p /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest
+
+ProcessInfoPlistFile /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/Info.plist /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/empty-FocusCrewCoreTests.plist (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-infoPlistUtility /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/empty-FocusCrewCoreTests.plist -producttype com.apple.product-type.bundle.unit-test -expandbuildsettings -platform macosx -o /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/Info.plist
+
+SwiftDriver FocusCrewCoreTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-SwiftDriver -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name FocusCrewCoreTests -Onone @/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-macos14.0 -g -module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/focus-mascots/focus-mascots/build/tests/SDKStatCaches.noindex/macosx26.5-25F70-688ef53f1462e2c8f657fdc38a81448fee0e6409aa6676c5e6c013d148225433.sdkstatcache -output-file-map /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-generated-files.hmap -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-own-target-headers.hmap -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-project-headers.hmap -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/include -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-Swift.h -working-directory /Users/runner/work/focus-mascots/focus-mascots -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_float-284LTZ2FJCT10515IZ2TBEQNL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_SwiftConcurrencyShims-DMP8030YX0KK2NSRT9HIE21DD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_stddef-BLCWH4MJROS3248ZZNYAJLB6V.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/DeveloperToolsSupport-6EA9F810OIRAXOZWN6ECW5JDC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_AvailabilityInternal-DOYCGQT09WL5R1JYVV8BIIVL7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/ptrcheck-913RI9Z26LFETANJMTD92KAST.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_stdarg-A69HPWITQW56RYFB1GH6DZ05G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/ptrauth-ES0OHFVZN4RHROCKNDD4R4EB4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_stdbool-5M27YS4EM0AQNMPK93V5KHYK9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_DarwinFoundation1-555R9IO2N8ONJNO4O0UIA4RTP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/SwiftShims-6LSIXQ6U1BX3MZYVEIQV9ZGRK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_limits-5RLDQI9AGP9QWQ8U1PHPP46EQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_DarwinFoundation2-52NPTDONQGCY6P8N7Z51PPZNL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_tgmath-ELL5FQRMZM1M1AGE2RQMAE0S.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_stdint-46GH15C27VFN1B3R9UZDTMXJE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/sys_types-878TAT7M4MX0RB97XA1QVEP23.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_intrinsics-27F3KGHBECWA9K60TI2JE48RY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_stdatomic-HV7VUTZHVW5XUDFMZWT4H82O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/libDER-94HBKXUCGXVIN0NFOCJX4XR7R.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_DarwinFoundation3-DA5PEHK88KJBII7H167QMBPA4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/OpenGL-38EA2V2I1F7MU77U0OOSNYCVL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/_Builtin_inttypes-1AABTJM6NQGXJOONV37MY984U.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Darwin-DFBE5V8Y7YQH1OWNDKNBH6TRB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/simd-AVMWM0V08YTZDPM35V2JF4Z1O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/libkern-CZKZJTXGS6BB6MCX0L9MOT9J3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/MachO-B1N2D8ZWH89LG5S2V628LA266.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/launch-CS13B7BL971SVQOQPLDL1P4LV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CUPS-B3D9U1YUJGPO5AC08J075X732.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Spatial-4MBOEMAPHEX9R9KYYS2VEFPRK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/ObjectiveC-BLB4U1IZUUOFCZQ6YKNQVOXP5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/os_object-4NF22Y53MZTIPQ9XG1BBZ2S6C.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/os_workgroup-BAN24OFCEM3QFSWKSAG4T7VPY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Dispatch-9ZCT3G86UEYU7BULOPZ46FPYI.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/XPC-3PFT6KX91LQ1VFB92HS4MU33W.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CoreFoundation-B2HJ9T7ZGHMCOVSA31KWY4J1X.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/os-676FS24BHU3V8575V45MT1Q01.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/IOKit-D9526MF93WYMJH5SKQFW3JZVN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/ColorSync-5UEOGD7M35TJMMKVWJPWHU6MT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CFNetwork-ARCGDJGE0T728V1ADVI5IT9S7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Security-8HLFVDN8OA7T420YTD8VELQZU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/DiskArbitration-3WL4JF3QIPOVUWJ8RPAQF8ILP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CoreGraphics-733GQJXD5KO8IH1838P0TG16.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CoreServices-365KSRNC60VYULS6NGC2QJUME.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/ImageIO-80S0PMHUG2A8IV6B227IM1SJ5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CoreText-AG1CAYPDMM6UISBNTRET4I124.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Foundation-8EIEQADT43LUI5J8MHP7B56U.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Accessibility-6XCRH1O86B2DS7EJFDXCK4UNV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CoreData-AOZ8WC1UKIK667UM6KYZ129B4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/ApplicationServices-E5DU4F1HCTE4AKEY1UJGGW0UZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Symbols-4JM39EHO0EL2GYXW82XECJD8W.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CoreTransferable-5Z2O2JMGBOFYSLRJ08I8IQSB0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/IOSurface-F2UK3TM7QLE25JYPQUTNZ90LM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/DataDetection-E2FUMNNUD55RPOYT6UB9HKRNT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/UniformTypeIdentifiers-CL2FWM8CB6R7QXNDCUPM3UHZN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/OSLog-DJWC5E8CJ0M3CFE3BJ4Y2WZFV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Metal-93TRCFYAFCHV5XW9I82ON7XKP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CoreVideo-4U3SC3BT5VDR1V5ICP69HBME.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/QuartzCore-57G1CIIUQP7XY49QUY3FU3H9V.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/CoreImage-WRZS1KPBZ2GUQSKIMFP0AQ9E.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/SwiftUICore-AT6R9PF9AP5WFLE1C4PQNM9TS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/AppKit-9DU8O911PNDIDZ95RAD0QRCLB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCUIAutomation-C2KI032CAG3WETXFE80Z5VTCR.pcm
+
+SwiftExplicitDependencyCompileModuleFromInterface arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCUIAutomation-19JYUTC3PNNRO.swiftmodule
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCTest-D405H247JS74UPYPCSE4LRT8O.pcm
+
+SwiftExplicitDependencyCompileModuleFromInterface arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/XCTest-2SVMPCW8RBDI8.swiftmodule
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ FocusCrewCoreTests (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+
+EmitSwiftModule normal arm64 (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    
+
+SwiftCompile normal arm64 Compiling\ AppGroup.swift,\ CoreTests.swift /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/AppGroup.swift /Users/runner/work/focus-mascots/focus-mascots/Tests/CoreTests/CoreTests.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+SwiftCompile normal arm64 /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/AppGroup.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    
+
+SwiftCompile normal arm64 /Users/runner/work/focus-mascots/focus-mascots/Tests/CoreTests/CoreTests.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    
+
+SwiftCompile normal arm64 Compiling\ Profile.swift,\ Stats.swift /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/Profile.swift /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/Stats.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+SwiftCompile normal arm64 /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/Profile.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    
+
+SwiftCompile normal arm64 /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/Stats.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    
+
+SwiftCompile normal arm64 Compiling\ Mascot.swift,\ Models.swift /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/Mascot.swift /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/Models.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+SwiftCompile normal arm64 /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/Mascot.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    
+
+SwiftCompile normal arm64 /Users/runner/work/focus-mascots/focus-mascots/Shared/Core/Models.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for FocusCrewCoreTests (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+
+SwiftDriver\ Compilation\ Requirements FocusCrewCoreTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name FocusCrewCoreTests -Onone @/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-macos14.0 -g -module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/focus-mascots/focus-mascots/build/tests/SDKStatCaches.noindex/macosx26.5-25F70-688ef53f1462e2c8f657fdc38a81448fee0e6409aa6676c5e6c013d148225433.sdkstatcache -output-file-map /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-generated-files.hmap -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-own-target-headers.hmap -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-project-headers.hmap -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/include -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-Swift.h -working-directory /Users/runner/work/focus-mascots/focus-mascots -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling AppGroup.swift, CoreTests.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+
+SwiftMergeGeneratedHeaders /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources/FocusCrewCoreTests-Swift.h /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-Swift.h (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-swiftHeaderTool -arch arm64 /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-Swift.h -o /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources/FocusCrewCoreTests-Swift.h
+
+Copy /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.swiftmodule/arm64-apple-macos.swiftmodule /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftmodule (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftmodule /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.swiftmodule/arm64-apple-macos.swiftmodule
+
+Copy /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.swiftmodule/arm64-apple-macos.swiftdoc /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftdoc (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftdoc /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.swiftmodule/arm64-apple-macos.swiftdoc
+
+Copy /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.swiftmodule/arm64-apple-macos.abi.json /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.abi.json (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.abi.json /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.swiftmodule/arm64-apple-macos.abi.json
+
+Copy /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftsourceinfo (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftsourceinfo /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Compiling Profile.swift, Stats.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+
+SwiftDriverJobDiscovery normal arm64 Compiling Mascot.swift, Models.swift (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+
+SwiftDriver\ Compilation FocusCrewCoreTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-Swift-Compilation -- /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name FocusCrewCoreTests -Onone @/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-macos14.0 -g -module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug -Isystem /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug -F /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/focus-mascots/focus-mascots/build/tests/SDKStatCaches.noindex/macosx26.5-25F70-688ef53f1462e2c8f657fdc38a81448fee0e6409aa6676c5e6c013d148225433.sdkstatcache -output-file-map /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-generated-files.hmap -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-own-target-headers.hmap -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests-project-headers.hmap -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/include -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-Swift.h -working-directory /Users/runner/work/focus-mascots/focus-mascots -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/MacOS/FocusCrewCoreTests normal (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -bundle -isysroot /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -O0 -L/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug -L/Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug -iframework /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -filelist /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/../Frameworks -Xlinker -rpath -Xlinker @executable_path/../Frameworks -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.swiftmodule @/Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests-linker-args.resp -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -Xlinker -no_adhoc_codesign -o /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/MacOS/FocusCrewCoreTests
+
+CopySwiftLibs /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/MacOS/FocusCrewCoreTests --scan-folder /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/Frameworks --scan-folder /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/PlugIns --scan-folder /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/Library/SystemExtensions --scan-folder /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/Extensions --platform macosx --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.6.109.0.CzpxqJ/Metal.xctoolchain --toolchain /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/Frameworks --strip-bitcode --scan-executable /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+
+ExtractAppIntentsMetadata (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    /Applications/Xcode_26.6.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.6.109.0.CzpxqJ/Metal.xctoolchain --module-name FocusCrewCoreTests --sdk-root /Applications/Xcode_26.6.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk --xcode-version 17F113 --platform-family macOS --deployment-target 14.0 --bundle-identifier com.focuscrew.app.coretests --output /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/Resources --target-triple arm64-apple-macos14.0 --binary-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest/Contents/MacOS/FocusCrewCoreTests --dependency-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests_dependency_info.dat --stringsdata-file /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.SwiftFileList --metadata-file-list /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests.DependencyMetadataFileList --static-metadata-file-list /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/FocusCrewCoreTests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Intermediates.noindex/FocusCrew.build/Debug/FocusCrewCoreTests.build/Objects-normal/arm64/FocusCrewCoreTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-05 01:57:26.896 appintentsmetadataprocessor[2337:10848] Starting appintentsmetadataprocessor export
+2026-11-05 01:57:26.899 appintentsmetadataprocessor[2337:10848] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+CodeSign /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest
+
+RegisterExecutionPolicyException /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    builtin-RegisterExecutionPolicyException /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest
+
+Touch /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest (in target 'FocusCrewCoreTests' from project 'FocusCrew')
+    cd /Users/runner/work/focus-mascots/focus-mascots
+    /usr/bin/touch -c /Users/runner/work/focus-mascots/focus-mascots/build/tests/Build/Products/Debug/FocusCrewCoreTests.xctest
+
+Test Suite 'All tests' started at 2026-11-05 01:57:28.112.
+Test Suite 'FocusCrewCoreTests.xctest' started at 2026-11-05 01:57:28.113.
+Test Suite 'BondLevelTests' started at 2026-11-05 01:57:28.113.
+Test Case '-[FocusCrewCoreTests.BondLevelTests testThresholds]' started.
+Test Case '-[FocusCrewCoreTests.BondLevelTests testThresholds]' passed (0.001 seconds).
+Test Suite 'BondLevelTests' passed at 2026-11-05 01:57:28.116.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.001 (0.003) seconds
+Test Suite 'MatcherTests' started at 2026-11-05 01:57:28.117.
+Test Case '-[FocusCrewCoreTests.MatcherTests testDataLoverGetsBlob]' started.
+Test Case '-[FocusCrewCoreTests.MatcherTests testDataLoverGetsBlob]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.MatcherTests testDeepWorkerGetsOrbit]' started.
+Test Case '-[FocusCrewCoreTests.MatcherTests testDeepWorkerGetsOrbit]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.MatcherTests testEmptyProfileFallsBackToOrbit]' started.
+Test Case '-[FocusCrewCoreTests.MatcherTests testEmptyProfileFallsBackToOrbit]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.MatcherTests testProcrastinatorWhoWantsEnergyGetsSpark]' started.
+Test Case '-[FocusCrewCoreTests.MatcherTests testProcrastinatorWhoWantsEnergyGetsSpark]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.MatcherTests testReasonsAreNeverEmpty]' started.
+Test Case '-[FocusCrewCoreTests.MatcherTests testReasonsAreNeverEmpty]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.MatcherTests testSleepAndCalmGetsLeaf]' started.
+Test Case '-[FocusCrewCoreTests.MatcherTests testSleepAndCalmGetsLeaf]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.MatcherTests testToughLoveScrollerGetsPebble]' started.
+Test Case '-[FocusCrewCoreTests.MatcherTests testToughLoveScrollerGetsPebble]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.MatcherTests testYearsOnPhone]' started.
+Test Case '-[FocusCrewCoreTests.MatcherTests testYearsOnPhone]' passed (0.001 seconds).
+Test Suite 'MatcherTests' passed at 2026-11-05 01:57:28.132.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.006 (0.015) seconds
+Test Suite 'PersistenceTests' started at 2026-11-05 01:57:28.132.
+Test Case '-[FocusCrewCoreTests.PersistenceTests testEveryMascotHasLines]' started.
+Test Case '-[FocusCrewCoreTests.PersistenceTests testEveryMascotHasLines]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.PersistenceTests testFormat]' started.
+Test Case '-[FocusCrewCoreTests.PersistenceTests testFormat]' passed (0.006 seconds).
+Test Case '-[FocusCrewCoreTests.PersistenceTests testOldSettingsFilesDecodeWithDefaults]' started.
+Test Case '-[FocusCrewCoreTests.PersistenceTests testOldSettingsFilesDecodeWithDefaults]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.PersistenceTests testProfileIgnoresUnknownEnumValues]' started.
+Test Case '-[FocusCrewCoreTests.PersistenceTests testProfileIgnoresUnknownEnumValues]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.PersistenceTests testSnapshotRoundTrip]' started.
+Test Case '-[FocusCrewCoreTests.PersistenceTests testSnapshotRoundTrip]' passed (0.001 seconds).
+Test Suite 'PersistenceTests' passed at 2026-11-05 01:57:28.143.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.009 (0.010) seconds
+Test Suite 'ScheduleTests' started at 2026-11-05 01:57:28.143.
+Test Case '-[FocusCrewCoreTests.ScheduleTests testDisabledScheduleIsNeverActive]' started.
+Test Case '-[FocusCrewCoreTests.ScheduleTests testDisabledScheduleIsNeverActive]' passed (0.004 seconds).
+Test Case '-[FocusCrewCoreTests.ScheduleTests testOvernightScheduleBelongsToStartDay]' started.
+Test Case '-[FocusCrewCoreTests.ScheduleTests testOvernightScheduleBelongsToStartDay]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.ScheduleTests testWeekdaySchedule]' started.
+Test Case '-[FocusCrewCoreTests.ScheduleTests testWeekdaySchedule]' passed (0.001 seconds).
+Test Suite 'ScheduleTests' passed at 2026-11-05 01:57:28.149.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.005 (0.006) seconds
+Test Suite 'SessionTests' started at 2026-11-05 01:57:28.149.
+Test Case '-[FocusCrewCoreTests.SessionTests testFinished]' started.
+Test Case '-[FocusCrewCoreTests.SessionTests testFinished]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.SessionTests testMinimumLengthIsOneMinute]' started.
+Test Case '-[FocusCrewCoreTests.SessionTests testMinimumLengthIsOneMinute]' passed (0.002 seconds).
+Test Case '-[FocusCrewCoreTests.SessionTests testPausedSessionFreezes]' started.
+Test Case '-[FocusCrewCoreTests.SessionTests testPausedSessionFreezes]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.SessionTests testRemainingAndProgress]' started.
+Test Case '-[FocusCrewCoreTests.SessionTests testRemainingAndProgress]' passed (0.001 seconds).
+Test Suite 'SessionTests' passed at 2026-11-05 01:57:28.154.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'StatsTests' started at 2026-11-05 01:57:28.154.
+Test Case '-[FocusCrewCoreTests.StatsTests testAbandonedSessionsDontCountForStreak]' started.
+Test Case '-[FocusCrewCoreTests.StatsTests testAbandonedSessionsDontCountForStreak]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.StatsTests testAchievements]' started.
+Test Case '-[FocusCrewCoreTests.StatsTests testAchievements]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.StatsTests testBestHourAndBond]' started.
+Test Case '-[FocusCrewCoreTests.StatsTests testBestHourAndBond]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.StatsTests testBestStreak]' started.
+Test Case '-[FocusCrewCoreTests.StatsTests testBestStreak]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.StatsTests testDailyMinutesOldestFirst]' started.
+Test Case '-[FocusCrewCoreTests.StatsTests testDailyMinutesOldestFirst]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.StatsTests testStreakBrokenAfterMissedDay]' started.
+Test Case '-[FocusCrewCoreTests.StatsTests testStreakBrokenAfterMissedDay]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.StatsTests testStreakIncludesToday]' started.
+Test Case '-[FocusCrewCoreTests.StatsTests testStreakIncludesToday]' passed (0.001 seconds).
+Test Case '-[FocusCrewCoreTests.StatsTests testStreakStillAliveWhenTodayNotDoneYet]' started.
+Test Case '-[FocusCrewCoreTests.StatsTests testStreakStillAliveWhenTodayNotDoneYet]' passed (0.001 seconds).
+Test Suite 'StatsTests' passed at 2026-11-05 01:57:28.165.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.006 (0.011) seconds
+Test Suite 'FocusCrewCoreTests.xctest' passed at 2026-11-05 01:57:28.165.
+	 Executed 29 tests, with 0 failures (0 unexpected) in 0.031 (0.052) seconds
+Test Suite 'All tests' passed at 2026-11-05 01:57:28.165.
+	 Executed 29 tests, with 0 failures (0 unexpected) in 0.031 (0.053) seconds
+2026-11-05 01:57:28.450 xcodebuild[1962:9658] [MT] IDETestOperationsObserverDebug: 1.467 elapsed -- Testing started completed.
+2026-11-05 01:57:28.450 xcodebuild[1962:9658] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-05 01:57:28.450 xcodebuild[1962:9658] [MT] IDETestOperationsObserverDebug: 1.467 sec, +1.467 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/focus-mascots/focus-mascots/build/tests/Logs/Test/Test-FocusCrewCoreTests-2026.11.05_01-57-12-+0000.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
