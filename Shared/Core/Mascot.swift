@@ -99,6 +99,10 @@ enum Mascot: String, Codable, CaseIterable, Identifiable, Hashable {
     func asset(_ mood: MascotMood) -> String { "\(rawValue)_\(mood.rawValue)" }
     var decorationAsset: String { "\(rawValue)_deco" }
     var avatarAsset: String { "\(rawValue)_avatar" }
+    /// Round head crop with a given expression, for small places.
+    func avatarAsset(_ mood: MascotMood) -> String {
+        mood == .happy ? avatarAsset : "\(rawValue)_avatar_\(mood.rawValue)"
+    }
 
     /// The expression the mascot wears when resting on screen.
     var restingMood: MascotMood {

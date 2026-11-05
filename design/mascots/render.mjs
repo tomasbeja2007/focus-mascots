@@ -98,7 +98,7 @@ if (args.includes('--icons')) {
   const svgs = fs.readdirSync(svgDir).filter((f) => f.endsWith('.svg') && !f.includes('_preview'));
   for (const f of svgs) {
     const name = f.replace('.svg', '');
-    const isAvatar = name.endsWith('_avatar');
+    const isAvatar = name.includes('_avatar');
     const size = isAvatar ? 240 : 768;
     const setDir = path.join(catalog, `${name}.imageset`);
     fs.mkdirSync(setDir, { recursive: true });

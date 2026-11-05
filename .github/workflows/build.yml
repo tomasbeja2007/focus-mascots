@@ -33,7 +33,9 @@ jobs:
       - uses: actions/checkout@v5
 
       - name: Select Xcode
-        run: sudo xcode-select -s "$XCODE_APP" && xcodebuild -version
+        run: |
+          sudo xcode-select -s "$XCODE_APP" && xcodebuild -version
+          defaults write com.apple.dt.Xcode IDEBuildingContinueBuildingAfterErrors -bool YES
 
       - name: Generate Xcode project
         run: |
@@ -125,7 +127,9 @@ jobs:
       - uses: actions/checkout@v5
 
       - name: Select Xcode
-        run: sudo xcode-select -s "$XCODE_APP"
+        run: |
+          sudo xcode-select -s "$XCODE_APP"
+          defaults write com.apple.dt.Xcode IDEBuildingContinueBuildingAfterErrors -bool YES
 
       - name: Generate Xcode project
         run: |

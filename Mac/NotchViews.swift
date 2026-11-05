@@ -73,22 +73,18 @@ struct NotchRootView: View {
     private var leftEar: some View {
         HStack(spacing: 6) {
             let mood: MascotMood = model.celebrating != nil ? .excited : (model.current?.isPaused == true ? .idle : .focused)
-            ZStack {
-                Circle().fill(model.mascot.tint)
-                Image(model.mascot.asset(mood))
-                    .resizable()
-                    .interpolation(.high)
-                    .scaledToFit()
-                    .padding(-2)
-            }
-            .frame(width: avatarSize, height: avatarSize)
-            .clipShape(Circle())
+            Image(model.mascot.avatarAsset(mood))
+                .resizable()
+                .interpolation(.high)
+                .scaledToFit()
+                .frame(width: avatarSize, height: avatarSize)
+                .clipShape(Circle())
             if !layout.hasNotch, let s = model.current, !s.intention.isEmpty {
                 Text(s.intention)
                     .font(.system(size: 12, weight: .semibold, design: .rounded))
                     .foregroundStyle(.white.opacity(0.75))
                     .lineLimit(1)
-                    .frame(maxWidth: 60)
+                    .frame(maxWidth: 96, alignment: .leading)
             }
         }
     }

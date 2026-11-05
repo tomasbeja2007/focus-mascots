@@ -76,15 +76,11 @@ struct MenuContentView: View {
 
     private var header: some View {
         HStack(spacing: 10) {
-            ZStack {
-                Circle().fill(model.mascot.tint)
-                Image(model.mascot.asset(model.current == nil ? .happy : .focused))
-                    .resizable()
-                    .scaledToFit()
-                    .padding(-3)
-            }
-            .frame(width: 44, height: 44)
-            .clipShape(Circle())
+            Image(model.mascot.avatarAsset(model.current == nil ? .happy : .focused))
+                .resizable()
+                .scaledToFit()
+                .frame(width: 44, height: 44)
+                .clipShape(Circle())
             VStack(alignment: .leading, spacing: 1) {
                 Text("Focus Crew")
                     .font(.system(size: 15, weight: .heavy, design: .rounded))

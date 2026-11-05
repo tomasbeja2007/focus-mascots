@@ -140,15 +140,11 @@ struct IslandAvatar: View {
     var size: CGFloat = 26
 
     var body: some View {
-        ZStack {
-            Circle().fill(mascot.tint)
-            Image(mascot.asset(mood))
-                .resizable()
-                .scaledToFit()
-                .padding(-size * 0.08)
-        }
-        .frame(width: size, height: size)
-        .clipShape(Circle())
+        Image(mascot.avatarAsset(mood))
+            .resizable()
+            .scaledToFit()
+            .frame(width: size, height: size)
+            .clipShape(Circle())
     }
 }
 

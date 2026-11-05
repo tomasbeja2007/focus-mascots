@@ -406,16 +406,18 @@ def main():
                 fh.write(svg(DRAW[m](e)))
         with open(os.path.join(out, f"{m}_deco.svg"), "w") as fh:
             fh.write(svg(DECO[m]()))
-        # avatar: head crop on tint circle, happy face
+        # avatars: head crop on the tint circle, one per expression (plain name = happy)
         x, y, s = AVATAR_CROP[m]
         cx, cy = x + s / 2, y + s / 2
-        content = (
-            f'<circle cx="{cx}" cy="{cy}" r="{s/2}" fill="{TINTS[m]}"/>'
-            f'<clipPath id="av"><circle cx="{cx}" cy="{cy}" r="{s/2}"/></clipPath>'
-            f'<g clip-path="url(#av)">{DRAW[m]("happy")}</g>'
-        )
-        with open(os.path.join(out, f"{m}_avatar.svg"), "w") as fh:
-            fh.write(svg(content, view=f"{x} {y} {s} {s}"))
+        for e in EXPRESSIONS:
+            content = (
+                f'<circle cx="{cx}" cy="{cy}" r="{s/2}" fill="{TINTS[m]}"/>'
+                f'<clipPath id="av"><circle cx="{cx}" cy="{cy}" r="{s/2}"/></clipPath>'
+                f'<g clip-path="url(#av)">{DRAW[m](e)}</g>'
+            )
+            name = f"{m}_avatar" if e == "happy" else f"{m}_avatar_{e}"
+            with open(os.path.join(out, f"{name}.svg"), "w") as fh:
+                fh.write(svg(content, view=f"{x} {y} {s} {s}"))
         # full preview with circle (for comparison sheets)
         with open(os.path.join(out, f"{m}_preview.svg"), "w") as fh:
             fh.write(svg(circle_bg(m) + DECO[m]() + DRAW[m]("happy" if m not in ("leaf", "pebble") else {"leaf": "sleepy", "pebble": "focused"}[m])))

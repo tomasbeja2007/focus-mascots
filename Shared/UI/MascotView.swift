@@ -109,9 +109,10 @@ struct MascotAvatar: View {
     let mascot: Mascot
     var size: CGFloat = 40
     var ring: Color? = nil
+    var mood: MascotMood = .happy
 
     var body: some View {
-        Image(mascot.avatarAsset)
+        Image(mascot.avatarAsset(mood))
             .resizable()
             .interpolation(.high)
             .scaledToFit()

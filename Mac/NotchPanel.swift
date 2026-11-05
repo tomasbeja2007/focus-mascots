@@ -13,7 +13,7 @@ struct NotchLayout: Equatable {
     var expandedHeight: CGFloat = 132
 
     var collapsedSize: CGSize {
-        hasNotch ? CGSize(width: notchWidth + earWidth * 2, height: notchHeight) : CGSize(width: 168, height: 36)
+        hasNotch ? CGSize(width: notchWidth + earWidth * 2, height: notchHeight) : CGSize(width: 210, height: 36)
     }
 
     var expandedSize: CGSize {
