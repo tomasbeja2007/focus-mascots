@@ -13,6 +13,10 @@ on:
         description: "Capture simulator screenshots"
         type: boolean
         default: true
+      appstore:
+        description: "Also capture 6.9-inch App Store screenshots"
+        type: boolean
+        default: false
 
 concurrency:
   group: build-${{ github.ref }}
@@ -101,7 +105,13 @@ jobs:
           done
           xcrun simctl ui "$UDID" appearance light
           xcrun simctl shutdown "$UDID" || true
+          # Review screenshots as JPEG to keep the branch small.
+          for f in shots/*.png; do sips -s format jpeg -s formatOptions 82 "$f" --out "${f%.png}.jpg" >/dev/null && rm "$f"; done
 
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ] || [ "${{ inputs.appstore }}" != "true" ]; then
+            ls -la shots
+            exit 0
+          fi
           # App Store set on a 6.9" iPhone (1320 x 2868)
           MAXTYPE=$(xcrun simctl list devicetypes -j | python3 -c "import json,sys; t=[x['identifier'] for x in json.load(sys.stdin)['devicetypes'] if 'iPhone-17-Pro-Max' in x['identifier']]; print(t[0] if t else 'com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro-Max')")
           MAX=$(xcrun simctl create "Shots Max" "$MAXTYPE" "$RUNTIME")
@@ -122,7 +132,7 @@ jobs:
         run: |
           SHA=$(git rev-parse --short HEAD)
           mkdir -p /tmp/publish/shots/appstore
-          cp shots/*.png /tmp/publish/shots/ 2>/dev/null || true
+          cp shots/*.jpg /tmp/publish/shots/ 2>/dev/null || true
           cp shots/appstore/*.png /tmp/publish/shots/appstore/ 2>/dev/null || true
           cp -R FocusCrew.xcodeproj /tmp/publish/FocusCrew.xcodeproj
           cp build-sim.log /tmp/publish/build-sim.log
@@ -133,7 +143,11 @@ jobs:
           echo "Screenshots for $SHA" > README.md
           git add -A
           git commit -qm "Screenshots for $SHA"
-          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" ci-screenshots
+          git config http.postBuffer 524288000
+          for attempt in 1 2 3 4; do
+            git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" ci-screenshots && break
+            echo "push failed, retrying in $((attempt * 10))s"; sleep $((attempt * 10))
+          done
 
   macos:
     name: macOS companion
